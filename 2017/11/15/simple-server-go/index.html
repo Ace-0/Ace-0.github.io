@@ -77,7 +77,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.0.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -100,18 +100,18 @@
 
 
   
-  <meta name="keywords" content="go,web," />
+  <meta name="keywords" content="Go,web," />
 
 
 <meta name="description" content="Go搭建web服务器使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：12345678910111213141516171819202122// main.gopackage mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;)func sayhelloName(w http.ResponseWriter, r *http.Request) &amp;#123;">
-<meta name="keywords" content="go,web">
+<meta name="keywords" content="Go,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go搭建简单服务器及http包源码分析">
 <meta property="og:url" content="https://Ace-0.github.io/2017/11/15/simple-server-go/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="Go搭建web服务器使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：12345678910111213141516171819202122// main.gopackage mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;)func sayhelloName(w http.ResponseWriter, r *http.Request) &amp;#123;">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-02T12:33:33.713Z">
+<meta property="og:updated_time" content="2018-02-03T12:45:40.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go搭建简单服务器及http包源码分析">
 <meta name="twitter:description" content="Go搭建web服务器使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：12345678910111213141516171819202122// main.gopackage mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;)func sayhelloName(w http.ResponseWriter, r *http.Request) &amp;#123;">
@@ -236,6 +236,12 @@
             <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
         </li>
       
+        
+        <li class="menu-item menu-item-others">
+          <a href="/others/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />others</a>
+        </li>
+      
 
       
     </ul>
@@ -282,7 +288,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis Wang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -327,7 +333,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/go/" itemprop="url" rel="index"><span itemprop="name">go</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
 
                 
                 
@@ -362,11 +368,12 @@
 
       
         <h2 id="Go搭建web服务器"><a href="#Go搭建web服务器" class="headerlink" title="Go搭建web服务器"></a>Go搭建web服务器</h2><p>使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.go</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	fmt.Fprintf(w, <span class="string">"Hello!"</span>) <span class="comment">// 这个写入到w的是输出到客户端的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/"</span>, sayhelloName) <span class="comment">// 设置访问的路由</span></span><br><span class="line">	port := <span class="string">":9090"</span>  <span class="comment">// 设置监听的端口</span></span><br><span class="line">	err := http.ListenAndServe(port, <span class="literal">nil</span>) <span class="comment">// 开始监听</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"ListenAndServe: "</span>, err)  <span class="comment">// 输出错误日志</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">"Server listen at: %s"</span>, port)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>运行服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br></pre></td></tr></table></figure></p>
 <p>运行后，服务器已经在9090端口开始监听http请求了</p>
 <p>使用curl工具访问，并查看详细情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">*   Trying ::1...</span><br><span class="line">* TCP_NODELAY set</span><br><span class="line">* Connected to localhost (::1) port 9090 (#0)</span><br><span class="line">&gt; GET / HTTP/1.1</span><br><span class="line">&gt; Host: localhost:9090</span><br><span class="line">&gt; User-Agent: curl/7.52.1</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; </span><br><span class="line">&lt; HTTP/1.1 200 OK</span><br><span class="line">&lt; Date: Wed, 15 Nov 2017 08:32:16 GMT</span><br><span class="line">&lt; Content-Length: 6</span><br><span class="line">&lt; Content-Type: text/plain; charset=utf-8</span><br><span class="line">&lt; </span><br><span class="line">* Curl_http_done: called premature == 0</span><br><span class="line">* Connection #0 to host localhost left intact</span><br><span class="line">Hello!</span><br></pre></td></tr></table></figure></p>
 <p>可以看到，想要实现一个简单的web服务器，仅仅需要调用net/http包中的两个函数<code>HandleFunc()</code>和<code>ListenAndServe()</code>。</p>
-<p>##http包源码分析<br>下面通过阅读http包源码，并结合上面的例子，详细分析一下，只通过调用<code>HandleFunc()</code>和<code>ListenAndServe()</code>两个函数，是怎样使一个web服务器运行起来的。</p>
+<h2 id="http包源码分析"><a href="#http包源码分析" class="headerlink" title="http包源码分析"></a>http包源码分析</h2><p>下面通过阅读http包源码，并结合上面的例子，详细分析一下，只通过调用<code>HandleFunc()</code>和<code>ListenAndServe()</code>两个函数，是怎样使一个web服务器运行起来的。</p>
 <p><strong>HandleFunc()</strong><br><code>HandleFunc()</code>用于注册路由。在上面的的例子中，即指定：当路径为”/“时，使用<code>sayhelloName()</code>来处理。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.go line 2313</span></span><br><span class="line"><span class="comment">// HandleFunc registers the handler function for the given pattern</span></span><br><span class="line"><span class="comment">// in the DefaultServeMux.</span></span><br><span class="line"><span class="comment">// The documentation for ServeMux explains how patterns are matched.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">HandleFunc</span><span class="params">(pattern <span class="keyword">string</span>, handler <span class="keyword">func</span>(ResponseWriter, *Request)</span>)</span> &#123;</span><br><span class="line">	DefaultServeMux.HandleFunc(pattern, handler)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>源码中调用了DefaulServeMux的HandleFunc，那么再看看DefaultServeMux是什么：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.go line 2116</span></span><br><span class="line"><span class="comment">// DefaultServeMux is the default ServeMux used by Serve.</span></span><br><span class="line"><span class="keyword">var</span> DefaultServeMux = &amp;defaultServeMux</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> defaultServeMux ServeMux</span><br></pre></td></tr></table></figure></p>
 <p>定义了ServeMux如下：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.go line 2101</span></span><br><span class="line"><span class="keyword">type</span> ServeMux <span class="keyword">struct</span> &#123;</span><br><span class="line">	mu    sync.RWMutex</span><br><span class="line">	m     <span class="keyword">map</span>[<span class="keyword">string</span>]muxEntry</span><br><span class="line">	hosts <span class="keyword">bool</span> <span class="comment">// whether any patterns contain hostnames</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> muxEntry <span class="keyword">struct</span> &#123;</span><br><span class="line">	explicit <span class="keyword">bool</span></span><br><span class="line">	h        Handler</span><br><span class="line">	pattern  <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -404,7 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/go/" rel="tag"># go</a>
+            <a href="/tags/Go/" rel="tag"># Go</a>
           
             <a href="/tags/web/" rel="tag"># web</a>
           
@@ -418,6 +425,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/23/increasing-subsequences/" rel="next" title="LeetCode 491. Increasing Subsequences">
+                <i class="fa fa-chevron-left"></i> LeetCode 491. Increasing Subsequences
+              </a>
             
           </div>
 
@@ -490,8 +501,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Jarvis Wang" />
+            
               <p class="site-author-name" itemprop="name">Jarvis Wang</p>
-              <p class="site-description motion-element" itemprop="description">Here are what I have learned and haven't learned.</p>
+              <p class="site-description motion-element" itemprop="description">Ideas worth spreading.</p>
           </div>
 
           
@@ -501,7 +516,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -511,24 +526,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">categories</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -540,8 +538,35 @@
                       
                     
                     <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -553,12 +578,12 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/Ace-0" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/Ace-0" target="_blank" title="Ace-0"><i class="fa fa-fw fa-github"></i>Ace-0</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:w674901087@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:w674901087@163.com" target="_blank" title="163.com"><i class="fa fa-fw fa-envelope"></i>163.com</a>
                   
                 </span>
               
@@ -589,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Go搭建web服务器"><span class="nav-number">1.</span> <span class="nav-text">Go搭建web服务器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Go搭建web服务器"><span class="nav-text">Go搭建web服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http包源码分析"><span class="nav-text">http包源码分析</span></a></li></ol></div>
             
 
           </div>
@@ -597,6 +622,11 @@
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
       
 
     </div>
@@ -613,7 +643,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jarvis Wang</span>
+  <span class="author" itemprop="copyrightHolder">Zhijun Wang. All rights reserved.</span>
 
   
 
@@ -648,11 +678,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
