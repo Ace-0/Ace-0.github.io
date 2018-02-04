@@ -104,7 +104,7 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hello!" />
 
 
 <meta name="description" content="Ideas worth spreading.">
@@ -270,6 +270,765 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/15/kth-small-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/15/kth-small-number/" itemprop="url">Kth Small Number with Divide-and-Conquer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T21:08:09+08:00">2017-09-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Selection问题"><a href="#Selection问题" class="headerlink" title="Selection问题"></a>Selection问题</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一道经典的算法题”Selection”</p>
+<blockquote>
+<p><strong>SELECTION</strong><br><strong>Input</strong>: A list of numbers S; an integer k<br><strong>Output</strong>: The kth smallest element of S<br>For instance, if k = 1, the minimum of S is sought, whereas if k = |S|/2, it is the median.</p>
+</blockquote>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>这道题有很多解法，最简单的就是先对所有数排序。但是显然当数据较大时，这种方法效率不高。使用分治算法就可以在此基础上提高效率，因为只需对一部分而不是全部数据进行排序。<br>大致思路如下：每一次，先从数组中选出任意一个参考数<code>pivot</code>。选取的方法几乎不会影响效率，一般来说随机选取即可。选取好<code>pivot</code>后，对数组进行遍历，将所有数据分为三组，即小于，等于，大于<code>pivot</code>的三组。例如：<br><img src="http://img.blog.csdn.net/20170915204032089?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"></p>
+<p>若选取5作为参考数，则分成的三组为：<br><img src="http://img.blog.csdn.net/20170915204207647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"><br>分组后，根据各组中数的数量，即可进行下一层递归，因此算法如下：<br><img src="http://img.blog.csdn.net/20170915204407260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/kth-small-number/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/10/search-a-2d-matrix-ii/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/10/search-a-2d-matrix-ii/" itemprop="url">LeetCode 240. Search a 2D Matrix II</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-10T19:39:37+08:00">2017-09-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="O-nlogn-实现"><a href="#O-nlogn-实现" class="headerlink" title="O(nlogn)实现"></a>O(nlogn)实现</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:<br>Integers in each row are sorted in ascending from left to right.<br>Integers in each column are sorted in ascending from top to bottom.<br>For example,</p>
+<p>Consider the following matrix:<br>[<br>[1,   4,  7, 11, 15],<br>[2,   5,  8, 12, 19],<br>[3,   6,  9, 16, 22],<br>[10, 13, 14, 17, 24],<br>[18, 21, 23, 26, 30]<br>]</p>
+<p>Given target = 5, return true.<br>Given target = 20, return false.</p>
+</blockquote>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>题目要求为在一个二维矩阵中查找一个数，找到则返回true，否则返回false。<br>遇到查找的问题，我首先想到的是使用二分法。但是由于题目中的矩阵，虽然每一行每一列都是有序的，但是无法确定<code>matrix[i+1][j]</code>和<code>matrix[i][j+1]</code>的大小关系，因此，考虑对这个二维矩阵拆分为两层一维，并分别使用二分法。首先，用一次二分法确定行的范围：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/10/search-a-2d-matrix-ii/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/10/burst-balloons/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/10/burst-balloons/" itemprop="url">Leetcode 312. Burst Balloons</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-10T11:27:52+08:00">2017-09-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If the you burst balloon i you will get nums[left] <em> nums[i] </em> nums[right] coins. Here left and right are adjacent indices of i. After the burst, the left and right then becomes adjacent.</p>
+<p>Find the maximum coins you can collect by bursting the balloons wisely.</p>
+<p>Note:<br>(1) You may imagine nums[-1] = nums[n] = 1. They are not real therefore you can not burst them.<br>(2) 0 ≤ n ≤ 500, 0 ≤ nums[i] ≤ 100</p>
+<p>Example:<br>Given [3, 1, 5, 8]<br>Return 167<br>nums = [3,1,5,8] –&gt; [3,5,8] –&gt;   [3,8]   –&gt;  [8]  –&gt; []<br>coins =  3<em>1</em>5      +  3<em>5</em>8    +  1<em>3</em>8      + 1<em>8</em>1   = 167</p>
+</blockquote>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>对于这个问题，难以直接找到一个公式化的方法。但是，注意到，每一个大区间所能获得的最大金币数（指的是当这一区间内所有的气球都已经被引爆后，获得的金币数），是取决于它之中的小区间的最大金币数的。且分出的子问题规模较小，易于解决。于是，我们可以才有自顶向下的分治算法来解决。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/10/burst-balloons/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/10/28/binary-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/28/binary-tree/" itemprop="url">Sicily 1210. Binary Tree</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-28T16:23:20+08:00">2016-10-28</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Sicily/" itemprop="url" rel="index"><span itemprop="name">Sicily</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在众多的数据结构中，二叉树是一种特殊而重要的结构，有着广泛的应用。二叉树或者是一个结点，或者有且仅有一个结点为二叉树的根，其余结点被分成两个互不相交的子集，一个作为左子集，另一个作为右子集，每个子集又是一个二叉树。</p>
+<p>遍历一棵二叉树就是按某条搜索路径巡访其中每个结点，使得每个结点均被访问一次，而且仅被访问一次。最常使用的有三种遍历的方式：</p>
+<p>１．前序遍历：若二叉树为空，则空操作；否则先访问根结点，接着前序遍历左子树，最后再前序遍历右子树。</p>
+<p>２．中序遍历：若二叉树为空，则空操作；否则先中序遍历左子树，接着访问根结点，最后再前中遍历右子树。</p>
+<p>３．后序遍历：若二叉树为空，则空操作；否则先后序遍历左子树，接着后序遍历右子树，最后再访问根结点。</p>
+<p>对一棵二叉树，如果给出前序遍历和中许遍历的结点访问顺序，那么后序遍历的顺序是唯一确定的，也很方便地求出来。但如果现在只知道前序遍历和后序遍历的顺序，中序遍历的顺序是不确定的，例如：前序遍历的顺序是ABCD，而后序遍历的顺序是CBDA，那么就有两课二叉树满足这样的顺序（见图(1)和图(2)）。</p>
+<p>现在的问题是给定前序遍历和后序遍历的顺序，要求出总共有多少棵不同形态的二叉树满足这样的遍历顺序。</p>
+<p><strong>Input</strong></p>
+<p>整个输入有两行，第一行给出前序遍历的访问顺序，第二行给出后序遍历的访问顺序。</p>
+<p>二叉树的结点用一个大写字母表示，不会有两个结点标上相同字母。输入数据不包含空格，且保证至少有一棵二叉树符合要求。</p>
+<p><strong>Output</strong></p>
+<p>输出一个整数，为符合要求的不同形态二叉树的数目。</p>
+<p><strong>Sample Input</strong></p>
+<pre><code>ABCD
+CBDA
+</code></pre><p><strong>Sample Output</strong></p>
+<pre><code>2
+</code></pre><h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>首先思考：什么样的两棵不同二叉树，会有相同的先序遍历和后序遍历呢？</p>
+<p>根据中序遍历和先序遍历，或者根据中序遍历和后序遍历，都能够确定唯一的一棵二叉树，但是只根据先序遍历和后序遍历，是无法达到这个目的的。</p>
+<p>原因如下：<br><strong>先序遍历和后序遍历有一个共同的缺点，即无法确定一个子结点，是它的父结点的左儿子还是右儿子。</strong></p>
+<p>例如：</p>
+<p>   A 　　　　A<br>   /　　　　　\<br>  B　　　　　B<br>   \　　　　　／<br>    C　　　　 C</p>
+<p>以上两棵二叉树，结构明显不同，但是先序遍历都是ABC，后序遍历都是CBA。而只有通过中序遍历，才能找到两者的区别：前者是BCA，后者是ACB。而在先序和后序遍历结果相同的情况下，导致结构差异产生的，便是子树所在的左/右方向不同。</p>
+<p>那么，原问题就可以转化为：根据先序和后序遍历，求这样的二叉树中只有一个子树的结点的个数n，那么，2的n次方即是不同形态的二叉树的数量。</p>
+<p>接下来，要用简单的方法解出这道题，首先要弄清楚先序遍历和后序遍历的规律。</p>
+<p>以题目中的先序ABCD，后序CBDA为例，先序遍历的第一个结点A，以及后序遍历的最后一个结点A，必定是整棵二叉树的根结点。先序遍历中，根结点的后一位B，一定是A的子结点，但暂时无法确定是左子树还是右子树，只能根据先序遍历的顺序暂时默认为左子树。后序遍历中，根结点的前一位D，也一定是A的子结点，那么默认为A的右子树。显然，B、D分别是A的左、右子结点，A并不是我们想找的只有一个子树的父结点。只有当先序中A的后一位，与后序中A的前一位相同时，可以确定，A只有一个子树。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>根据这种规律，可以写出代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    string pre;</span><br><span class="line">    string post;</span><br><span class="line">    cin &gt;&gt; pre &gt;&gt; post;</span><br><span class="line">    int counter = 0;</span><br><span class="line">    // 遍历先序中的每一个结点</span><br><span class="line">    for (int i = 0; i &lt; pre.length(); i++)</span><br><span class="line">        for (int j = post.length() - 1; j &gt;= 0; j--)</span><br><span class="line">        // 对于先序中的每一个结点，在后序中找到</span><br><span class="line">            if (pre[i] == post[j]) &#123;</span><br><span class="line">                if (i != pre.length() - 1 &amp;&amp; j != 0 &amp;&amp; pre[i + 1] == post[j - 1])</span><br><span class="line">            // 先序中该结点的后一位，与后序中该结点的前一位相同时，计数器++</span><br><span class="line">                    counter++;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">    int answer = pow(2, counter);</span><br><span class="line">    cout &lt;&lt; answer &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本文为博主原创文章，转载请注明出处。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/08/06/palindromic-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/08/06/palindromic-number/" itemprop="url">PAT 1024. Palindromic Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T23:38:42+08:00">2016-08-06</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>A number that will be the same when it is written forwards or backwards is known as a Palindromic Number. For example, 1234321 is a palindromic number. All single digit numbers are palindromic numbers. </p>
+<p>Non-palindromic numbers can be paired with palindromic ones via a series of operations. First, the non-palindromic number is reversed and the result is added to the original number. If the result is not a palindromic number, this is repeated until it gives a palindromic number. For example, if we start from 67, we can obtain a palindromic number in 2 steps: 67 + 76 = 143, and 143 + 341 = 484. </p>
+<p>Given any positive integer N, you are supposed to find its paired palindromic number and the number of steps taken to find it. </p>
+<p> <strong>Input Specification:</strong> </p>
+<p>Each input file contains one test case. Each case consists of two positive numbers N and K, where N (&lt;= 1010) is the initial numer and K (&lt;= 100) is the maximum number of steps. The numbers are separated by a space.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/06/palindromic-number/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -721,136 +1480,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/01/27/snake-game/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/01/27/snake-game/" itemprop="url">初学者的贪吃蛇游戏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-01-27T22:05:52+08:00">2016-01-27</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="C语言贪吃蛇游戏制作"><a href="#C语言贪吃蛇游戏制作" class="headerlink" title="C语言贪吃蛇游戏制作"></a>C语言贪吃蛇游戏制作</h2><p>初学编程，利用现有的知识编写了一个贪吃蛇小游戏。<br>目前游戏的制作程度仅限于“能玩”。<br>还有一定BUG有待改善。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/27/snake-game/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -897,7 +1531,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -945,7 +1579,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1108,6 +1746,9 @@
 
 
 
+  
+  
+
 
 
 
@@ -1131,6 +1772,16 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 
