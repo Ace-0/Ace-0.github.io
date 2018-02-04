@@ -1631,6 +1631,42 @@ pre .javascript .function {
 .fancybox-close:hover {
   border: none;
 }
+.post-widgets {
+  border-top: 1px solid #eee;
+  padding-top: 9px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.post-widgets .post-meta-divider {
+  height: 28px;
+  color: #999;
+}
+.wp_rating {
+  height: 20px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 20px;
+  padding-top: 6px;
+}
+.social-like {
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.vk_like {
+  width: 85px;
+  height: 21px;
+  padding-top: 7px;
+  align-self: center;
+}
+.fb_like {
+  height: 30px;
+  align-self: center;
+}
 .rtl.post-body p,
 .rtl.post-body a,
 .rtl.post-body h1,
@@ -1819,7 +1855,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e2b1c1;
+  background: #ffb4a2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1970,6 +2006,19 @@ pre .javascript .function {
 }
 .cc-license img {
   display: inline-block;
+}
+#gitment-display-button {
+  display: inline-block;
+  padding: 0 15px;
+  color: #0a9caf;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #0a9caf;
+  border-radius: 4px;
+}
+#gitment-display-button:hover {
+  color: #fff;
+  background: #0a9caf;
 }
 .post-spread {
   margin-top: 20px;
@@ -2763,6 +2812,11 @@ pre .javascript .function {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.header,
+.container .main-inner,
+.footer-inner {
+  max-width: 1200px;
 }
 .content-wrap {
   padding: initial;

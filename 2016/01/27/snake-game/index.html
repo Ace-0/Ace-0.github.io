@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="C语言贪吃蛇游戏制作初学编程，利用现有的知识编写了一个贪吃蛇小游戏。目前游戏的制作程度仅限于“能玩”。还有一定BUG有待改善。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-03T12:46:48.815Z">
+<meta property="og:updated_time" content="2018-02-03T17:26:16.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学者的贪吃蛇游戏">
 <meta name="twitter:description" content="C语言贪吃蛇游戏制作初学编程，利用现有的知识编写了一个贪吃蛇小游戏。目前游戏的制作程度仅限于“能玩”。还有一定BUG有待改善。">
@@ -325,6 +325,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/01/27/snake-game/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2016/01/27/snake-game/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -352,6 +362,7 @@
         <h2 id="C语言贪吃蛇游戏制作"><a href="#C语言贪吃蛇游戏制作" class="headerlink" title="C语言贪吃蛇游戏制作"></a>C语言贪吃蛇游戏制作</h2><p>初学编程，利用现有的知识编写了一个贪吃蛇小游戏。<br>目前游戏的制作程度仅限于“能玩”。<br>还有一定BUG有待改善。<br><a id="more"></a><br>以下是代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;time.h&gt;</span><br><span class="line">#include&lt;conio.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line"></span><br><span class="line">#define SNAKE_MAX_LENGTH 30</span><br><span class="line">#define SNAKE_HEAD &apos;H&apos;</span><br><span class="line">#define SNAKE_BODY &apos;X&apos;</span><br><span class="line">#define BLANK_CELL &apos; &apos;</span><br><span class="line">#define SNAKE_FOOD &apos;$&apos;</span><br><span class="line">#define WALL_CELL &apos;*&apos;</span><br><span class="line"></span><br><span class="line">//snake stepping: dy=-1(up),1(down); dx=-1(left),1(right),0(move)</span><br><span class="line">void snakeMove(int, int);</span><br><span class="line">//put a food randomized on a blank cell</span><br><span class="line">void put_money(void);</span><br><span class="line">//out cells of the grid</span><br><span class="line">void output(void);</span><br><span class="line">//outs when gameover</span><br><span class="line">void gameover(void);</span><br><span class="line">//lengthen the snake</span><br><span class="line">void lengthen(void);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char map[12][23]=</span><br><span class="line">   &#123;&quot;**********************&quot;,     //初始状态</span><br><span class="line">    &quot;*                    *&quot;,      //直接打表</span><br><span class="line">    &quot;*      welcome!      *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*  press any button  *&quot;,</span><br><span class="line">    &quot;*      to start      *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;**********************&quot;&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char map1[12][23] = </span><br><span class="line">    &#123;&quot;**********************&quot;,     //初始状态</span><br><span class="line">    &quot;*XXXXH               *&quot;,      //直接打表</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;*                    *&quot;,</span><br><span class="line">    &quot;**********************&quot;&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// #define vars for snake, notice name of vars in C</span><br><span class="line">int snakeX[SNAKE_MAX_LENGTH] = &#123;1, 2, 3, 4, 5&#125;;   //蛇身和蛇头的坐标</span><br><span class="line">int snakeY[SNAKE_MAX_LENGTH] = &#123;1, 1, 1, 1, 1&#125;;</span><br><span class="line">int snakeLength = 5;</span><br><span class="line">int flag = 0;  // gameover为1，否则为0</span><br><span class="line">int tailx, taily; // 用于增加长度</span><br><span class="line">int moneyx, moneyy; // 随机生成money坐标</span><br><span class="line">int moneyflag = 0; // 标识是否已经确定位置放money</span><br><span class="line"></span><br><span class="line">void snakeMove(int dy, int dx) &#123; //只要控制蛇头</span><br><span class="line">    tailx = snakeX[0];</span><br><span class="line">    taily = snakeY[0]; // 保存尾部位置增加长度</span><br><span class="line">    int tmp, i;</span><br><span class="line">    tmp = snakeLength;                   </span><br><span class="line">    </span><br><span class="line">    // 尾部消失</span><br><span class="line">    map[snakeY[0]][snakeX[0]] = &apos; &apos;;</span><br><span class="line">    //身体重复前一个部分</span><br><span class="line">    </span><br><span class="line">    for (i = 0; i &lt; tmp - 1; i++) &#123;  // 身体先移动一格</span><br><span class="line">            snakeX[i] = snakeX[i + 1];</span><br><span class="line">            snakeY[i] = snakeY[i + 1];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    // 头部移动</span><br><span class="line">    if (dy == -1)</span><br><span class="line">        snakeY[snakeLength - 1]--;</span><br><span class="line">    if (dy == 1)</span><br><span class="line">        snakeY[snakeLength - 1]++;</span><br><span class="line">    if (dx == 1)</span><br><span class="line">        snakeX[snakeLength - 1]++;</span><br><span class="line">    if (dx == -1)</span><br><span class="line">        snakeX[snakeLength - 1]--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void put_money(void) &#123;</span><br><span class="line">    if (moneyflag == 1)  // 若已经放了食物</span><br><span class="line">        return;</span><br><span class="line">    else &#123;</span><br><span class="line">    srand((unsigned int)time(NULL));  // 产生随机坐标</span><br><span class="line">    moneyx = rand() % 21 + 1;</span><br><span class="line">    moneyy = rand() % 10 + 1;</span><br><span class="line">    // 要将money放在空白处</span><br><span class="line">    if (map[moneyy][moneyx] == &apos; &apos;) &#123;</span><br><span class="line">        moneyflag = 1;</span><br><span class="line">    &#125; else</span><br><span class="line">    put_money();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 得到最终坐标</span><br><span class="line">    map[moneyy][moneyx] = &apos;$&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void output(void) &#123;</span><br><span class="line">    int i, j;</span><br><span class="line"></span><br><span class="line">    for (i = 0, j = 0; i &lt; snakeLength - 1, j &lt;snakeLength - 1; j++, i++)</span><br><span class="line">        map[snakeY[i]][snakeX[j]] = &apos;X&apos;;  //头部位置</span><br><span class="line">    map[snakeY[snakeLength - 1]][snakeX[snakeLength - 1]] = &apos;H&apos;; //身体</span><br><span class="line">    for (i = 0; i &lt; 12; i++) &#123;  // 输出图形</span><br><span class="line">    for (j = 0; j &lt; 23; j++) &#123;</span><br><span class="line">    printf(&quot;%c&quot;, map[i][j]);&#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125; &#125;</span><br><span class="line"></span><br><span class="line">void gameover(void) &#123;</span><br><span class="line">    int i;</span><br><span class="line">    // 判断头部是否出界</span><br><span class="line">    if (snakeX[snakeLength - 1] == 0 || snakeX[snakeLength - 1] == 21</span><br><span class="line">        || snakeY[snakeLength - 1] == 0 || snakeY[snakeLength - 1] == 11)</span><br><span class="line">        flag = 1;</span><br><span class="line">    // 判断头部是否与身体重合</span><br><span class="line">    for (i = 0; i &lt; snakeLength - 1;i++)</span><br><span class="line">        if (snakeX[snakeLength - 1] == snakeX[i] &amp;&amp; snakeY[snakeLength - 1] == snakeY[i])</span><br><span class="line">        flag = 1;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void lengthen(void) &#123;</span><br><span class="line">    int i;</span><br><span class="line">    snakeLength++;   // 长度+1</span><br><span class="line">    for (i = snakeLength - 1; i &gt; 0; i--) &#123;</span><br><span class="line">        snakeY[i] = snakeY[i - 1];   // 将 所有坐标赋值给下一位，用于增大长度</span><br><span class="line">        snakeX[i] = snakeX[i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    snakeX[0] = tailx;  // 尾部为增加的部位</span><br><span class="line">    snakeY[0] = taily;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char move;</span><br><span class="line">    int i,j, hard;</span><br><span class="line">    for (i = 0; i &lt; 12; i++) &#123;  // 欢迎界面</span><br><span class="line">    for (j = 0; j &lt; 23; j++) &#123;</span><br><span class="line">    printf(&quot;%c&quot;, map[i][j]);&#125;</span><br><span class="line">    printf(&quot;\n&quot;);&#125;</span><br><span class="line">    getch();</span><br><span class="line">    system(&quot;cls&quot;);</span><br><span class="line">    for (i = 0; i &lt; 12; i++)  // 初始化地图</span><br><span class="line">    for (j = 0; j &lt; 23; j++)</span><br><span class="line">        map[i][j]=map1[i][j];</span><br><span class="line">    put_money();  // 初始的食物</span><br><span class="line">    for (i = 0; i &lt; 12; i++) &#123;</span><br><span class="line">    for (j = 0; j &lt; 23; j++) &#123;</span><br><span class="line">    printf(&quot;%c&quot;, map[i][j]);&#125;</span><br><span class="line">    printf(&quot;\n&quot;);&#125;</span><br><span class="line">    move = &apos;D&apos;;</span><br><span class="line">    int speed = 300;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    while (1) &#123; // 未gameover则一直输入</span><br><span class="line"></span><br><span class="line">        Sleep(speed);</span><br><span class="line">        if (kbhit()!=0) &#123;</span><br><span class="line">            move=getch();</span><br><span class="line">                    &#125;</span><br><span class="line">        switch (move) &#123;   // 对输入的处理</span><br><span class="line">            case &apos;W&apos;:</span><br><span class="line">            snakeMove(-1, 0);</span><br><span class="line">            break;</span><br><span class="line">            case &apos;S&apos;:</span><br><span class="line">            snakeMove(1, 0);</span><br><span class="line">            break;</span><br><span class="line">            case &apos;A&apos;:</span><br><span class="line">            snakeMove(0, -1);</span><br><span class="line">            break;</span><br><span class="line">            case &apos;D&apos;:</span><br><span class="line">            snakeMove(0, 1);</span><br><span class="line">            break;</span><br><span class="line">        &#125;       </span><br><span class="line">        // 若头部与食物重合，即吃到食物 </span><br><span class="line">        if (snakeX[snakeLength - 1] == moneyx &amp;&amp; snakeY[snakeLength - 1] == moneyy) &#123;</span><br><span class="line">            moneyflag = 0;  // 食物消去</span><br><span class="line">            put_money();   // 产生新的食物</span><br><span class="line">            lengthen();   // 伸长</span><br><span class="line">            speed -= 20;</span><br><span class="line">        &#125;</span><br><span class="line">        gameover();   // 判断是否gameover</span><br><span class="line">        system(&quot;cls&quot;);   // 清屏</span><br><span class="line">        output();     // 输出当前地图</span><br><span class="line"></span><br><span class="line">    if (flag==1)</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">    &#125; printf(&quot;GAMEOVER\n&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>没有用到较复杂的知识点，只是用了二维数组来表示地图。<br>注意：getch()，kbhit() 需要引用头文件  conio.h，Sleep() 需要引用头文件 windows.h。</p>
+<p>本文为博主原创文章，转载请注明出处。</p>
 
       
     </div>
@@ -375,6 +386,18 @@
       
 
       
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
       
       
 
@@ -415,6 +438,13 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -468,7 +498,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -740,6 +770,43 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Ace-0',
+            repo: 'BlogComments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5c9fc26aae6895e7dc47278a5dc770f4ec8edd5a',
+            
+                client_id: '4349b8d5b720a0263450'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
 
 
 
@@ -760,6 +827,23 @@
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9432,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 

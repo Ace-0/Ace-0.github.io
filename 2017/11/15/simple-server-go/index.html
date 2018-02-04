@@ -100,11 +100,11 @@
 
 
   
-  <meta name="keywords" content="Go,web," />
+  <meta name="keywords" content="web,Go," />
 
 
 <meta name="description" content="Go搭建web服务器使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：12345678910111213141516171819202122// main.gopackage mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;)func sayhelloName(w http.ResponseWriter, r *http.Request) &amp;#123;">
-<meta name="keywords" content="Go,web">
+<meta name="keywords" content="web,Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go搭建简单服务器及http包源码分析">
 <meta property="og:url" content="https://Ace-0.github.io/2017/11/15/simple-server-go/index.html">
@@ -343,6 +343,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/15/simple-server-go/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/11/15/simple-server-go/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -411,14 +421,26 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Go/" rel="tag"># Go</a>
-          
             <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/Go/" rel="tag"># Go</a>
           
         </div>
       
 
       
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
       
       
 
@@ -463,6 +485,13 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -516,7 +545,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -788,6 +817,43 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Ace-0',
+            repo: 'BlogComments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5c9fc26aae6895e7dc47278a5dc770f4ec8edd5a',
+            
+                client_id: '4349b8d5b720a0263450'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
 
 
 
@@ -808,6 +874,23 @@
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9432,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
