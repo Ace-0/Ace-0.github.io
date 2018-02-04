@@ -286,6 +286,639 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/10/13/clone-graph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/13/clone-graph/" itemprop="url">BFS 和 DFS 解决 LeetCode133. Clone Graph</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-13T21:04:09+08:00">2017-10-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p><strong>133 Clone Graph</strong><br>Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.</p>
+<p><strong>OJ’s undirected graph serialization:</strong><br>Nodes are labeled uniquely.</p>
+<p>We use <code>#</code> as a separator for each node, and <code>,</code> as a separator for node label and each neighbor of the node.<br>As an example, consider the serialized graph <code>{0,1,2#1,2#2,2}</code>.</p>
+<p>The graph has a total of three nodes, and therefore contains three parts as separated by <code>#</code>.</p>
+<p>First node is labeled as <code>0</code>. Connect node <code>0</code> to both nodes <code>1</code> and <code>2</code>.<br>Second node is labeled as <code>1</code>. Connect node <code>1</code> to node <code>2</code>.<br>Third node is labeled as <code>2</code>. Connect node <code>2</code> to node <code>2</code> (itself), thus forming a self-cycle.<br>Visually, the graph looks like the following:</p>
+<pre><code>   1
+  / \
+ /   \
+0 --- 2
+     / \
+     \_/
+</code></pre></blockquote>
+<p>题目虽然讲了很多内容，包括OJ中序列化的图的表示法，但是题目所要求的复制一个图，实际上只是考察了图的遍历。根据给定的一个<code>UndirectedGraphNode* node</code>，由该点出发，遍历整个图，并以此创建一个新的和原来一样的无向图即可。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/13/clone-graph/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/10/03/redundant-connection-i-and-ii/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/03/redundant-connection-i-and-ii/" itemprop="url">并查集算法解决 Redundant Connection I&II</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-03T00:14:09+08:00">2017-10-03</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="并查集概述"><a href="#并查集概述" class="headerlink" title="并查集概述"></a>并查集概述</h2><p>并查集（Union-Find）是一种用于处理集合关系的算法，在连通图的相关问题中非常实用。基本的操作包括集合的并（Union）和查找元素所属集合（Find）。</p>
+<p>算法思路如下：每一个集合，都有一个代表元。在同一个集合中的所有元素，它们的代表元必然相同。要区分一个元素属于哪一个集合，找到它的代表元即可。</p>
+<p>其存储结构通常为一个一维数组（N代表元素总数）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int father[N + 1] = &#123; 0 &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>初始化如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">	father[i] = i;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">那么根据定义，用于查找某个元素所在集合的代表元的函数可以这样实现：</span><br></pre></td></tr></table></figure></p>
+<p>int getFather(int x) {<br>    if (father[x] == x) {<br>        return x;<br>    } else {<br>        return getFather(father[x]);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是，当元素数量很大，多次的递归显然效率较低。那么，可以引入“压缩路径”的方法：</span><br></pre></td></tr></table></figure></p>
+<p>int getFather(int x) {<br>    if (father[x] == x) {<br>        return x;<br>    }<br>    else {<br>        int xFather = getFather(father[x]);<br>        father[x] = xFather;<br>        return xFather;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这样，在每一次递归之后，都会更新father[x]的值，实现了压缩路径的目的，避免了多次重复的递归。这种方式实现的并查集，时间复杂度为`O(n)`。</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">实现了查找操作以后，便可以在此基础上进行集合的并操作，基本实现如下：</span><br></pre></td></tr></table></figure></p>
+<p>void union(int x, int y) {<br>    int xFather = getFather(x);<br>    int yFather = getFather(y);<br>    father[yFather] = xFather;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">即把后一个元素y并入了x所属的集合中，若x和y分别为两个集合的代表元，那么就是把x和y所在的两个集合进行了并的操作。</span><br><span class="line"></span><br><span class="line">## Redundant Connection I</span><br><span class="line">基本掌握了并查集的算法后，就可以很好的解决LeetCode的[684 Redundant Connection](https://leetcode.com/problems/redundant-connection/description/)和[685 Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/description/)了。</span><br><span class="line">### 题目描述</span><br><span class="line">&gt;**684 Redundant Connection**</span><br><span class="line">&gt;In this problem, a tree is an undirected graph that is connected and has no cycles.</span><br><span class="line">&gt;The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, ..., N), with one additional edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.</span><br><span class="line"></span><br><span class="line">&gt;The resulting graph is given as a 2D-array of edges. Each element of edges is a pair [u, v] with u &lt; v, that represents an undirected edge connecting nodes u and v.</span><br><span class="line"></span><br><span class="line">&gt;Return an edge that can be removed so that the resulting graph is a tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array. The answer edge [u, v] should be in the same format, with u &lt; v.</span><br><span class="line"></span><br><span class="line">&gt;Example 1:</span><br><span class="line">Input: [[1,2], [1,3], [2,3]]</span><br><span class="line">Output: [2,3]</span><br><span class="line">Explanation: The given undirected graph will be like this:</span><br><span class="line">  1</span><br><span class="line">/ \</span><br><span class="line">2 - 3</span><br><span class="line">Example 2:</span><br><span class="line">Input: [[1,2], [2,3], [3,4], [1,4], [1,5]]</span><br><span class="line">Output: [1,4]</span><br><span class="line">Explanation: The given undirected graph will be like this:</span><br><span class="line">5 - 1 - 2</span><br><span class="line">   |   |</span><br><span class="line">  4 - 3</span><br><span class="line">Note:</span><br><span class="line">The size of the input 2D-array will be between 3 and 1000.</span><br><span class="line">Every integer represented in the 2D-array will be between 1 and N, where N is the size of the input array.</span><br><span class="line"></span><br><span class="line">题目大意是：输入给出了一个有N个结点的，连通的，无环的无向图。而图中有一条多余的边，需要找出这一条边。</span><br><span class="line"></span><br><span class="line">### 算法分析</span><br><span class="line">利用并查集的算法，可以很轻松的解决这道题。遍历输入，在遍历的同时构造集合。当找到一条边，它的两个端点已经是属于同一个集合中，那么这条边显然是多余的。否则，继续进行并的操作。而题目要求在有多个解时返回最后一个，那么只需记录下这些多余的边，返回最后一次更新的边即可。</span><br><span class="line"></span><br><span class="line">### 代码实现</span><br><span class="line">代码实现如下：</span><br></pre></td></tr></table></figure></p>
+<p>class Solution {<br>public:<br>int father[1001] = { 0 };</p>
+<p>int getFather(int node) {<br>    if (father[node] == node) {<br>        return node;<br>    }<br>    else {<br>        int nodeFather = getFather(father[node]);<br>        father[node] = nodeFather;<br>        return nodeFather;<br>    }<br>}</p>
+<p>vector<int> findRedundantConnection(vector&lt;vector<int>&gt;&amp; edges) {<br>    for (int i = 1; i &lt;= 1000; i++) {<br>        father[i] = i;<br>    }<br>    vector<int> result;<br>    for (auto it = edges.begin(); it != edges.end(); it++) {<br>        int aFather = getFather(it-&gt;at(0));<br>        int bFather = getFather(it-&gt;at(1));<br>        if (aFather != bFather) {<br>            father[bFather] = aFather;<br>        }<br>        else {<br>            result.clear();<br>            result.push_back(it-&gt;at(0));<br>            result.push_back(it-&gt;at(1));<br>        }<br>    }<br>    return result;<br>}<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Redundant Connection I</span><br><span class="line">而对于Redundant Connection II，则需要在并查集的基础上稍加扩展。</span><br><span class="line">### 题目描述</span><br><span class="line">&gt;In this problem, a rooted tree is a directed graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.</span><br><span class="line"></span><br><span class="line">&gt;The given input is a directed graph that started as a rooted tree with N nodes (with distinct values 1, 2, ..., N), with one additional directed edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.</span><br><span class="line"></span><br><span class="line">&gt;The resulting graph is given as a 2D-array of edges. Each element of edges is a pair [u, v] that represents a directed edge connecting nodes u and v, where u is a parent of child v.</span><br><span class="line"></span><br><span class="line">&gt;Return an edge that can be removed so that the resulting graph is a rooted tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array.</span><br><span class="line"></span><br><span class="line">&gt;Example 1:</span><br><span class="line">Input: [[1,2], [1,3], [2,3]]</span><br><span class="line">Output: [2,3]</span><br><span class="line">Explanation: The given directed graph will be like this:</span><br><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line">v   v</span><br><span class="line">2--&gt;3</span><br><span class="line">Example 2:</span><br><span class="line">Input: [[1,2], [2,3], [3,4], [4,1], [1,5]]</span><br><span class="line">Output: [4,1]</span><br><span class="line">Explanation: The given directed graph will be like this:</span><br><span class="line">5 &lt;- 1 -&gt; 2</span><br><span class="line">     ^    |</span><br><span class="line">     |    v</span><br><span class="line">     4 &lt;- 3</span><br><span class="line">Note:</span><br><span class="line">The size of the input 2D-array will be between 3 and 1000.</span><br><span class="line">Every integer represented in the 2D-array will be between 1 and N, where N is the size of the input array.</span><br><span class="line"></span><br><span class="line">这次输入的是一个有向图，且规定：有这么一个结点（根结点），所有的其它结点都是它的子结点。且除了根结点（入度为0）外的所有结点，都有且只有一个父节点（入度为1）。在输入中，会有这么一条边：当这条边被移除后，所得到的图才是符合上述条件的图。</span><br><span class="line"></span><br><span class="line">### 算法分析</span><br><span class="line">根据题意，我们可以得出一个结论：当所要找到的这条边去除后，所得到的图一定是符合条件的。也就是说，这一条边，破坏了原图的合法性。</span><br><span class="line"></span><br><span class="line">那么，怎么样的图才是**不符合条件**的呢：</span><br><span class="line"></span><br><span class="line">- 有环图。因为有环图中不存在入度为0的根结点。</span><br><span class="line">- 存在一个入度为2的结点。由于只需要去掉一条多余的边，就能成为符合条件的图，那么只会存在一个入度为2的结点。其数量只会为1，且入度只会为2。</span><br><span class="line"></span><br><span class="line">确定了这两个条件之后，我们可以得到进一步的推论：如果图中有环，则去掉的是环中的一条边。若存在入度为2的结点，那么以该结点为子结点的两条边中，必然有一条就是将要被去除的边。根据上述的推论，可以得到以下算法：</span><br></pre></td></tr></table></figure></int></int></int></p>
+<p>在图中寻找一个入度为2的点<br>    若 不存在<br>        则 图中有环<br>        找到最后一条使图成环的边 并返回<br>    若 存在<br>        获取与该结点相关的两条边A，B<br>        将B移除 得到新的图<br>        若 新的图符合条件<br>            返回B<br>        若 不符合条件<br>            返回A<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 代码实现</span><br><span class="line">根据这个算法，得到代码实现如下：</span><br></pre></td></tr></table></figure></p>
+<p>class Solution {<br>public:<br>int father[1001] = { 0 };</p>
+<p>int getFather(int node) {<br>    if (father[node] == node) {<br>        return node;<br>    }<br>    else {<br>        int nodeFather = getFather(father[node]);<br>        father[node] = nodeFather;<br>        return nodeFather;<br>    }<br>}</p>
+<p>vector<int> findRedundantDirectedConnection(vector&lt;vector<int>&gt;&amp; edges) {<br>    for (int i = 1; i &lt;= 1000; i++) {<br>        father[i] = i;<br>    }<br>    vector<int> resultA, resultB;<br>    int parent[1001] = { 0 };<br>    // 找到入度为2的结点，并获取候选边A,B<br>    for (auto it = edges.begin(); it != edges.end(); it++) {<br>        if (parent[it-&gt;at(1)] == 0) {<br>            parent[it-&gt;at(1)] = it-&gt;at(0);<br>        }<br>        else {<br>            resultA.push_back(parent[it-&gt;at(1)]);<br>            resultA.push_back(it-&gt;at(1));<br>            resultB.push_back(it-&gt;at(0));<br>            resultB.push_back(it-&gt;at(1));<br>            it-&gt;clear();  // 从图中移除B<br>        }<br>    }</int></int></int></p>
+<pre><code>for (auto it = edges.begin(); it != edges.end(); it++) {
+    if (it-&gt;empty()) {
+        continue;
+    }
+    int aFather = getFather(it-&gt;at(0));
+    int bFather = getFather(it-&gt;at(1));
+    if (aFather == it-&gt;at(1)) {  // 判断有环
+        if (resultA.empty()) {  // 不存在入度为2的结点
+            return *it;
+        }
+        else {
+            return resultA;
+        }
+    }
+    father[bFather] = aFather;
+}
+return resultB;
+</code></pre><p>}</p>
+<p>};<br>```<br>要注意各个条件的判断顺序。例如：不能直接去掉使图成环的最后一条边。因为这样还可能存在入度为2的结点。在确定图中有环后，应该优先判断是否存在入度为2的结点，再考虑环的问题。</p>
+<p>本文为博主原创文章，转载请注明出处。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/23/increasing-subsequences/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/23/increasing-subsequences/" itemprop="url">LeetCode 491. Increasing Subsequences</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T15:59:09+08:00">2017-09-23</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given an integer array, your task is to find all the different possible increasing subsequences of the given array, and the length of an increasing subsequence should be at least 2 .</p>
+<p>Example:<br>Input: [4, 6, 7, 7]<br>Output: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]</p>
+<p>Note:</p>
+<ol>
+<li>The length of the given array will not exceed 15.</li>
+<li>The range of integer in the given array is [-100,100].</li>
+<li>The given array may contain duplicates, and two equal integers should also be considered as a special case of increasing sequence.</li>
+</ol>
+</blockquote>
+<p>题目大意是：从给定的一组数中，找到所有递增的子序列。但其实这里的递增（increasing）包含了所有非递减的子序列，从样例中可知。还有一点需要注意的是，题目给定的一组数（<code>vector&lt;int&gt; nums</code>）其实是有序的，即不能通过改变<code>nums</code>中的数的顺序来获取递增的子序列。虽然这一点在题目中没有明确说明，但是评测中会有这么一个样例：</p>
+<blockquote>
+<p>Input: [4,3,2,1]<br>Output: []</p>
+</blockquote>
+<p>因此，在实现时还要注意保持<code>nums</code>中数列的顺序。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/23/increasing-subsequences/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/15/kth-small-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/15/kth-small-number/" itemprop="url">Kth Small Number with Divide-and-Conquer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T21:08:09+08:00">2017-09-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Selection问题"><a href="#Selection问题" class="headerlink" title="Selection问题"></a>Selection问题</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一道经典的算法题”Selection”</p>
+<blockquote>
+<p><strong>SELECTION</strong><br><strong>Input</strong>: A list of numbers S; an integer k<br><strong>Output</strong>: The kth smallest element of S<br>For instance, if k = 1, the minimum of S is sought, whereas if k = |S|/2, it is the median.</p>
+</blockquote>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>这道题有很多解法，最简单的就是先对所有数排序。但是显然当数据较大时，这种方法效率不高。使用分治算法就可以在此基础上提高效率，因为只需对一部分而不是全部数据进行排序。<br>大致思路如下：每一次，先从数组中选出任意一个参考数<code>pivot</code>。选取的方法几乎不会影响效率，一般来说随机选取即可。选取好<code>pivot</code>后，对数组进行遍历，将所有数据分为三组，即小于，等于，大于<code>pivot</code>的三组。例如：<br><img src="http://img.blog.csdn.net/20170915204032089?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"></p>
+<p>若选取5作为参考数，则分成的三组为：<br><img src="http://img.blog.csdn.net/20170915204207647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"><br>分组后，根据各组中数的数量，即可进行下一层递归，因此算法如下：<br><img src="http://img.blog.csdn.net/20170915204407260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/kth-small-number/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/10/search-a-2d-matrix-ii/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -882,586 +1515,11 @@ CBDA
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/08/05/waiting-in-line/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/05/waiting-in-line/" itemprop="url">PAT 1014. Waiting in line</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-05T12:06:21+08:00">2016-08-05</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>题目如下：<br>Suppose a bank has N windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. The rules for the customers to wait in line are:<br>•The space inside the yellow line in front of each window is enough to contain a line with M customers. Hence when all the N lines are full, all the customers after (and including) the (NM+1)st one will have to wait in a line behind the yellow line.<br>•Each customer will choose the shortest line to wait in when crossing the yellow line. If there are two or more lines with the same length, the customer will always choose the window with the smallest number.<br>•Customer[i] will take T[i] minutes to have his/her transaction processed.<br>•The first N customers are assumed to be served at 8:00am. </p>
-<p>Now given the processing time of each customer, you are supposed to tell the exact time at which a customer has his/her business done.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/05/waiting-in-line/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/07/30/battle-over-cities/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/07/30/battle-over-cities/" itemprop="url">PAT 1003. Battle Over Cities</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T16:39:54+08:00">2016-07-30</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
-<p>For example, if we have 3 cities and 2 highways connecting city1-city2 and city1-city3. Then if city1 is occupied by the enemy, we must have 1 highway repaired, that is the highway city2-city3.</p>
-<p><strong>Input</strong></p>
-<p>Each input file contains one test case. Each case starts with a line containing 3 numbers N (&lt;1000), M and K, which are the total number of cities, the number of remaining highways, and the number of cities to be checked, respectively. Then M lines follow, each describes a highway by 2 integers, which are the numbers of the cities the highway connects. The cities are numbered from 1 to N. Finally there is a line containing K numbers, which represent the cities we concern.</p>
-<p><strong>Output</strong></p>
-<p>For each of the K cities, output in a line the number of highways need to be repaired if that city is lost.<br><strong>Sample Input</strong><br>3 2 3<br>1 2<br>1 3<br>1 2 3</p>
-<p><strong>Sample Output</strong><br>1<br>0<br>0</p>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>这道题目用到的是Union Find， 即并查集。</p>
-<blockquote>
-<p>并查集是一种树型的数据结构，用于处理一些不相交集合的合并及查询问题。常常在使用中以森林来表示。集就是让每个元素构成一个单元素的集合，也就是按一定顺序将属于同一组的元素所在的集合合并。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/30/battle-over-cities/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/07/30/emergency/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/07/30/emergency/" itemprop="url">PAT 1003. Emergency</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T15:46:14+08:00">2016-07-30</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><strong>Description</strong><br>As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by some roads. Amount of rescue teams in each city and the length of each road between any pair of cities are marked on the map. When there is an emergency call to you from some other city, your job is to lead your men to the place as quickly as possible, and at the mean time, call up as many hands on the way as possible.</p>
-<p><strong>Input</strong></p>
-<p>Each input file contains one test case. For each test case, the first line contains 4 positive integers: N (&lt;= 500) - the number of cities (and the cities are numbered from 0 to N-1), M - the number of roads, C1 and C2 - the cities that you are currently in and that you must save, respectively. The next line contains N integers, where the i-th integer is the number of rescue teams in the i-th city. Then M lines follow, each describes a road with three integers c1, c2 and L, which are the pair of cities connected by a road and the length of that road, respectively. It is guaranteed that there exists at least one path from C1 to C2. </p>
-<p><strong>Output</strong></p>
-<p>For each test case, print in one line two numbers: the number of different shortest paths between C1 and C2, and the maximum amount of rescue teams you can possibly gather.<br> All the numbers in a line must be separated by exactly one space, and there is no extra space allowed at the end of a line.</p>
-<p><strong>Sample Input</strong><br>5 6 0 2<br>1 2 1 5 3<br>0 1 1<br>0 2 2<br>0 3 1<br>1 2 1<br>2 4 1<br>3 4 1</p>
-<p><strong>Sample Output</strong><br>2 4</p>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>用dfs解决，求出最短路径<br>但注意题目需要输出的是</p>
-<blockquote>
-<p>the number of different shortest paths between C1 and C2, and the maximum amount of rescue teams you can possibly gather</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/30/emergency/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2016/01/27/snake-game/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/01/27/snake-game/" itemprop="url">初学者的贪吃蛇游戏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-01-27T22:05:52+08:00">2016-01-27</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="C语言贪吃蛇游戏制作"><a href="#C语言贪吃蛇游戏制作" class="headerlink" title="C语言贪吃蛇游戏制作"></a>C语言贪吃蛇游戏制作</h2><p>初学编程，利用现有的知识编写了一个贪吃蛇小游戏。<br>目前游戏的制作程度仅限于“能玩”。<br>还有一定BUG有待改善。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/27/snake-game/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1508,7 +1566,7 @@ CBDA
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1580,7 +1638,7 @@ CBDA
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="wechatID:w674--7" target="_blank" title=":-)"><i class="fa fa-fw fa-wechat"></i>:-)</a>
+                  <a href="wechatID:w674--7" target="_blank" title="w674--7"><i class="fa fa-fw fa-wechat"></i>w674--7</a>
                   
                 </span>
               
@@ -1653,6 +1711,20 @@ CBDA
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -1820,7 +1892,7 @@ CBDA
       
           pbOptions.boxForm = "horizontal";
       
-          pbOptions.position = "bottomRight";
+          pbOptions.position = "bottomCenter";
       
           pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
       
@@ -1833,7 +1905,7 @@ CBDA
       
           flOptions.boxForm = "horizontal";
       
-          flOptions.position = "middleRight";
+          flOptions.position = "topRight";
       
           flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
       

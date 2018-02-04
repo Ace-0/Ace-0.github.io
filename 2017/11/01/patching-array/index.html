@@ -107,25 +107,25 @@
   <meta name="keywords" content="algorithm,C/C++,LeetCode," />
 
 
-<meta name="description" content="题目描述">
+<meta name="description" content="题目描述 Ptaching ArrayGiven a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements">
 <meta name="keywords" content="algorithm,C&#x2F;C++,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="clone-graph">
-<meta property="og:url" content="https://Ace-0.github.io/2018/02/03/clone-graph/index.html">
+<meta property="og:title" content="LeetCode330. Patching Array">
+<meta property="og:url" content="https://Ace-0.github.io/2017/11/01/patching-array/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="题目描述">
+<meta property="og:description" content="题目描述 Ptaching ArrayGiven a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-03T14:51:02.351Z">
+<meta property="og:updated_time" content="2018-02-04T06:01:06.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="clone-graph">
-<meta name="twitter:description" content="题目描述">
+<meta name="twitter:title" content="LeetCode330. Patching Array">
+<meta name="twitter:description" content="题目描述 Ptaching ArrayGiven a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements">
 
 
 
 
 
 
-  <link rel="canonical" href="https://Ace-0.github.io/2018/02/03/clone-graph/"/>
+  <link rel="canonical" href="https://Ace-0.github.io/2017/11/01/patching-array/"/>
 
 
 
@@ -134,7 +134,7 @@
     sidebar: "",
   };
 </script>
-  <title>clone-graph | Jarvis's Blog</title>
+  <title>LeetCode330. Patching Array | Jarvis's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/02/03/clone-graph/">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/11/01/patching-array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis Wang">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">clone-graph</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode330. Patching Array</h1>
         
 
         <div class="post-meta">
@@ -316,7 +316,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T21:42:09+08:00">2018-02-03</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-01T12:34:43+08:00">2017-11-01</time>
             
 
             
@@ -352,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/03/clone-graph/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/02/03/clone-graph/" itemprop="commentsCount"></span>
+                <a href="/2017/11/01/patching-array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/11/01/patching-array/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -362,6 +362,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -381,8 +386,24 @@
       
 
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><a id="more"></a>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>本文为博主原创文章，转载请注明出处。</p>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p><strong>Ptaching Array</strong><br>Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required.</p>
+<p>Example 1:<br>nums = [1, 3], n = 6<br>Return 1.</p>
+<p>Combinations of nums are [1], [3], [1,3], which form possible sums of: 1, 3, 4.<br>Now if we add/patch 2 to nums, the combinations are: [1], [2], [3], [1,3], [2,3], [1,2,3].<br>Possible sums are 1, 2, 3, 4, 5, 6, which now covers the range [1, 6].<br>So we only need 1 patch.</p>
+<p>Example 2:<br>nums = [1, 5, 10], n = 20<br>Return 2.<br>The two patches can be [2, 4].</p>
+<p>Example 3:<br>nums = [1, 2, 2], n = 5<br>Return 0.</p>
+</blockquote>
+<p>题目大意是，给定一个有序地数组<code>nums</code>，以及一个数<code>n</code>。要求在数组中加入一些数，使得在[1, n]范围内的所有数都能由<code>nums</code>中的一个或一些数通过求和得到。求在数组中加入数字的最小数量。</p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>要解决这道题目，首先明白一个规律：假设当前我们通过数组的前<code>i</code>个数，已经能通过求和覆盖<code>[1, m]</code>内的所有值，那么当我们再利用数组的第<code>i+1</code>个数，即<code>nums[i+1]</code>，能得到的范围是什么呢？答案是<code>[1, nums[i+1] + m]</code>。在有了<code>nums[i+1]</code>的基础上，分别加上<code>[1, m]</code>内的所有值即可。<br><a id="more"></a></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>为了更好理解本题的解法，先给出代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minPatches(vector&lt;int&gt;&amp; nums, int n) &#123;</span><br><span class="line">        long missNum = 1, index = 0, toAddN = 0;</span><br><span class="line">        while (missNum &lt;= n) &#123;</span><br><span class="line">            if (index &lt; nums.size() &amp;&amp; nums[index] &lt;= missNum) &#123;</span><br><span class="line">                missNum += nums[index];</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                toAddN++;</span><br><span class="line">                missNum *= 2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return toAddN;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>其中，<code>missNum</code>为代表当前缺失的值，<code>index</code>代表当前数组下标，<code>toAddN</code>表示要加上数的最小的数量。</p>
+<p>算法核心思想如下：假设当前我们已经通过<code>nums[0]</code>到<code>nums[index-1]</code>中的所有数，获得了范围在 [1, missNum) 的所有值。那么，当我们把下标<code>index-1</code>移到下一位<code>index</code>，将会出现两种情况：</p>
+<ul>
+<li><code>nums[index] &lt;= missNum</code>。那么，根据我们之前得到的规律，现在可得的的范围，已经可以扩展到[1, missNum + nums[index])。</li>
+<li><code>nums[index] &gt; missNum</code>。那么我们已经无法通过数组中的和得到<code>missNum</code>这个值了，于是我们需要把这个值加入到数组中，且<code>toAddN</code>计数加一。此时，和的范围已经变成了[1, missNum * 2)。<br>根据以上规律，我们每扫过<code>nums</code>中的一个数，便能得到一个新的和的范围。当范围值已经覆盖到输入的<code>n</code>的时候，证明添加的数已经得到了要求。</li>
+</ul>
+<p>可是，如何证明按照这个算法得到的<code>toAddN</code>一定是最小的呢？原理很简单，当需要在数组中添加一个数时，添加的数越大，和的范围就会相应地扩展到最大。又由于缺失的<code>missNum</code>是无法由前面的数求和得到的，那么此时将<code>missNum</code>添加到数组中，就是能同时满足这两个条件的值。因此添加<code>missNum</code>是最优的做法。</p>
+<p>本文为博主原创文章，转载请注明出处。</p>
 
       
     </div>
@@ -436,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/03/remove-duplicate-letters/" rel="next" title="remove-duplicate-letters">
-                <i class="fa fa-chevron-left"></i> remove-duplicate-letters
+              <a href="/2017/10/27/triangle-dp/" rel="next" title="LeetCode120. Triangle with Dynamic Programming">
+                <i class="fa fa-chevron-left"></i> LeetCode120. Triangle with Dynamic Programming
               </a>
             
           </div>
@@ -446,8 +467,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/03/set-up-your-blog/" rel="prev" title="使用Hexo搭建个人博客">
-                使用Hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/15/simple-server-go/" rel="prev" title="Go搭建简单服务器及http包源码分析">
+                Go搭建简单服务器及http包源码分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -533,7 +554,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -605,7 +626,7 @@
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="wechatID:w674--7" target="_blank" title=":-)"><i class="fa fa-fw fa-wechat"></i>:-)</a>
+                  <a href="wechatID:w674--7" target="_blank" title="w674--7"><i class="fa fa-fw fa-wechat"></i>w674--7</a>
                   
                 </span>
               
@@ -694,6 +715,20 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -889,7 +924,7 @@
       
           pbOptions.boxForm = "horizontal";
       
-          pbOptions.position = "bottomRight";
+          pbOptions.position = "bottomCenter";
       
           pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
       
@@ -902,7 +937,7 @@
       
           flOptions.boxForm = "horizontal";
       
-          flOptions.position = "middleRight";
+          flOptions.position = "topRight";
       
           flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
       
