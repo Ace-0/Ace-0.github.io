@@ -14,6 +14,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -77,7 +81,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.0.3',
-    sidebar: {"position":"left","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -103,18 +107,18 @@
   <meta name="keywords" content="web," />
 
 
-<meta name="description" content="本文为博主原创文章，转载请注明出处。">
+<meta name="description" content="Hexo入门安装Node.js和npm前往Node.js官网下载并安装Node.js。新版的Node.js已经集成了npm。在命令行中检测安装： 1234&amp;gt; node -vv6.10.1&amp;gt; npm -v3.10.10 安装Hexo使用npm安装Hexo： 1&amp;gt; npm install -g hexo-cli 初始化博客在你准备存放博客本地文件的目录下，输入： 1&amp;gt; hexo">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Hexo搭建个人博客">
 <meta property="og:url" content="https://Ace-0.github.io/2018/02/03/set-up-your-blog/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="本文为博主原创文章，转载请注明出处。">
+<meta property="og:description" content="Hexo入门安装Node.js和npm前往Node.js官网下载并安装Node.js。新版的Node.js已经集成了npm。在命令行中检测安装： 1234&amp;gt; node -vv6.10.1&amp;gt; npm -v3.10.10 安装Hexo使用npm安装Hexo： 1&amp;gt; npm install -g hexo-cli 初始化博客在你准备存放博客本地文件的目录下，输入： 1&amp;gt; hexo">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-03T14:50:57.479Z">
+<meta property="og:updated_time" content="2018-02-04T04:44:09.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo搭建个人博客">
-<meta name="twitter:description" content="本文为博主原创文章，转载请注明出处。">
+<meta name="twitter:description" content="Hexo入门安装Node.js和npm前往Node.js官网下载并安装Node.js。新版的Node.js已经集成了npm。在命令行中检测安装： 1234&amp;gt; node -vv6.10.1&amp;gt; npm -v3.10.10 安装Hexo使用npm安装Hexo： 1&amp;gt; npm install -g hexo-cli 初始化博客在你准备存放博客本地文件的目录下，输入： 1&amp;gt; hexo">
 
 
 
@@ -177,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -377,7 +381,70 @@
       
 
       
-        <a id="more"></a>
+        <h2 id="Hexo入门"><a href="#Hexo入门" class="headerlink" title="Hexo入门"></a>Hexo入门</h2><h3 id="安装Node-js和npm"><a href="#安装Node-js和npm" class="headerlink" title="安装Node.js和npm"></a>安装Node.js和npm</h3><p>前往<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a>下载并安装<code>Node.js</code>。新版的<code>Node.js</code>已经集成了<code>npm</code>。在命令行中检测安装：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v6.<span class="number">10.1</span></span><br><span class="line">&gt; npm -v</span><br><span class="line"><span class="number">3.10</span>.<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用<code>npm</code>安装<code>Hexo</code>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>在你准备存放博客本地文件的目录下，输入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo init blog</span><br></pre></td></tr></table></figure>
+<p>在当前目录下，会新建一个<code>blog</code>文件夹，即你的博客在本地所有资源的根目录。</p>
+<p>之后，进入到根目录下，创建你的第一篇博客：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd blog</span><br><span class="line">&gt; hexo new my-firts-post</span><br></pre></td></tr></table></figure>
+<p>利用<code>Hexo</code>生成静态文件：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo g</span><br></pre></td></tr></table></figure>
+<p>启动本地服务器查看博客：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo s</span><br></pre></td></tr></table></figure>
+<p>默认下访问网址为<code>http://localhost:4000/</code>。在浏览器输入后就可以看到整个博客的雏形了。<br><a id="more"></a></p>
+<p>更多关于<code>Hexo</code>的命令可以查看<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">Hexo官方文档</a>。</p>
+<h3 id="Hexo工作原理"><a href="#Hexo工作原理" class="headerlink" title="Hexo工作原理"></a>Hexo工作原理</h3><p><code>new</code>命令默认格式为：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>默认情况下<code>layout</code>为<code>post</code>，会在<code>/blog/source/_posts/</code>下生成Markdown文件<code>title.md</code>，通过编辑这个文件来编辑自己的博客文章内容。</p>
+<p>编辑完成后，使用命令<code>generate</code>（即<code>hexo g</code>），<code>Hexo</code>会根据配置文件，生成博客网址中的所有静态内容（<code>.html</code>文件等），生成的所有静态文件存放在<code>/blog/public/</code>中。可以使用</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo clean</span><br></pre></td></tr></table></figure>
+<p>来清除缓存文件和已经生成的静态文件。</p>
+<h3 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h3><p>假设你已经完成了博客上的所有内容，想要将它部署到web服务器上。下面以<code>github.io</code>为例。</p>
+<p>你需要：</p>
+<ul>
+<li>GitHub账户</li>
+<li>创建<code>USERNAME.github.io</code>仓库，USERNAME为你的Github用户名。</li>
+<li>本地安装<code>Git</code>并关联账户。</li>
+</ul>
+<p>以上步骤不做描述，可以参考<a href="http://www.cnblogs.com/specter45/p/github.html" target="_blank" rel="noopener">github入门到上传本地项目</a>。</p>
+<p>下面开始将博客部署到Github服务器上。</p>
+<p>修改<code>/blog/_config.yml</code>文件，即<strong>站点配置</strong>文件，将最后的<strong>Deployment</strong>部分修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/USERNAME/USERNAME.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p><code>repo</code>即之前创建的仓库，<code>branch</code>可以修改为别的分支。以上修改内容会影响<code>hexo d</code>命令（即部署命令）的行为。</p>
+<p>安装Git部署插件：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>之后输入命令部署博客：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo clean</span><br><span class="line">&gt; hexo g</span><br><span class="line">&gt; hexo d</span><br></pre></td></tr></table></figure>
+<p>此时，你的博客已经完成自动部署，浏览器输入<code>USERNAME.github.io</code>就可以真正在网络上访问你的博客了。</p>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>想要使用自己的个性化域名来代替<code>USERNAME.github.io</code>，需要完成域名绑定。国内主流的代理厂商有阿里云和腾讯云等，具体操作官网文档有详细说明。</p>
+<h2 id="Hexo进阶"><a href="#Hexo进阶" class="headerlink" title="Hexo进阶"></a>Hexo进阶</h2><p>一个简易的博客已经搭建好了，以下说明如何添加更多个性化的设置以及丰富自己的博客。</p>
+<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><p>网上有大量开源的Hexo主题，直接在Github搜索”hexo-theme”就能找到很多不错的主题。下面以<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>为例，更换主题。</p>
+<p>安装NexT，在<code>/blog/</code>目录下输入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>主题的所有资源文件保存在<code>/blog/themes</code>中，例如上面的命令就会得到<code>/next/</code>目录。</p>
+<p>打开<strong>站点配置文件</strong><code>/blog/_config.yml</code>，将<code>theme:</code>内容修改为<code>next</code>。</p>
+<p>打开<strong>主题配置文件</strong><code>/blog/themes/next/_config.yml</code>，可修改<code>scheme:</code>内容</p>
+<p>，<code>NexT</code>默认提供了四种scheme。</p>
+<p>修改完成后，重新执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo clean</span><br><span class="line">&gt; hexo g</span><br></pre></td></tr></table></figure>
+<p>完成修改，之后可以选择运行本地服务器（<code>hexo s</code>）或者直接部署（<code>hexo d</code>）来查看效果。</p>
+<h3 id="个人信息与社交链接"><a href="#个人信息与社交链接" class="headerlink" title="个人信息与社交链接"></a>个人信息与社交链接</h3><p>主页上的个人信息在<strong>站点配置文件</strong>中修改。即<code>Site</code>部分。</p>
+<p>社交链接在<strong>主题配置文件</strong>中修改。在<code>/blog/themes/next/_config.yml</code>中找到”Social Links”，在下方设置，文件注释中就有详细的说明。</p>
+<h3 id="添加评论系统"><a href="#添加评论系统" class="headerlink" title="添加评论系统"></a>添加评论系统</h3><p><code>NexT</code>主题提供多种评论系统的支持，例如<code>Disqus</code>，<code>Hypercomments</code>等，此处以<code>Gitment</code>为例，为博客文章增加评论系统。</p>
+<p><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="noopener">Gitment</a>是作者实现的一款基于 GitHub Issues 的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown / GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。<strong>只能使用GitHub账号进行评论</strong>。详细配置过程可以参考<a href="http://blog.csdn.net/hyb612/article/details/78299971" target="_blank" rel="noopener">hexo 博客next主题集成gitment或者gitalk评论系统</a>。</p>
+<p>同时，如果想要使用其它评论系统，在<strong>主题配置文件</strong>中，每一个支持的评论系统上方的注释，都会包含该系统的主页，进入主页即可了解每个系统的配置方式。</p>
+<h3 id="添加打分系统"><a href="#添加打分系统" class="headerlink" title="添加打分系统"></a>添加打分系统</h3><p>使用<code>widgetpack</code>，登录官网<a href="https://widgetpack.com" target="_blank" rel="noopener">widgetpack.com</a>注册并获取<strong>ID</strong>，之后填写在<strong>主题配置文件</strong>的以下部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rating:</span><br><span class="line">  enable: true</span><br><span class="line">  id:     YOURID</span><br><span class="line">  color:  fc6423</span><br></pre></td></tr></table></figure>
+<p>注意，ID部分只包含数字。</p>
+<h3 id="添加转发功能"><a href="#添加转发功能" class="headerlink" title="添加转发功能"></a>添加转发功能</h3><p>使用<code>needmoreshare2</code>，<code>NexT</code>直接提供插件支持，并提供官方<a href="https://github.com/theme-next/theme-next-needmoreshare2" target="_blank" rel="noopener">使用说明</a>。</p>
+<p>首先，在<code>themes/next</code>中安装依赖：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; git clone https://github.com/theme-next/theme-next-needmoreshare2 source/lib/needsharebutton</span><br></pre></td></tr></table></figure>
+<p>之后修改<strong>主题配置文件</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">needmoreshare2:</span><br><span class="line">  enable: true</span><br><span class="line">  postbottom:</span><br><span class="line">    enable: true</span><br><span class="line">    options:</span><br><span class="line">      iconStyle: box</span><br><span class="line">      boxForm: horizontal</span><br><span class="line">      position: bottomCenter</span><br><span class="line">      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook</span><br><span class="line">  float:</span><br><span class="line">    enable: true</span><br><span class="line">    options:</span><br><span class="line">      iconStyle: box</span><br><span class="line">      boxForm: horizontal</span><br><span class="line">      position: middleRight</span><br><span class="line">      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook</span><br></pre></td></tr></table></figure>
+<p>更多自定义选项可以参考<strong>主题配置文件</strong>中的相关注释。</p>
 <p>本文为博主原创文章，转载请注明出处。</p>
 
       
@@ -412,6 +479,13 @@
 
         
 
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
         
         </div>
       
@@ -485,8 +559,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -576,6 +659,16 @@
                   
                 </span>
               
+                <span class="links-of-author-item">
+                  <a href="wechatID:w674--7" target="_blank" title=":-)"><i class="fa fa-fw fa-wechat"></i>:-)</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="id:674901087" target="_blank" title="Tim/QQ"><i class="fa fa-fw fa-qq"></i>Tim/QQ</a>
+                  
+                </span>
+              
             </div>
           
 
@@ -593,6 +686,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo入门"><span class="nav-text">Hexo入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js和npm"><span class="nav-text">安装Node.js和npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化博客"><span class="nav-text">初始化博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo工作原理"><span class="nav-text">Hexo工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署博客"><span class="nav-text">部署博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名绑定"><span class="nav-text">域名绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo进阶"><span class="nav-text">Hexo进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置主题"><span class="nav-text">设置主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人信息与社交链接"><span class="nav-text">个人信息与社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加评论系统"><span class="nav-text">添加评论系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加打分系统"><span class="nav-text">添加打分系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加转发功能"><span class="nav-text">添加转发功能</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -653,6 +762,12 @@
 
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -817,6 +932,39 @@
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomRight";
+      
+          pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
   <script type="text/javascript">
   wpac_init = window.wpac_init || [];

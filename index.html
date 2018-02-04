@@ -14,6 +14,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -77,7 +81,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.0.3',
-    sidebar: {"position":"left","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -175,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -369,11 +373,27 @@
 
       
         
-          
-            <a id="more"></a>
-<p>本文为博主原创文章，转载请注明出处。</p>
-
-          
+          <h2 id="Hexo入门"><a href="#Hexo入门" class="headerlink" title="Hexo入门"></a>Hexo入门</h2><h3 id="安装Node-js和npm"><a href="#安装Node-js和npm" class="headerlink" title="安装Node.js和npm"></a>安装Node.js和npm</h3><p>前往<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a>下载并安装<code>Node.js</code>。新版的<code>Node.js</code>已经集成了<code>npm</code>。在命令行中检测安装：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v6.<span class="number">10.1</span></span><br><span class="line">&gt; npm -v</span><br><span class="line"><span class="number">3.10</span>.<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用<code>npm</code>安装<code>Hexo</code>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>在你准备存放博客本地文件的目录下，输入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo init blog</span><br></pre></td></tr></table></figure>
+<p>在当前目录下，会新建一个<code>blog</code>文件夹，即你的博客在本地所有资源的根目录。</p>
+<p>之后，进入到根目录下，创建你的第一篇博客：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd blog</span><br><span class="line">&gt; hexo new my-firts-post</span><br></pre></td></tr></table></figure>
+<p>利用<code>Hexo</code>生成静态文件：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo g</span><br></pre></td></tr></table></figure>
+<p>启动本地服务器查看博客：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo s</span><br></pre></td></tr></table></figure>
+<p>默认下访问网址为<code>http://localhost:4000/</code>。在浏览器输入后就可以看到整个博客的雏形了。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/03/set-up-your-blog/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -985,11 +1005,459 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/11/15/simple-server-go/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/15/simple-server-go/" itemprop="url">Go搭建简单服务器及http包源码分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-15T17:42:53+08:00">2017-11-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Go搭建web服务器"><a href="#Go搭建web服务器" class="headerlink" title="Go搭建web服务器"></a>Go搭建web服务器</h2><p>使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.go</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	fmt.Fprintf(w, <span class="string">"Hello!"</span>) <span class="comment">// 这个写入到w的是输出到客户端的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/"</span>, sayhelloName) <span class="comment">// 设置访问的路由</span></span><br><span class="line">	port := <span class="string">":9090"</span>  <span class="comment">// 设置监听的端口</span></span><br><span class="line">	err := http.ListenAndServe(port, <span class="literal">nil</span>) <span class="comment">// 开始监听</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"ListenAndServe: "</span>, err)  <span class="comment">// 输出错误日志</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">"Server listen at: %s"</span>, port)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/15/simple-server-go/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/23/increasing-subsequences/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/23/increasing-subsequences/" itemprop="url">LeetCode 491. Increasing Subsequences</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T15:59:09+08:00">2017-09-23</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given an integer array, your task is to find all the different possible increasing subsequences of the given array, and the length of an increasing subsequence should be at least 2 .</p>
+<p>Example:<br>Input: [4, 6, 7, 7]<br>Output: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]</p>
+<p>Note:</p>
+<ol>
+<li>The length of the given array will not exceed 15.</li>
+<li>The range of integer in the given array is [-100,100].</li>
+<li>The given array may contain duplicates, and two equal integers should also be considered as a special case of increasing sequence.</li>
+</ol>
+</blockquote>
+<p>题目大意是：从给定的一组数中，找到所有递增的子序列。但其实这里的递增（increasing）包含了所有非递减的子序列，从样例中可知。还有一点需要注意的是，题目给定的一组数（<code>vector&lt;int&gt; nums</code>）其实是有序的，即不能通过改变<code>nums</code>中的数的顺序来获取递增的子序列。虽然这一点在题目中没有明确说明，但是评测中会有这么一个样例：</p>
+<blockquote>
+<p>Input: [4,3,2,1]<br>Output: []</p>
+</blockquote>
+<p>因此，在实现时还要注意保持<code>nums</code>中数列的顺序。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/23/increasing-subsequences/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/15/kth-small-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/15/kth-small-number/" itemprop="url">Kth Small Number with Divide-and-Conquer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T21:08:09+08:00">2017-09-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Selection问题"><a href="#Selection问题" class="headerlink" title="Selection问题"></a>Selection问题</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一道经典的算法题”Selection”</p>
+<blockquote>
+<p><strong>SELECTION</strong><br><strong>Input</strong>: A list of numbers S; an integer k<br><strong>Output</strong>: The kth smallest element of S<br>For instance, if k = 1, the minimum of S is sought, whereas if k = |S|/2, it is the median.</p>
+</blockquote>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>这道题有很多解法，最简单的就是先对所有数排序。但是显然当数据较大时，这种方法效率不高。使用分治算法就可以在此基础上提高效率，因为只需对一部分而不是全部数据进行排序。<br>大致思路如下：每一次，先从数组中选出任意一个参考数<code>pivot</code>。选取的方法几乎不会影响效率，一般来说随机选取即可。选取好<code>pivot</code>后，对数组进行遍历，将所有数据分为三组，即小于，等于，大于<code>pivot</code>的三组。例如：<br><img src="http://img.blog.csdn.net/20170915204032089?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"></p>
+<p>若选取5作为参考数，则分成的三组为：<br><img src="http://img.blog.csdn.net/20170915204207647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"><br>分组后，根据各组中数的数量，即可进行下一层递归，因此算法如下：<br><img src="http://img.blog.csdn.net/20170915204407260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWNlXzE1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="例子"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/kth-small-number/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1107,6 +1575,16 @@
                   
                 </span>
               
+                <span class="links-of-author-item">
+                  <a href="wechatID:w674--7" target="_blank" title=":-)"><i class="fa fa-fw fa-wechat"></i>:-)</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="id:674901087" target="_blank" title="Tim/QQ"><i class="fa fa-fw fa-qq"></i>Tim/QQ</a>
+                  
+                </span>
+              
             </div>
           
 
@@ -1184,6 +1662,12 @@
 
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1320,6 +1804,39 @@
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomRight";
+      
+          pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

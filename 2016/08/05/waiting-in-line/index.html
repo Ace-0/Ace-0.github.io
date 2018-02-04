@@ -14,6 +14,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -77,7 +81,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.0.3',
-    sidebar: {"position":"left","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -100,11 +104,11 @@
 
 
   
-  <meta name="keywords" content="algorithm,C/C++,PAT," />
+  <meta name="keywords" content="PAT,algorithm,C/C++," />
 
 
 <meta name="description" content="题目描述题目如下：Suppose a bank has N windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. The rules for the customers to wait in line are:•T">
-<meta name="keywords" content="algorithm,C&#x2F;C++,PAT">
+<meta name="keywords" content="PAT,algorithm,C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT 1014. Waiting in line">
 <meta property="og:url" content="https://Ace-0.github.io/2016/08/05/waiting-in-line/index.html">
@@ -177,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -416,11 +420,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/PAT/" rel="tag"># PAT</a>
+          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
-          
-            <a href="/tags/PAT/" rel="tag"># PAT</a>
           
         </div>
       
@@ -436,6 +440,13 @@
 
         
 
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
         
         </div>
       
@@ -613,6 +624,16 @@
                   
                 </span>
               
+                <span class="links-of-author-item">
+                  <a href="wechatID:w674--7" target="_blank" title=":-)"><i class="fa fa-fw fa-wechat"></i>:-)</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="id:674901087" target="_blank" title="Tim/QQ"><i class="fa fa-fw fa-qq"></i>Tim/QQ</a>
+                  
+                </span>
+              
             </div>
           
 
@@ -706,6 +727,12 @@
 
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -870,6 +897,39 @@
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomRight";
+      
+          pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
   <script type="text/javascript">
   wpac_init = window.wpac_init || [];
