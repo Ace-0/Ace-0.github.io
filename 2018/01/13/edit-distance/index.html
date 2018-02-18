@@ -104,18 +104,18 @@
 
 
   
-  <meta name="keywords" content="LeetCode,algorithm,C/C++," />
+  <meta name="keywords" content="algorithm,C/C++,LeetCode," />
 
 
 <meta name="description" content="题目描述72. Edit Distance  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations">
-<meta name="keywords" content="LeetCode,algorithm,C&#x2F;C++">
+<meta name="keywords" content="algorithm,C&#x2F;C++,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 72. Edit Distance">
 <meta property="og:url" content="https://Ace-0.github.io/2018/01/13/edit-distance/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="题目描述72. Edit Distance  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-03T13:52:36.647Z">
+<meta property="og:updated_time" content="2018-02-18T10:50:51.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 72. Edit Distance">
 <meta name="twitter:description" content="题目描述72. Edit Distance  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations">
@@ -402,9 +402,10 @@
 <li><code>word1[1:i]</code>通过delete可以得到<code>word2[1:j]</code>，即<code>word1[1:i-1] == word2[1:j]</code>，那么有：<code>dp[i][j] = dp[i-1][j]+1</code>。</li>
 <li><code>word1[1:i]</code>直接通过replace可以得到<code>word2[1:j]</code>，即<code>word1[1:i-1] == word2[1:j-1]</code>，那么有：<code>dp[i][j] = dp[i-1][j-1]+1</code>。</li>
 </ol>
-<p>综上，可以得到状态转移方程：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (word1[i - <span class="number">1</span>] == word2[j - <span class="number">1</span>])</span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	dp[i][j] = min(dp[i - <span class="number">1</span>][j - <span class="number">1</span>], dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>综上，可以得到状态转移方程：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (word1[i - <span class="number">1</span>] == word2[j - <span class="number">1</span>])</span><br><span class="line">    dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    dp[i][j] = min(dp[i - <span class="number">1</span>][j - <span class="number">1</span>], dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
 <p>另外，再考虑边界条件，即：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = i;</span><br><span class="line">dp[<span class="number">0</span>][j] = j;</span><br></pre></td></tr></table></figure></p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	int minDistance(string word1, string word2) &#123;</span><br><span class="line">		int m = word1.length(), n = word2.length();</span><br><span class="line">		vector&lt;vector&lt;int&gt;&gt; dp = vector&lt;vector&lt;int&gt;&gt;(m + 1, vector&lt;int&gt;(n + 1, 0));</span><br><span class="line">		for (int i = 0; i &lt;= m; i++) &#123;</span><br><span class="line">			for (int j = 0; j &lt;= n; j++) &#123;</span><br><span class="line">				if (i == 0) &#123; dp[i][j] = j; continue; &#125;</span><br><span class="line">				if (j == 0) &#123; dp[i][j] = i; continue; &#125;</span><br><span class="line">				if (word1[i - 1] == word2[j - 1])</span><br><span class="line">					dp[i][j] = dp[i - 1][j - 1];</span><br><span class="line">				else</span><br><span class="line">					dp[i][j] = min(dp[i - 1][j - 1], min(dp[i - 1][j], dp[i][j - 1])) + 1;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return dp[m][n];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>代码实现：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = word1.length(), n = word2.length();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(m + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123; dp[i][j] = j; <span class="keyword">continue</span>; &#125;</span><br><span class="line">                <span class="keyword">if</span> (j == <span class="number">0</span>) &#123; dp[i][j] = i; <span class="keyword">continue</span>; &#125;</span><br><span class="line">                <span class="keyword">if</span> (word1[i - <span class="number">1</span>] == word2[j - <span class="number">1</span>])</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = min(dp[i - <span class="number">1</span>][j - <span class="number">1</span>], min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>])) + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
     </div>
@@ -422,11 +423,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -555,7 +556,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

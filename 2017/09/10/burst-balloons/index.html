@@ -104,18 +104,18 @@
 
 
   
-  <meta name="keywords" content="LeetCode,algorithm,C/C++," />
+  <meta name="keywords" content="algorithm,C/C++,LeetCode," />
 
 
 <meta name="description" content="题目描述 Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If the you burst balloon i you will get nu">
-<meta name="keywords" content="LeetCode,algorithm,C&#x2F;C++">
+<meta name="keywords" content="algorithm,C&#x2F;C++,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 312. Burst Balloons">
 <meta property="og:url" content="https://Ace-0.github.io/2017/09/10/burst-balloons/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="题目描述 Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If the you burst balloon i you will get nu">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-03T13:53:01.952Z">
+<meta property="og:updated_time" content="2018-02-18T10:51:05.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 312. Burst Balloons">
 <meta name="twitter:description" content="题目描述 Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If the you burst balloon i you will get nu">
@@ -397,20 +397,20 @@
 <blockquote>
 <p>maxCoins(i, j) = max(nums[i-1] <em> nums[k] </em> nums[j+1] + maxCoins(i, k-1) + maxCoins(k+1, j))        (i&lt;=k&lt;=j)</p>
 </blockquote>
-<p>那么根据这一公式，首先想到使用递归来实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int getMax(int start, int end) &#123;</span><br><span class="line">	int maxCoins = 0;</span><br><span class="line">	for (int k = start; k &lt;= end; k++) &#123;</span><br><span class="line">		maxCoins = max(maxCoins, nums[start - 1] * nums[k] * nums[end + 1] + getMax(start, k - 1) + getMax(k + 1, end));</span><br><span class="line">	&#125;</span><br><span class="line">	return maxCoins;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么根据这一公式，首先想到使用递归来实现：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMax</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxCoins = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = start; k &lt;= end; k++) &#123;</span><br><span class="line">        maxCoins = max(maxCoins, nums[start - <span class="number">1</span>] * nums[k] * nums[end + <span class="number">1</span>] + getMax(start, k - <span class="number">1</span>) + getMax(k + <span class="number">1</span>, end));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxCoins;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>但是，由于分治后子问题数量太多，当区间长度很长时，效率非常低下，同一个子问题会被多次计算。因此，考虑使用动态规划，利用一个二维数组<code>matrix[][]</code>来储存子问题的结果，<code>matrix[i][j]</code>代表区间<code>nums[i][j]</code>中所有气球引爆后，能得到的最大金币数。避免多次重复计算。首先写出状态转移方程：</p>
 <blockquote>
 <p>matrix[i][j] = max(matrix[i][j], matrix[i][j] + nums[i-1] <em> nums[k] </em> nums[j+1] + matrix[i][k-1] + matrix[k+1][j])</p>
 </blockquote>
 <p>注意在上式中，当<code>i==k-1</code>和<code>j==k+1</code>时，区间金币数为0。<br>根据这个思路，最后返回<code>matrix[1][n]</code>即可得到所求结果。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>写出完整代码实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">int maxCoins(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">	nums.insert(nums.begin(), 1);</span><br><span class="line">	nums.push_back(1);</span><br><span class="line">	int size = nums.size() - 2;</span><br><span class="line">	int** matrix = new int*[size + 2];</span><br><span class="line">	for (int i = 0; i &lt; size + 2; i++) &#123;</span><br><span class="line">		matrix[i] = new int[size + 2];</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 0; i &lt; size + 2; i++) &#123;</span><br><span class="line">		for (int j = 0; j &lt; size + 2; j++)</span><br><span class="line">			matrix[i][j] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int len = 1; len &lt;= size; len++) &#123;</span><br><span class="line">		for (int left = 1; left &lt;= size - len + 1; left++) &#123;</span><br><span class="line">			int right = left + len - 1;</span><br><span class="line">			for (int k = left; k &lt;= right; k++) &#123;</span><br><span class="line">				int leftCoins = k &gt; left ? matrix[left][k - 1] : 0;  // left == k-1 时没有左子区间</span><br><span class="line">				int rightCoins = k &lt; right ? matrix[k + 1][right] : 0;  // right == k+1 时没有右子区间</span><br><span class="line">				matrix[left][right] = std::max(matrix[left][right], nums[left - 1] * nums[k] * nums[right + 1] + leftCoins + rightCoins);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return matrix[1][size];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>写出完整代码实现如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxCoins</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    nums.insert(nums.begin(), <span class="number">1</span>);</span><br><span class="line">    nums.push_back(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> size = nums.size() - <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span>** matrix = <span class="keyword">new</span> <span class="keyword">int</span>*[size + <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size + <span class="number">2</span>; i++) &#123;</span><br><span class="line">        matrix[i] = <span class="keyword">new</span> <span class="keyword">int</span>[size + <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size + <span class="number">2</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; size + <span class="number">2</span>; j++)</span><br><span class="line">            matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>; len &lt;= size; len++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">1</span>; left &lt;= size - len + <span class="number">1</span>; left++) &#123;</span><br><span class="line">            <span class="keyword">int</span> right = left + len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = left; k &lt;= right; k++) &#123;</span><br><span class="line">                <span class="keyword">int</span> leftCoins = k &gt; left ? matrix[left][k - <span class="number">1</span>] : <span class="number">0</span>;  <span class="comment">// left == k-1 时没有左子区间</span></span><br><span class="line">                <span class="keyword">int</span> rightCoins = k &lt; right ? matrix[k + <span class="number">1</span>][right] : <span class="number">0</span>;  <span class="comment">// right == k+1 时没有右子区间</span></span><br><span class="line">                matrix[left][right] = <span class="built_in">std</span>::max(matrix[left][right], nums[left - <span class="number">1</span>] * nums[k] * nums[right + <span class="number">1</span>] + leftCoins + rightCoins);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> matrix[<span class="number">1</span>][size];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>注意：</p>
 <ul>
 <li>该实现中，每次只对matrix右上角三角部分进行更新。</li>
 <li>nums在进行运算前，要在前后分别插入1。</li>
 </ul>
 <p>显然，该算法的时间复杂度为<code>O(n^3)</code>，还有改进空间。</p>
-<p>本文为博主原创文章，转载请注明出处。</p>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
     </div>
@@ -428,11 +428,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -561,7 +561,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

@@ -104,18 +104,18 @@
 
 
   
-  <meta name="keywords" content="LeetCode,algorithm,C/C++," />
+  <meta name="keywords" content="algorithm,C/C++,LeetCode," />
 
 
 <meta name="description" content="题目描述LeetCode 3. Longest Substring Without Repeating Characters  Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”,">
-<meta name="keywords" content="LeetCode,algorithm,C&#x2F;C++">
+<meta name="keywords" content="algorithm,C&#x2F;C++,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 3. Longest Substring Without Repeating Characters">
 <meta property="og:url" content="https://Ace-0.github.io/2017/12/10/longest-substring-without-repeating-characters/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="题目描述LeetCode 3. Longest Substring Without Repeating Characters  Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”,">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-04T08:50:34.083Z">
+<meta property="og:updated_time" content="2018-02-18T10:49:41.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 3. Longest Substring Without Repeating Characters">
 <meta name="twitter:description" content="题目描述LeetCode 3. Longest Substring Without Repeating Characters  Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”,">
@@ -401,11 +401,11 @@
 <li>如果s[i]也没有出现在以s[i-1]结束的子串中，那么显然，length[i] = lengh[i-1] + 1。</li>
 <li>如果s[i]是一个重复的字符，那么有，length[i] = i - k，其中k为前一个与s[i]相同的字符的下标。</li>
 </ul>
-<p>如果我们仍然通过遍历来找到k值的话，就完全没有优化这个问题了。因此，可以使用last_position[ch]来表示字符ch上一次出现的位置，那么状态转移方程就可以表示为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IF s[i] exists</span><br><span class="line">	length[i] = i - last_position[s[i]];</span><br><span class="line">ELSE</span><br><span class="line">	length[i] = length[i - 1] + 1;</span><br></pre></td></tr></table></figure></p>
+<p>如果我们仍然通过遍历来找到k值的话，就完全没有优化这个问题了。因此，可以使用last_position[ch]来表示字符ch上一次出现的位置，那么状态转移方程就可以表示为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IF s[i] exists</span><br><span class="line">    length[i] = i - last_position[s[i]];</span><br><span class="line">ELSE</span><br><span class="line">    length[i] = length[i - 1] + 1;</span><br></pre></td></tr></table></figure></p>
 <p>同时，利用last_position也便于判断s[i]是否是重复字符：当满足<code>last_position.at(s[i]) &gt;= i - 1 - length[i - 1]</code>，即s[i]最后一次出现的位置已经在以s[i-1]结尾的子串中，那么如果加入s[i]，显然就会出现重复字符了。</p>
 <p>利用以上动态规划的思想，将时间复杂度降低到了O(n)。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>代码实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	int lengthOfLongestSubstring(string s) &#123;</span><br><span class="line">		int max_length = s.length();</span><br><span class="line">		if (max_length == 0) &#123;</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		vector&lt;int&gt; length(max_length, 0);</span><br><span class="line">		map&lt;char, int&gt; last_position;</span><br><span class="line">		int answer = 1;</span><br><span class="line">		length[0] = 1;</span><br><span class="line">		last_position[s[0]] = 0;</span><br><span class="line"></span><br><span class="line">		for (int i = 1; i &lt; max_length; i++) &#123;</span><br><span class="line">			if (last_position.find(s[i]) != last_position.end() &amp;&amp; last_position.at(s[i]) &gt;= i - 1 - length[i - 1]) &#123;</span><br><span class="line">				length[i] = i - last_position[s[i]];</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				length[i] = length[i - 1] + 1;</span><br><span class="line">			&#125;</span><br><span class="line">			last_position[s[i]] = i;</span><br><span class="line">			</span><br><span class="line">			if (length[i] &gt; answer) &#123;</span><br><span class="line">				answer = length[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return answer;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>本文为博主原创文章，转载请注明出处。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>代码实现如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max_length = s.length();</span><br><span class="line">        <span class="keyword">if</span> (max_length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; length(max_length, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; last_position;</span><br><span class="line">        <span class="keyword">int</span> answer = <span class="number">1</span>;</span><br><span class="line">        length[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        last_position[s[<span class="number">0</span>]] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; max_length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (last_position.find(s[i]) != last_position.end() &amp;&amp; last_position.at(s[i]) &gt;= i - <span class="number">1</span> - length[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                length[i] = i - last_position[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                length[i] = length[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            last_position[s[i]] = i;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (length[i] &gt; answer) &#123;</span><br><span class="line">                answer = length[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> answer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
     </div>
@@ -423,11 +423,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -556,7 +556,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

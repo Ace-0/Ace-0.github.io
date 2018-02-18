@@ -286,6 +286,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/12/10/longest-substring-without-repeating-characters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/10/longest-substring-without-repeating-characters/" itemprop="url">LeetCode 3. Longest Substring Without Repeating Characters</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T19:58:43+08:00">2017-12-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" rel="noopener">LeetCode 3. Longest Substring Without Repeating Characters</a></p>
+<blockquote>
+<p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p>Examples:</p>
+<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
+<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
+<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+</blockquote>
+<p>题目即要求找到一个字符串中不含重复字符的最长子串。子串（substring）必须是连续的，子序列（subsequence）才可以是不连续的。</p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>暴力解法当然是以每一个字符为起始位置，往后直到遇到重复字符为止。这样时间复杂度为O(n^2)的解法显然是不能通过的。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/10/longest-substring-without-repeating-characters/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/12/08/maximun-product-subarray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -694,7 +846,7 @@
 
       
         
-          <h2 id="Go搭建web服务器"><a href="#Go搭建web服务器" class="headerlink" title="Go搭建web服务器"></a>Go搭建web服务器</h2><p>使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.go</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	fmt.Fprintf(w, <span class="string">"Hello!"</span>) <span class="comment">// 这个写入到w的是输出到客户端的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/"</span>, sayhelloName) <span class="comment">// 设置访问的路由</span></span><br><span class="line">	port := <span class="string">":9090"</span>  <span class="comment">// 设置监听的端口</span></span><br><span class="line">	err := http.ListenAndServe(port, <span class="literal">nil</span>) <span class="comment">// 开始监听</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"ListenAndServe: "</span>, err)  <span class="comment">// 输出错误日志</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">"Server listen at: %s"</span>, port)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <h2 id="Go搭建web服务器"><a href="#Go搭建web服务器" class="headerlink" title="Go搭建web服务器"></a>Go搭建web服务器</h2><p>使用go语言搭建一个简单的web服务器是非常方便的，一个简单的例子如下：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.go</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">"Hello!"</span>) <span class="comment">// 这个写入到w的是输出到客户端的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    http.HandleFunc(<span class="string">"/"</span>, sayhelloName) <span class="comment">// 设置访问的路由</span></span><br><span class="line">    port := <span class="string">":9090"</span>  <span class="comment">// 设置监听的端口</span></span><br><span class="line">    err := http.ListenAndServe(port, <span class="literal">nil</span>) <span class="comment">// 开始监听</span></span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(<span class="string">"ListenAndServe: "</span>, err)  <span class="comment">// 输出错误日志</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(<span class="string">"Server listen at: %s"</span>, port)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/15/simple-server-go/#more" rel="contents">
@@ -1340,178 +1492,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/10/03/redundant-connection-i-and-ii/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mylogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/03/redundant-connection-i-and-ii/" itemprop="url">并查集算法解决 Redundant Connection I&II</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-03T00:14:09+08:00">2017-10-03</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="并查集概述"><a href="#并查集概述" class="headerlink" title="并查集概述"></a>并查集概述</h2><p>并查集（Union-Find）是一种用于处理集合关系的算法，在连通图的相关问题中非常实用。基本的操作包括集合的并（Union）和查找元素所属集合（Find）。</p>
-<p>算法思路如下：每一个集合，都有一个代表元。在同一个集合中的所有元素，它们的代表元必然相同。要区分一个元素属于哪一个集合，找到它的代表元即可。</p>
-<p>其存储结构通常为一个一维数组（N代表元素总数）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int father[N + 1] = &#123; 0 &#125;;</span><br></pre></td></tr></table></figure></p>
-<p>初始化如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">	father[i] = i;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">那么根据定义，用于查找某个元素所在集合的代表元的函数可以这样实现：</span><br></pre></td></tr></table></figure></p>
-<p>int getFather(int x) {<br>    if (father[x] == x) {<br>        return x;<br>    } else {<br>        return getFather(father[x]);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是，当元素数量很大，多次的递归显然效率较低。那么，可以引入“压缩路径”的方法：</span><br></pre></td></tr></table></figure></p>
-<p>int getFather(int x) {<br>    if (father[x] == x) {<br>        return x;<br>    }<br>    else {<br>        int xFather = getFather(father[x]);<br>        father[x] = xFather;<br>        return xFather;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这样，在每一次递归之后，都会更新father[x]的值，实现了压缩路径的目的，避免了多次重复的递归。这种方式实现的并查集，时间复杂度为`O(n)`。</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">实现了查找操作以后，便可以在此基础上进行集合的并操作，基本实现如下：</span><br></pre></td></tr></table></figure></p>
-<p>void union(int x, int y) {<br>    int xFather = getFather(x);<br>    int yFather = getFather(y);<br>    father[yFather] = xFather;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">即把后一个元素y并入了x所属的集合中，若x和y分别为两个集合的代表元，那么就是把x和y所在的两个集合进行了并的操作。</span><br><span class="line"></span><br><span class="line">## Redundant Connection I</span><br><span class="line">基本掌握了并查集的算法后，就可以很好的解决LeetCode的[684 Redundant Connection](https://leetcode.com/problems/redundant-connection/description/)和[685 Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/description/)了。</span><br><span class="line">### 题目描述</span><br><span class="line">&gt;**684 Redundant Connection**</span><br><span class="line">&gt;In this problem, a tree is an undirected graph that is connected and has no cycles.</span><br><span class="line">&gt;The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, ..., N), with one additional edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.</span><br><span class="line"></span><br><span class="line">&gt;The resulting graph is given as a 2D-array of edges. Each element of edges is a pair [u, v] with u &lt; v, that represents an undirected edge connecting nodes u and v.</span><br><span class="line"></span><br><span class="line">&gt;Return an edge that can be removed so that the resulting graph is a tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array. The answer edge [u, v] should be in the same format, with u &lt; v.</span><br><span class="line"></span><br><span class="line">&gt;Example 1:</span><br><span class="line">Input: [[1,2], [1,3], [2,3]]</span><br><span class="line">Output: [2,3]</span><br><span class="line">Explanation: The given undirected graph will be like this:</span><br><span class="line">  1</span><br><span class="line">/ \</span><br><span class="line">2 - 3</span><br><span class="line">Example 2:</span><br><span class="line">Input: [[1,2], [2,3], [3,4], [1,4], [1,5]]</span><br><span class="line">Output: [1,4]</span><br><span class="line">Explanation: The given undirected graph will be like this:</span><br><span class="line">5 - 1 - 2</span><br><span class="line">   |   |</span><br><span class="line">  4 - 3</span><br><span class="line">Note:</span><br><span class="line">The size of the input 2D-array will be between 3 and 1000.</span><br><span class="line">Every integer represented in the 2D-array will be between 1 and N, where N is the size of the input array.</span><br><span class="line"></span><br><span class="line">题目大意是：输入给出了一个有N个结点的，连通的，无环的无向图。而图中有一条多余的边，需要找出这一条边。</span><br><span class="line"></span><br><span class="line">### 算法分析</span><br><span class="line">利用并查集的算法，可以很轻松的解决这道题。遍历输入，在遍历的同时构造集合。当找到一条边，它的两个端点已经是属于同一个集合中，那么这条边显然是多余的。否则，继续进行并的操作。而题目要求在有多个解时返回最后一个，那么只需记录下这些多余的边，返回最后一次更新的边即可。</span><br><span class="line"></span><br><span class="line">### 代码实现</span><br><span class="line">代码实现如下：</span><br></pre></td></tr></table></figure></p>
-<p>class Solution {<br>public:<br>int father[1001] = { 0 };</p>
-<p>int getFather(int node) {<br>    if (father[node] == node) {<br>        return node;<br>    }<br>    else {<br>        int nodeFather = getFather(father[node]);<br>        father[node] = nodeFather;<br>        return nodeFather;<br>    }<br>}</p>
-<p>vector<int> findRedundantConnection(vector&lt;vector<int>&gt;&amp; edges) {<br>    for (int i = 1; i &lt;= 1000; i++) {<br>        father[i] = i;<br>    }<br>    vector<int> result;<br>    for (auto it = edges.begin(); it != edges.end(); it++) {<br>        int aFather = getFather(it-&gt;at(0));<br>        int bFather = getFather(it-&gt;at(1));<br>        if (aFather != bFather) {<br>            father[bFather] = aFather;<br>        }<br>        else {<br>            result.clear();<br>            result.push_back(it-&gt;at(0));<br>            result.push_back(it-&gt;at(1));<br>        }<br>    }<br>    return result;<br>}<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Redundant Connection I</span><br><span class="line">而对于Redundant Connection II，则需要在并查集的基础上稍加扩展。</span><br><span class="line">### 题目描述</span><br><span class="line">&gt;In this problem, a rooted tree is a directed graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.</span><br><span class="line"></span><br><span class="line">&gt;The given input is a directed graph that started as a rooted tree with N nodes (with distinct values 1, 2, ..., N), with one additional directed edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.</span><br><span class="line"></span><br><span class="line">&gt;The resulting graph is given as a 2D-array of edges. Each element of edges is a pair [u, v] that represents a directed edge connecting nodes u and v, where u is a parent of child v.</span><br><span class="line"></span><br><span class="line">&gt;Return an edge that can be removed so that the resulting graph is a rooted tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array.</span><br><span class="line"></span><br><span class="line">&gt;Example 1:</span><br><span class="line">Input: [[1,2], [1,3], [2,3]]</span><br><span class="line">Output: [2,3]</span><br><span class="line">Explanation: The given directed graph will be like this:</span><br><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line">v   v</span><br><span class="line">2--&gt;3</span><br><span class="line">Example 2:</span><br><span class="line">Input: [[1,2], [2,3], [3,4], [4,1], [1,5]]</span><br><span class="line">Output: [4,1]</span><br><span class="line">Explanation: The given directed graph will be like this:</span><br><span class="line">5 &lt;- 1 -&gt; 2</span><br><span class="line">     ^    |</span><br><span class="line">     |    v</span><br><span class="line">     4 &lt;- 3</span><br><span class="line">Note:</span><br><span class="line">The size of the input 2D-array will be between 3 and 1000.</span><br><span class="line">Every integer represented in the 2D-array will be between 1 and N, where N is the size of the input array.</span><br><span class="line"></span><br><span class="line">这次输入的是一个有向图，且规定：有这么一个结点（根结点），所有的其它结点都是它的子结点。且除了根结点（入度为0）外的所有结点，都有且只有一个父节点（入度为1）。在输入中，会有这么一条边：当这条边被移除后，所得到的图才是符合上述条件的图。</span><br><span class="line"></span><br><span class="line">### 算法分析</span><br><span class="line">根据题意，我们可以得出一个结论：当所要找到的这条边去除后，所得到的图一定是符合条件的。也就是说，这一条边，破坏了原图的合法性。</span><br><span class="line"></span><br><span class="line">那么，怎么样的图才是**不符合条件**的呢：</span><br><span class="line"></span><br><span class="line">- 有环图。因为有环图中不存在入度为0的根结点。</span><br><span class="line">- 存在一个入度为2的结点。由于只需要去掉一条多余的边，就能成为符合条件的图，那么只会存在一个入度为2的结点。其数量只会为1，且入度只会为2。</span><br><span class="line"></span><br><span class="line">确定了这两个条件之后，我们可以得到进一步的推论：如果图中有环，则去掉的是环中的一条边。若存在入度为2的结点，那么以该结点为子结点的两条边中，必然有一条就是将要被去除的边。根据上述的推论，可以得到以下算法：</span><br></pre></td></tr></table></figure></int></int></int></p>
-<p>在图中寻找一个入度为2的点<br>    若 不存在<br>        则 图中有环<br>        找到最后一条使图成环的边 并返回<br>    若 存在<br>        获取与该结点相关的两条边A，B<br>        将B移除 得到新的图<br>        若 新的图符合条件<br>            返回B<br>        若 不符合条件<br>            返回A<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 代码实现</span><br><span class="line">根据这个算法，得到代码实现如下：</span><br></pre></td></tr></table></figure></p>
-<p>class Solution {<br>public:<br>int father[1001] = { 0 };</p>
-<p>int getFather(int node) {<br>    if (father[node] == node) {<br>        return node;<br>    }<br>    else {<br>        int nodeFather = getFather(father[node]);<br>        father[node] = nodeFather;<br>        return nodeFather;<br>    }<br>}</p>
-<p>vector<int> findRedundantDirectedConnection(vector&lt;vector<int>&gt;&amp; edges) {<br>    for (int i = 1; i &lt;= 1000; i++) {<br>        father[i] = i;<br>    }<br>    vector<int> resultA, resultB;<br>    int parent[1001] = { 0 };<br>    // 找到入度为2的结点，并获取候选边A,B<br>    for (auto it = edges.begin(); it != edges.end(); it++) {<br>        if (parent[it-&gt;at(1)] == 0) {<br>            parent[it-&gt;at(1)] = it-&gt;at(0);<br>        }<br>        else {<br>            resultA.push_back(parent[it-&gt;at(1)]);<br>            resultA.push_back(it-&gt;at(1));<br>            resultB.push_back(it-&gt;at(0));<br>            resultB.push_back(it-&gt;at(1));<br>            it-&gt;clear();  // 从图中移除B<br>        }<br>    }</int></int></int></p>
-<pre><code>for (auto it = edges.begin(); it != edges.end(); it++) {
-    if (it-&gt;empty()) {
-        continue;
-    }
-    int aFather = getFather(it-&gt;at(0));
-    int bFather = getFather(it-&gt;at(1));
-    if (aFather == it-&gt;at(1)) {  // 判断有环
-        if (resultA.empty()) {  // 不存在入度为2的结点
-            return *it;
-        }
-        else {
-            return resultA;
-        }
-    }
-    father[bFather] = aFather;
-}
-return resultB;
-</code></pre><p>}</p>
-<p>};<br>```<br>要注意各个条件的判断顺序。例如：不能直接去掉使图成环的最后一条边。因为这样还可能存在入度为2的结点。在确定图中有环后，应该优先判断是否存在入度为2的结点，再考虑环的问题。</p>
-<p>本文为博主原创文章，转载请注明出处。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1563,7 +1543,7 @@ return resultB;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

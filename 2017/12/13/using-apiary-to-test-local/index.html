@@ -107,18 +107,18 @@
   <meta name="keywords" content="Apiary," />
 
 
-<meta name="description" content="在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。  下载安装ngrok: 在官网下">
+<meta name="description" content="在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。  下载安装ngrok:  在官网">
 <meta name="keywords" content="Apiary">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用 apiary.io + ngrok 测试本地服务器">
 <meta property="og:url" content="https://Ace-0.github.io/2017/12/13/using-apiary-to-test-local/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。  下载安装ngrok: 在官网下">
+<meta property="og:description" content="在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。  下载安装ngrok:  在官网">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-04T12:22:19.789Z">
+<meta property="og:updated_time" content="2018-02-18T10:44:48.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用 apiary.io + ngrok 测试本地服务器">
-<meta name="twitter:description" content="在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。  下载安装ngrok: 在官网下">
+<meta name="twitter:description" content="在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。  下载安装ngrok:  在官网">
 
 
 
@@ -389,25 +389,25 @@
         <p>在apiary.io上，单纯使用mock server进行测试显然是不够的。当试图使用localhost进行Production测试时，会提示“Proxy request fail”的提示。这是因为apiary需要通过远程代理来访问你的本地服务器，因此在Host属性中填写localhost是无法达到目的的。利用ngrok，便可以在开发完成后运行本地服务器进行测试。</p>
 <ol>
 <li><p>下载安装ngrok:</p>
-<p>在<a href="https://ngrok.com/download" target="_blank" rel="noopener">官网</a>下载压缩包，并解压，安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> unzip /path/ngrok.zip</span><br></pre></td></tr></table></figure>
+<p> 在<a href="https://ngrok.com/download" target="_blank" rel="noopener">官网</a>下载压缩包，并解压，安装：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> unzip /path/ngrok.zip</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>利用ngrok代理本地服务器：</p>
-<p>首先要在本地运行服务器。</p>
-<p>以localhost:8080为例，在ngrok安装目录下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ./ngrok http 8080</span><br></pre></td></tr></table></figure>
-<p>得到：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ngrok by @inconshreveable                                                                                                                            (Ctrl+C to quit)</span><br><span class="line">                                                                                                                                                                     </span><br><span class="line">Session Status                online                                                                                                                                 </span><br><span class="line">Version                       2.2.8                                                                                                                                  </span><br><span class="line">Region                        United States (us)                                                                                                                     </span><br><span class="line">Web Interface                 http://127.0.0.1:4040                                                                                                                  </span><br><span class="line">Forwarding                    http://33059e51.ngrok.io -&gt; localhost:8080                                                                                             </span><br><span class="line">Forwarding                    https://33059e51.ngrok.io -&gt; localhost:8080                                                                                            </span><br><span class="line">                                                                                                                                                                     </span><br><span class="line">Connections                   ttl     opn     rt1     rt5     p50     p90                                                                                            </span><br><span class="line">                              0       0       0.00    0.00    0.00    0.00</span><br></pre></td></tr></table></figure>
-<p>其中<a href="http://33059e51.ngrok.io就是代理后的服务器地址。" target="_blank" rel="noopener">http://33059e51.ngrok.io就是代理后的服务器地址。</a></p>
+<p> 首先要在本地运行服务器。</p>
+<p> 以localhost:8080为例，在ngrok安装目录下：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ./ngrok http 8080</span><br></pre></td></tr></table></figure>
+<p> 得到：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ngrok by @inconshreveable                                                                                                                            (Ctrl+C to quit)</span><br><span class="line">                                                                                                                                                                    </span><br><span class="line">Session Status                online                                                                                                                                 </span><br><span class="line">Version                       2.2.8                                                                                                                                  </span><br><span class="line">Region                        United States (us)                                                                                                                     </span><br><span class="line">Web Interface                 http://127.0.0.1:4040                                                                                                                  </span><br><span class="line">Forwarding                    http://33059e51.ngrok.io -&gt; localhost:8080                                                                                             </span><br><span class="line">Forwarding                    https://33059e51.ngrok.io -&gt; localhost:8080                                                                                            </span><br><span class="line">                                                                                                                                                                    </span><br><span class="line">Connections                   ttl     opn     rt1     rt5     p50     p90                                                                                            </span><br><span class="line">                             0       0       0.00    0.00    0.00    0.00</span><br></pre></td></tr></table></figure>
+<p> 其中<a href="http://33059e51.ngrok.io就是代理后的服务器地址。" target="_blank" rel="noopener">http://33059e51.ngrok.io就是代理后的服务器地址。</a></p>
 <a id="more"></a>
 </li>
 <li><p>将服务器地址写入apiary.io：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FORMAT: 1A</span><br><span class="line">HOST: http://33059e51.ngrok.io</span><br><span class="line"></span><br><span class="line"><span class="section"># YourProject</span></span><br><span class="line"></span><br><span class="line">Description of your project.</span><br></pre></td></tr></table></figure>
+ <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FORMAT: 1A</span><br><span class="line">HOST: http://33059e51.ngrok.io</span><br><span class="line"></span><br><span class="line"><span class="section"># YourProject</span></span><br><span class="line"></span><br><span class="line">Description of your project.</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将request发送模式改为”Production”，即可利用API文档完成单元测试了。也就是说，只要服务器完成了开发，就可以很方便的进行测试了，url/参数/request body都可以自由修改，且这些request行为都会真实发送到你的本地服务器中。这会有利于服务器和客户端的并行开发。</p>
 </li>
 </ol>
-<p>本文为博主原创文章，转载请注明出处。</p>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
     </div>
@@ -545,7 +545,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

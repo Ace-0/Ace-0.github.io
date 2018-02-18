@@ -104,18 +104,18 @@
 
 
   
-  <meta name="keywords" content="LeetCode,algorithm,C/C++," />
+  <meta name="keywords" content="algorithm,C/C++,LeetCode," />
 
 
 <meta name="description" content="题目描述LeetCode 10. Regular Expression Matching  Implement regular expression matching with support for ‘.’ and ‘‘.‘.’ Matches any single character.‘‘ Matches zero or more of the preceding element.The ma">
-<meta name="keywords" content="LeetCode,algorithm,C&#x2F;C++">
+<meta name="keywords" content="algorithm,C&#x2F;C++,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 10. Regular Expression Matching">
 <meta property="og:url" content="https://Ace-0.github.io/2018/01/07/regular-expression-matching/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="题目描述LeetCode 10. Regular Expression Matching  Implement regular expression matching with support for ‘.’ and ‘‘.‘.’ Matches any single character.‘‘ Matches zero or more of the preceding element.The ma">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-04T12:15:37.980Z">
+<meta property="og:updated_time" content="2018-02-18T10:47:17.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 10. Regular Expression Matching">
 <meta name="twitter:description" content="题目描述LeetCode 10. Regular Expression Matching  Implement regular expression matching with support for ‘.’ and ‘‘.‘.’ Matches any single character.‘‘ Matches zero or more of the preceding element.The ma">
@@ -392,8 +392,8 @@
 </blockquote>
 <p>即要求实现简单的包含<code>&#39;.&#39;</code>和<code>&#39;*&#39;</code>的正则表达式匹配。<br><a id="more"></a></p>
 <h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>只需要注意有关<code>&#39;.&#39;</code>和<code>&#39;*&#39;</code>的匹配即可，每次可以只对<code>s</code>的第一位进行匹配，再进行递归实现。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	bool isMatch(string s, string p) &#123;</span><br><span class="line">		if (p.empty()) &#123;</span><br><span class="line">			return s.empty();</span><br><span class="line">		&#125;</span><br><span class="line">		if (p.length() &gt;= 2 &amp;&amp; p[1] == &apos;*&apos;) &#123;</span><br><span class="line">			if (s.empty())</span><br><span class="line">				return isMatch(s, p.substr(2));</span><br><span class="line">			if (s[0] == p[0] || p[0] == &apos;.&apos;)</span><br><span class="line">				return isMatch(s.substr(1), p) || isMatch(s, p.substr(2));</span><br><span class="line">			return isMatch(s, p.substr(2));</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			if (s.empty())</span><br><span class="line">				return false;</span><br><span class="line">			if (p[0] == &apos;.&apos; || s[0] == p[0])</span><br><span class="line">				return isMatch(s.substr(1), p.substr(1));</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>本文为博主原创文章，转载请注明出处。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p.empty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> s.empty();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p.length() &gt;= <span class="number">2</span> &amp;&amp; p[<span class="number">1</span>] == <span class="string">'*'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.empty())</span><br><span class="line">                <span class="keyword">return</span> isMatch(s, p.substr(<span class="number">2</span>));</span><br><span class="line">            <span class="keyword">if</span> (s[<span class="number">0</span>] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>)</span><br><span class="line">                <span class="keyword">return</span> isMatch(s.substr(<span class="number">1</span>), p) || isMatch(s, p.substr(<span class="number">2</span>));</span><br><span class="line">            <span class="keyword">return</span> isMatch(s, p.substr(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.empty())</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (p[<span class="number">0</span>] == <span class="string">'.'</span> || s[<span class="number">0</span>] == p[<span class="number">0</span>])</span><br><span class="line">                <span class="keyword">return</span> isMatch(s.substr(<span class="number">1</span>), p.substr(<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
     </div>
@@ -411,11 +411,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -544,7 +544,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
