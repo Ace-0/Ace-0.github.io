@@ -1855,7 +1855,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #70adff;
+  background: #afbd29;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2985,4 +2985,8 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("/images/night2.jpg") no-repeat fixed;
+  background-size: cover;
 }
