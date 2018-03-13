@@ -286,6 +286,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/03/13/kmp-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/13/kmp-learning/" itemprop="url">KMP算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T19:47:05+08:00">2018-03-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="KMP概述"><a href="#KMP概述" class="headerlink" title="KMP概述"></a>KMP概述</h3><p>KMP算法是由D.E.Knuth、J.H.Morris和V.R.Pratt三个人共同提出的，就取三个人名字的首字母作为该算法的名字。KMP主要解决的是目标字符串（target）中的模式（pattern）定位问题，例如：</p>
+<blockquote>
+<p>有一个模式串<code>P</code>，如果它在一个主串<code>T</code>中出现，则返回它第一次出现的起始位置，否则返回-1。</p>
+</blockquote>
+<p>KMP算法与暴力解法的区别就在于KMP算法巧妙的消除了指针<code>i</code>（主串中的指针）的回溯问题，只需确定下次匹配<code>j</code>（模式串中的指针）的位置即可，使得问题的复杂度由<code>O(m * n)</code>下降到<code>O(m + n)</code>。</p>
+<p>从暴力解法入手：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pattern_match</span><span class="params">(<span class="built_in">string</span> T, <span class="built_in">string</span> P)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; T.length() &amp;&amp; j &lt; P.length()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (T[i] == P[i]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            i = i - j + <span class="number">1</span>;</span><br><span class="line">            j = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> j == P.length ? i - j : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再考虑下面这种情况：</p>
+<p><img src="/images/kmp1.png" alt="kmp1"></p>
+<p>此时发生了字符串的不匹配后，按照暴力解法，还需要将<code>i</code>设置为1，<code>j</code>设置为0，显然是不合理的，因为在遍历过程中，我们已经“知道”<code>T</code>中有“ABC”串，而<code>P</code>也是由“ABC”串开头，理想情况下下一步的移动应该是这样：</p>
+<p><img src="/images/kmp2.png" alt="kmp2"></p>
+<p>而这，也正是KMP想解决的问题。这样，可以有效的避免了<code>i</code>的回溯，即<code>i</code>不会向前移动了，只需要移动<code>j</code>的位置即可。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/13/kmp-learning/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/03/12/ssad-hw1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -489,6 +643,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1335,139 +1507,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/01/03/hitting-set/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mylogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/hitting-set/" itemprop="url">Hitting Set Problem 碰撞集问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T17:55:31+08:00">2018-01-03</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>8.9 In the HITTING SET problem, we are given a family of sets {S1,S2,…,Sn}, and a budget b, and we wish to find a set H of size ≤b which intersects every Si, if such an H exists, In other words, we want H⋂Si≠∅ for all i. </p>
-<p>Show that HITTING SET is NP-complete.</p>
-</blockquote>
-<p>碰撞集（Hitting Set）问题是指给定一组集合 {S1,S2,…,Sn}和一个预算b，我们希望找到一个集合H，满足H与所有的Si相交（存在公共元素）且H的大小不超过预算b。即是说，H⋂Si≠∅。 </p>
-<p>现在要求证明碰撞集问题是一个NP完全问题。</p>
-<hr>
-<p>证明如下：</p>
-<p>首先需要知道顶点覆盖问题。顶点覆盖（Vertex Cover）问题是指给定图G(V, E)和预算k，希望从V中找到一个大小小于等于k的顶点集合U，使得U能够覆盖所有的边，即V每一条边至少有一个顶点属于U。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/03/hitting-set/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1519,7 +1558,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1542,7 +1581,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
