@@ -104,28 +104,29 @@
 
 
   
-  <meta name="keywords" content="LeetCode,algorithm,C/C++," />
+  <meta name="keywords" content="Hello!" />
 
 
-<meta name="description" content="题目描述 133 Clone GraphClone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization:Nodes are labeled uniquely. We use # as a separa">
-<meta name="keywords" content="LeetCode,algorithm,C&#x2F;C++">
+<meta name="description" content="Homework2简答题 简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。  瀑布模型：  优点  降低软件开发的复杂程度，提高软件开发过程的透明性，提高软件开发过程的可管理性。 推迟软件实现，强调在软件实现前必须进行分析和设计工作。 以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开发过程中存在的缺陷，使产品达到预期的质量要求。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BFS 和 DFS 解决 LeetCode133. Clone Graph">
-<meta property="og:url" content="https://Ace-0.github.io/2017/10/13/clone-graph/index.html">
+<meta property="og:title" content="软件系统分析与设计-hw2">
+<meta property="og:url" content="https://Ace-0.github.io/2018/03/18/ssad-hw2/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="题目描述 133 Clone GraphClone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization:Nodes are labeled uniquely. We use # as a separa">
+<meta property="og:description" content="Homework2简答题 简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。  瀑布模型：  优点  降低软件开发的复杂程度，提高软件开发过程的透明性，提高软件开发过程的可管理性。 推迟软件实现，强调在软件实现前必须进行分析和设计工作。 以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开发过程中存在的缺陷，使产品达到预期的质量要求。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-18T10:50:59.580Z">
+<meta property="og:image" content="https://ace-0.github.io/images/kanban.png">
+<meta property="og:updated_time" content="2018-03-22T13:11:00.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BFS 和 DFS 解决 LeetCode133. Clone Graph">
-<meta name="twitter:description" content="题目描述 133 Clone GraphClone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization:Nodes are labeled uniquely. We use # as a separa">
+<meta name="twitter:title" content="软件系统分析与设计-hw2">
+<meta name="twitter:description" content="Homework2简答题 简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。  瀑布模型：  优点  降低软件开发的复杂程度，提高软件开发过程的透明性，提高软件开发过程的可管理性。 推迟软件实现，强调在软件实现前必须进行分析和设计工作。 以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开发过程中存在的缺陷，使产品达到预期的质量要求。">
+<meta name="twitter:image" content="https://ace-0.github.io/images/kanban.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://Ace-0.github.io/2017/10/13/clone-graph/"/>
+  <link rel="canonical" href="https://Ace-0.github.io/2018/03/18/ssad-hw2/"/>
 
 
 
@@ -134,7 +135,7 @@
     sidebar: "",
   };
 </script>
-  <title>BFS 和 DFS 解决 LeetCode133. Clone Graph | Jarvis's Blog</title>
+  <title>软件系统分析与设计-hw2 | Jarvis's Blog</title>
   
 
 
@@ -287,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/10/13/clone-graph/">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/03/18/ssad-hw2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis Wong">
@@ -304,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">BFS 和 DFS 解决 LeetCode133. Clone Graph</h1>
+          <h1 class="post-title" itemprop="name headline">软件系统分析与设计-hw2</h1>
         
 
         <div class="post-meta">
@@ -316,7 +317,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-13T21:04:09+08:00">2017-10-13</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T14:40:12+08:00">2018-03-18</time>
             
 
             
@@ -337,7 +338,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSAD/" itemprop="url" rel="index"><span itemprop="name">SSAD</span></a></span>
 
                 
                 
@@ -352,8 +353,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/13/clone-graph/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/10/13/clone-graph/" itemprop="commentsCount"></span>
+                <a href="/2018/03/18/ssad-hw2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/18/ssad-hw2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -386,25 +387,87 @@
       
 
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p><strong>133 Clone Graph</strong><br>Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.</p>
-<p><strong>OJ’s undirected graph serialization:</strong><br>Nodes are labeled uniquely.</p>
-<p>We use <code>#</code> as a separator for each node, and <code>,</code> as a separator for node label and each neighbor of the node.<br>As an example, consider the serialized graph <code>{0,1,2#1,2#2,2}</code>.</p>
-<p>The graph has a total of three nodes, and therefore contains three parts as separated by <code>#</code>.</p>
-<p>First node is labeled as <code>0</code>. Connect node <code>0</code> to both nodes <code>1</code> and <code>2</code>.<br>Second node is labeled as <code>1</code>. Connect node <code>1</code> to node <code>2</code>.<br>Third node is labeled as <code>2</code>. Connect node <code>2</code> to node <code>2</code> (itself), thus forming a self-cycle.<br>Visually, the graph looks like the following:</p>
-<pre><code>   1
-  / \
- /   \
-0 --- 2
-     / \
-     \_/
-</code></pre></blockquote>
-<p>题目虽然讲了很多内容，包括OJ中序列化的图的表示法，但是题目所要求的复制一个图，实际上只是考察了图的遍历。根据给定的一个<code>UndirectedGraphNode* node</code>，由该点出发，遍历整个图，并以此创建一个新的和原来一样的无向图即可。<br><a id="more"></a></p>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>图的遍历可以用DFS和BFS实现。这题唯一需要注意的地方在于，在创建新图时，要确认新建结点的“时机”以及连接节点的方式，不要重复<code>new</code>同一个结点。例如，假设给定的图为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 -- 1</span><br></pre></td></tr></table></figure></p>
-<p>使用DFS，先访问<code>0</code>，然后访问<code>0</code>的临接结点<code>1</code>，而在访问了<code>1</code>之后，要准确地将先前创建的新的<code>0</code>结点放入<code>1</code>的<code>neighbors</code>中，否则会导致图的结构错误。这里，我采用了<code>map&lt;int, UndirectedGraphNode*&gt;</code>来解决。既可以保证不重复创建结点，又能根据<code>label</code>准确找回原来创建的结点。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>代码实现如下：</p>
-<p>DFS:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DFS version</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">UndirectedGraphNode *<span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode *node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node_map[node-&gt;label] = <span class="keyword">new</span> UndirectedGraphNode(node-&gt;label);</span><br><span class="line">        dfs(node);</span><br><span class="line">        <span class="keyword">return</span> node_map[node-&gt;label];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, UndirectedGraphNode*&gt; node_map;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(UndirectedGraphNode* &amp;node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; node-&gt;neighbors.size(); i++) &#123;</span><br><span class="line">            UndirectedGraphNode* neighbor = node-&gt;neighbors[i];</span><br><span class="line">            <span class="keyword">if</span> (node_map[neighbor-&gt;label] == <span class="literal">NULL</span>) &#123;</span><br><span class="line">                node_map[neighbor-&gt;label] = <span class="keyword">new</span> UndirectedGraphNode(neighbor-&gt;label);</span><br><span class="line">                dfs(neighbor);</span><br><span class="line">            &#125;</span><br><span class="line">            node_map[node-&gt;label]-&gt;neighbors.push_back(node_map[neighbor-&gt;label]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>BFS:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BFS version:</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">UndirectedGraphNode *<span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode *node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, UndirectedGraphNode*&gt; node_map;</span><br><span class="line">    node_map[node-&gt;label] = <span class="keyword">new</span> UndirectedGraphNode(node-&gt;label);</span><br><span class="line">    <span class="built_in">queue</span>&lt;UndirectedGraphNode*&gt; que;</span><br><span class="line">    que.push(node);</span><br><span class="line">    <span class="keyword">while</span> (!que.empty()) &#123;</span><br><span class="line">        UndirectedGraphNode* temp = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; temp-&gt;neighbors.size(); i++) &#123;</span><br><span class="line">            UndirectedGraphNode* neighbor = temp-&gt;neighbors[i];</span><br><span class="line">            <span class="keyword">if</span> (node_map[neighbor-&gt;label] == <span class="literal">NULL</span>) &#123;</span><br><span class="line">                node_map[neighbor-&gt;label] = <span class="keyword">new</span> UndirectedGraphNode(neighbor-&gt;label);</span><br><span class="line">                que.push(neighbor);</span><br><span class="line">            &#125;</span><br><span class="line">            node_map[temp-&gt;label]-&gt;neighbors.push_back(node_map[neighbor-&gt;label]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node_map[node-&gt;label];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="Homework2"><a href="#Homework2" class="headerlink" title="Homework2"></a>Homework2</h1><h3 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h3><ol>
+<li><p>简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。</p>
+<ul>
+<li><p>瀑布模型：</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li>降低软件开发的复杂程度，提高软件开发过程的透明性，提高软件开发过程的可管理性。</li>
+<li>推迟软件实现，强调在软件实现前必须进行分析和设计工作。</li>
+<li>以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开发过程中存在的缺陷，使产品达到预期的质量要求。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>强调过程活动的线性顺序。</li>
+<li>缺乏灵活性，特别是无法解决软件需求不明确或不准确的问题。</li>
+<li>风险控制能力较弱。</li>
+<li>瀑布模型中的软件活动是文档驱动的，当阶段之间规定过多的文档时，会极大地增加系统的工作量。</li>
+<li>管理人员如果仅仅以文档的完成情况来评估项目完成程度，往往会产生错误的结论。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>增量模型：<ul>
+<li>优点<ol>
+<li>增强客户对系统的信心。</li>
+<li>降低系统失败风险。</li>
+<li>提高系统可靠性。</li>
+<li>提高系统的稳定性和可维护性。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>增量粒度难以选择。</li>
+<li>确定所有的基本业务服务比较困难。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>螺旋模型：<ul>
+<li>优点<ol>
+<li>强调可选方案和约束条件从而支持软件的重用，有助于将软件质量作为特殊目标融入产品开发之中。</li>
+<li>将瀑布模型的多个阶段转化到多个迭代过程中，减少项目的风险。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>风险分析需要相当的成本耗费，因此螺旋模型只适合于投<br>资较大的规模软件项目。</li>
+<li>失误的风险分析可能带来更大的风险。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>简述 UP 的三大特点，其中哪些内容体现了用户驱动的开发，哪些内容体现风险驱动的开发？</p>
+<ul>
+<li>UP的三大特点：<ul>
+<li>用例驱动的（Use Case Driven）</li>
+<li>迭代和增量的（Iterative and incremental）</li>
+<li>以架构为中心（Architecture-centric）</li>
+</ul>
+</li>
+<li>体现用户驱动开发：<strong>用例驱动</strong>和<strong>迭代与增量的</strong></li>
+<li>体现风险驱动开发：<strong>以架构为中心</strong></li>
+</ul>
+</li>
+<li><p>UP 四个阶段的划分准则是什么？关键的里程碑是什么？</p>
+<p>|           阶段           |                           划分准则                           |                     关键里程碑                      |<br>| :———————-: | :———————————————————-: | :————————————————-: |<br>|  Inception（初始阶段）   | 为系统建立业务案例（Business Case）并确定项目的边界。业务案例包括项目的验收规范、风险评估、所需资源估计、阶段计划等。 |     生命周期目标（Lifecycle Objective)）里程碑      |<br>| Elaboration（精化阶段）  | 分析问题领域，建立健全的体系结构基础，编制项目计划，完成项目中高风险需求部分的开发。 |   生命周期体系结构(Lifecycle Architecture) 里程碑   |<br>| Construction（构建阶段） | 完成所有剩余的技术构件和稳定业务需求功能的开发，并集成为产品，详细测试所有功能。 | 初始运行能力(Initial Operational Capability) 里程碑 |<br>|  Transition（移交阶段）  | 确保软件对最终用户是可用的。产品化阶段可以跨越几次迭代，包括为发布做准备的产品测试，基于用户反馈的少量调整。 |          产品发布(Product Release) 里程碑           |</p>
+<p>​</p>
+</li>
+<li><p>IT 项目管理中，“工期、质量、范围/内容” 三个元素中，在合同固定条件下，为什么说“范围/内容”是项目团队是易于控制的？</p>
+<p>在合同固定条件下，工期和产品质量是合同里明确指出的，固定性比较强，而范围/内容是IT项目团队在具体实践中自己实现的东西，可以通过多次的迭代、增量开发而达到扩大范围、完善内容的目的。因此范围/内容时项目团队易于控制的。</p>
+</li>
+<li><p>为什么说，UP 为企业按固定节奏生产、固定周期发布软件产品提供了依据？</p>
+<p>在UP中规定，软件生命周期在时间上被分解为四个顺序的阶段：初始阶段（Inception）、精化阶段（Elaboration）、构建阶段（Construction） 和移交阶段（Transition）。每个阶段结束于一个主要的里程碑（Major Milestone），且在阶段结尾时，都会执行一次评估以确定这个阶段的目标是否已经满足。如果评估结果令人满意的话，可以允许项目进入下一个阶段。每一个阶段和每一次迭代都有规定的时间长度。因此，UP为企业按固定节奏生产、固定周期发布软件产品提供了依据。</p>
+</li>
+</ol>
+<h3 id="项目管理使用"><a href="#项目管理使用" class="headerlink" title="项目管理使用"></a>项目管理使用</h3><p>任务Kanban展示：</p>
+<p><img src="/images/kanban.png" alt="kanban"></p>
 <p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
@@ -420,16 +483,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
-            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-          
-            <a href="/tags/C-C/" rel="tag"># C/C++</a>
-          
-        </div>
       
 
       
@@ -459,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/03/redundant-connection-i-and-ii/" rel="next" title="并查集算法解决 Redundant Connection I&II">
-                <i class="fa fa-chevron-left"></i> 并查集算法解决 Redundant Connection I&II
+              <a href="/2018/03/13/kmp-learning/" rel="next" title="KMP算法">
+                <i class="fa fa-chevron-left"></i> KMP算法
               </a>
             
           </div>
@@ -468,10 +521,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/13/remove-duplicate-letters/" rel="prev" title="LeetCode316.Remove Duplicate Letters--贪心算法">
-                LeetCode316.Remove Duplicate Letters--贪心算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -670,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-text">代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Homework2"><span class="nav-text">Homework2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简答题"><span class="nav-text">简答题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目管理使用"><span class="nav-text">项目管理使用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
