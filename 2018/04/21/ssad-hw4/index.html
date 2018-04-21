@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="Chinese">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mylogo-32x32.jpg?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mylogo-16x16.jpg?v=6.0.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.3',
+    sidebar: {"position":"right","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Hello!" />
+
+
+<meta name="description" content="用例建模实践用例建模Asg_RH文档用例图 去哪儿网酒店预订用例图 创新用例和子用例以黄色标注，外部系统和服务以蓝色标注。 对比两个时代、不同地区产品的用例图，在项目早期，发现创新最适合的切入点就是从用户角度入手。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件系统分析与设计-hw4">
+<meta property="og:url" content="https://Ace-0.github.io/2018/04/21/ssad-hw4/index.html">
+<meta property="og:site_name" content="Jarvis&#39;s Blog">
+<meta property="og:description" content="用例建模实践用例建模Asg_RH文档用例图 去哪儿网酒店预订用例图 创新用例和子用例以黄色标注，外部系统和服务以蓝色标注。 对比两个时代、不同地区产品的用例图，在项目早期，发现创新最适合的切入点就是从用户角度入手。">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://ace-0.github.io/images/reserve.png">
+<meta property="og:image" content="https://ace-0.github.io/images/qunar.png">
+<meta property="og:image" content="https://ace-0.github.io/images/activity.png">
+<meta property="og:image" content="https://ace-0.github.io/images/atm.png">
+<meta property="og:image" content="https://ace-0.github.io/images/taobao.png">
+<meta property="og:updated_time" content="2018-04-21T09:43:47.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件系统分析与设计-hw4">
+<meta name="twitter:description" content="用例建模实践用例建模Asg_RH文档用例图 去哪儿网酒店预订用例图 创新用例和子用例以黄色标注，外部系统和服务以蓝色标注。 对比两个时代、不同地区产品的用例图，在项目早期，发现创新最适合的切入点就是从用户角度入手。">
+<meta name="twitter:image" content="https://ace-0.github.io/images/reserve.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://Ace-0.github.io/2018/04/21/ssad-hw4/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>软件系统分析与设计-hw4 | Jarvis's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Chinese">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jarvis's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-others">
+          <a href="/others/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />others</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/04/21/ssad-hw4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件系统分析与设计-hw4</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T14:39:02+08:00">2018-04-21</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSAD/" itemprop="url" rel="index"><span itemprop="name">SSAD</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/21/ssad-hw4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/21/ssad-hw4/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="用例建模实践"><a href="#用例建模实践" class="headerlink" title="用例建模实践"></a>用例建模实践</h1><h2 id="用例建模"><a href="#用例建模" class="headerlink" title="用例建模"></a>用例建模</h2><h3 id="Asg-RH文档用例图"><a href="#Asg-RH文档用例图" class="headerlink" title="Asg_RH文档用例图"></a>Asg_RH文档用例图</h3><p><img src="/images/reserve.png" alt=""></p>
+<h3 id="去哪儿网酒店预订用例图"><a href="#去哪儿网酒店预订用例图" class="headerlink" title="去哪儿网酒店预订用例图"></a>去哪儿网酒店预订用例图</h3><p><img src="/images/qunar.png" alt=""></p>
+<p>创新用例和子用例以黄色标注，外部系统和服务以蓝色标注。</p>
+<p>对比两个时代、不同地区产品的用例图，在项目早期，发现创新最适合的切入点就是从用户角度入手。</p>
+<a id="more"></a>
+<p>例如，当用户预定酒店时，往往是到一个陌生的城市旅游或出行。那么，酒店的位置信息就十分重要。“去哪儿”提供的地图搜索功能就是一大创新，可以让用户非常直观，方便地看到各个酒店在地图上的位置，与此同时，又能了解酒店周边。用户就可以快速地了解到酒店和景点之间的距离，酒店周围的交通状况，出行便利度等信息，能让用户在选择酒店时有良好的体验。此外，在选择中，还可以在“点评”系统中看到其他用户的反馈，也能帮助用户更好的选择适合自己的酒店。</p>
+<p>Backlog:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Imp</th>
+<th>Est</th>
+<th>How to preview</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>酒店搜索</td>
+<td>50</td>
+<td>4</td>
+<td>访问网站，我能看到正在上映、即将上映的电影信息（电影名称、地区、类型、评分）。</td>
+<td>第一轮迭代</td>
+</tr>
+<tr>
+<td>搜索结果筛选与排序</td>
+<td>30</td>
+<td>3</td>
+<td>访问网站，我能看到不同影院、不同影片的座位信息。</td>
+<td>第三轮迭代</td>
+</tr>
+<tr>
+<td>展示酒店详细信息</td>
+<td>30</td>
+<td>3</td>
+<td>访问网站，我可以购票、查票和取票。</td>
+<td>第三轮迭代</td>
+</tr>
+<tr>
+<td>提交订单</td>
+<td>50</td>
+<td>4</td>
+<td>访问网站，我可以注册与登录，并且查询我的购票历史。</td>
+<td>第二轮迭代</td>
+</tr>
+<tr>
+<td>点评酒店</td>
+<td>20</td>
+<td>2</td>
+<td>完成订单后，可以在完成界面点评酒店</td>
+<td>第四轮迭代</td>
+</tr>
+</tbody>
+</table>
+<h2 id="业务建模"><a href="#业务建模" class="headerlink" title="业务建模"></a>业务建模</h2><p>活动图建模<strong>找酒店用例</strong></p>
+<p><img src="/images/activity.png" alt=""></p>
+<p>在流程图中，对于某一个重要操作而言，它的下一个操作实际上就是它在用例图中相应的子用例。</p>
+<p>活动图描绘<strong>银行ATM取款业务流程</strong></p>
+<p><img src="/images/atm.png" alt=""></p>
+<p>使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同<strong>完成退货业务</strong>的过程</p>
+<p><img src="/images/taobao.png" alt=""></p>
+<p>客户要完成退货业务，在淘宝网上需要实现的系统用例包括：<code>发起退货申请</code>，<code>填写退货信息</code>，<code>接收退货地址</code>，<code>填写物流单号</code>。</p>
+<h2 id="用例文本编写"><a href="#用例文本编写" class="headerlink" title="用例文本编写"></a>用例文本编写</h2><p>分析三种用例文本的优点和缺点：</p>
+<ul>
+<li>Use Case：<ul>
+<li>优点：能方便直观地看到用户的所有用例及子用例，明确规定系统界限，区分系统外部和内部，展示了系统及它的参与者</li>
+<li>缺点：用例之间的关系不明确或不能直观展示。复杂业务活动包含很多用例，它们之间的过程关系用户难以理解。</li>
+</ul>
+</li>
+<li>Activity：<ul>
+<li>优点：直观地展示了针对某个用例的完整流程，包括条件分支等细节。项目早期，编写完整Use Case文本太耗费时间，可以使用活动图将重要的场景描述出来</li>
+<li>缺点：无法表述多个用例实现过程，对于整个完整的系统而言，描述并不周全</li>
+</ul>
+</li>
+<li>多泳道图：<ul>
+<li>优点：能够清晰体现出某个用例/子用例发生在哪个参与者或系统中</li>
+<li>缺点：难以区分内部和外部系统</li>
+</ul>
+</li>
+</ul>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/13/docker-learning/" rel="next" title="Docker 入门实战">
+                <i class="fa fa-chevron-left"></i> Docker 入门实战
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mylogo.jpg"
+                alt="Jarvis Wong" />
+            
+              <p class="site-author-name" itemprop="name">Jarvis Wong</p>
+              <p class="site-description motion-element" itemprop="description">Ideas worth spreading.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Ace-0" target="_blank" title="Ace-0"><i class="fa fa-fw fa-github"></i>Ace-0</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:g674901087@gmail.com" target="_blank" title="Gmail"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="Wechat:w674--7" target="_blank" title="w674--7"><i class="fa fa-fw fa-wechat"></i>w674--7</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JarvisWong8" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用例建模实践"><span class="nav-text">用例建模实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用例建模"><span class="nav-text">用例建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Asg-RH文档用例图"><span class="nav-text">Asg_RH文档用例图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去哪儿网酒店预订用例图"><span class="nav-text">去哪儿网酒店预订用例图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务建模"><span class="nav-text">业务建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例文本编写"><span class="nav-text">用例文本编写</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhijun Wang. All rights reserved.</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Ace-0',
+            repo: 'BlogComments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5c9fc26aae6895e7dc47278a5dc770f4ec8edd5a',
+            
+                client_id: '4349b8d5b720a0263450'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "topRight";
+      
+          flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9432,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
