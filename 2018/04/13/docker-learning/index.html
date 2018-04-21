@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://ace-0.github.io/images/docker.png">
 <meta property="og:image" content="https://ace-0.github.io/images/file.png">
 <meta property="og:image" content="https://ace-0.github.io/images/broswer.png">
-<meta property="og:updated_time" content="2018-04-15T07:34:48.203Z">
+<meta property="og:updated_time" content="2018-04-21T10:54:10.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker 入门实战">
 <meta name="twitter:description" content="Docker基础知识Docker是什么Docker 最初是 dotCloud 公司创始人 Solomon Hykes 在法国期间发起的一个公司内部项目，它是基于 dotCloud 公司多年云服务技术的一次革新，并于 2013 年 3 月以 Apache 2.0 授权协议开源，主要项目代码在 GitHub 上进行维护。 Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 L">
@@ -458,15 +458,13 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"</span><br></pre></td></tr></table></figure>
 <p>之后，重启服务即可生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo service docker restart</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>Ubuntu 16.04+、Debian 8+、CentOS 7</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
 <p>写入以下内容：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://registry.docker-cn.com"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>重启服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo systemctl daemon-reload</span><br><span class="line"><span class="meta">$</span> sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 </li>
 </ul>
 <p>重新运行<code>hello-world</code></p>
