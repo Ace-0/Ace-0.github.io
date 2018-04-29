@@ -286,6 +286,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/12/08/maximun-product-subarray/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/08/maximun-product-subarray/" itemprop="url">Leetcode 152. Maximum Product Subarray</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-08T11:48:43+08:00">2017-12-08</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Find the contiguous subarray within an array (containing at least one number) which has the largest product.</p>
+<p>For example, given the array <code>[2,3,-2,4]</code>,<br>the contiguous subarray <code>[2,3]</code> has the largest product = <code>6</code>.</p>
+<p><a href="https://leetcode.com/problems/maximum-product-subarray/description/" target="_blank" rel="noopener">原题链接</a></p>
+</blockquote>
+<p>题目要求在一个给定数组中，找到乘积最大的连续子数组。这题并不难，显然，原数组中对于乘积造成影响的显然只是元素的正负值。对于绝对值而言，除0以外，毫无疑问是单调递增的。</p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>尝试用动态规划来解决，利用dp[i]来表示“以nums[i]作为最后一个元素的连续乘积”。但是，显然dp[i]不能简单的由dp[i-1]给出。我们有这样一种假设：如果nums[i]<0，那么我们要使dp[i]最大，则会希望dp[i-1]是一个很小的负数；如果nums[i]>0，那么我们要使dp[i]最大，则会希望dp[i-1]是一个很大的正数。因此，可以考虑同时用两个值，一个最大值和一个最小值，来维护当前状态。</0，那么我们要使dp[i]最大，则会希望dp[i-1]是一个很小的负数；如果nums[i]></p>
+<p>因此，现在考虑使用两个动态规划的数组max_product和min_product。对于nums[i]，进行分类讨论：</p>
+<ul>
+<li><p>max_product[i-1]&gt;0 &amp;&amp; min_product[i-1]&lt;0</p>
+<ul>
+<li><p>nums[i]&gt;0，则有：</p>
+<p><code>max_product[i] = nums[i]*max_product[i-1]</code></p>
+<p><code>min_product[i] = nums[i]*min_product[i-1])</code></p>
+</li>
+<li><p>nums[i]&lt;0，则有：</p>
+<p><code>max_product[i] = nums[i]*min_product[i-1]</code></p>
+<p><code>min_product[i] = nums[i]*max_product[i-1]</code></p>
+</li>
+<li><p>nums[i]==0，则有：</p>
+<p><code>max_product[i] = nums[i]</code></p>
+<p><code>min_product[i] = min_product[i-1]</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/08/maximun-product-subarray/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/12/06/maximal-square/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1324,163 +1488,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/23/increasing-subsequences/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mylogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/23/increasing-subsequences/" itemprop="url">LeetCode 491. Increasing Subsequences</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T15:59:09+08:00">2017-09-23</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given an integer array, your task is to find all the different possible increasing subsequences of the given array, and the length of an increasing subsequence should be at least 2 .</p>
-<p>Example:<br>Input: [4, 6, 7, 7]<br>Output: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]</p>
-<p>Note:</p>
-<ol>
-<li>The length of the given array will not exceed 15.</li>
-<li>The range of integer in the given array is [-100,100].</li>
-<li>The given array may contain duplicates, and two equal integers should also be considered as a special case of increasing sequence.</li>
-</ol>
-</blockquote>
-<p>题目大意是：从给定的一组数中，找到所有递增的子序列。但其实这里的递增（increasing）包含了所有非递减的子序列，从样例中可知。还有一点需要注意的是，题目给定的一组数（<code>vector&lt;int&gt; nums</code>）其实是有序的，即不能通过改变<code>nums</code>中的数的顺序来获取递增的子序列。虽然这一点在题目中没有明确说明，但是评测中会有这么一个样例：</p>
-<blockquote>
-<p>Input: [4,3,2,1]<br>Output: []</p>
-</blockquote>
-<p>因此，在实现时还要注意保持<code>nums</code>中数列的顺序。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/23/increasing-subsequences/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1532,7 +1539,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1588,7 +1595,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
