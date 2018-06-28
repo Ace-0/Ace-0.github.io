@@ -104,32 +104,28 @@
 
 
   
-  <meta name="keywords" content="系统架构," />
+  <meta name="keywords" content="Docker,Dockerfile," />
 
 
-<meta name="description" content="系统架构架构与框架之间的区别与联系只要清楚了两者的定义，它们之间的区别就很明显了。  架构（Architecture）： 软件架构是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计。 架构是一系列关于软件系统组织的重要决策。软件架构决策涉及到软件系统核心（主体、基础）结构的组成元素，以及这些核心组成元素之间的相互依赖、交互、协作等关系。 一个软件的架构是动静结合的，既包括核心元">
-<meta name="keywords" content="系统架构">
+<meta name="description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
+<meta name="keywords" content="Docker,Dockerfile">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统分析与设计-hw8">
-<meta property="og:url" content="https://Ace-0.github.io/2018/06/03/ssad-hw8/index.html">
+<meta property="og:title" content="使用Dockerfile构建镜像，搭建Flask + MySQL应用">
+<meta property="og:url" content="https://Ace-0.github.io/2018/06/20/dockerfile-learning/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="系统架构架构与框架之间的区别与联系只要清楚了两者的定义，它们之间的区别就很明显了。  架构（Architecture）： 软件架构是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计。 架构是一系列关于软件系统组织的重要决策。软件架构决策涉及到软件系统核心（主体、基础）结构的组成元素，以及这些核心组成元素之间的相互依赖、交互、协作等关系。 一个软件的架构是动静结合的，既包括核心元">
+<meta property="og:description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="https://ace-0.github.io/images/yelda.png">
-<meta property="og:image" content="https://ace-0.github.io/images/formula1.png">
-<meta property="og:image" content="https://ace-0.github.io/images/formula2.png">
-<meta property="og:updated_time" content="2018-06-03T08:40:51.062Z">
+<meta property="og:updated_time" content="2018-06-28T14:57:09.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统分析与设计-hw8">
-<meta name="twitter:description" content="系统架构架构与框架之间的区别与联系只要清楚了两者的定义，它们之间的区别就很明显了。  架构（Architecture）： 软件架构是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计。 架构是一系列关于软件系统组织的重要决策。软件架构决策涉及到软件系统核心（主体、基础）结构的组成元素，以及这些核心组成元素之间的相互依赖、交互、协作等关系。 一个软件的架构是动静结合的，既包括核心元">
-<meta name="twitter:image" content="https://ace-0.github.io/images/yelda.png">
+<meta name="twitter:title" content="使用Dockerfile构建镜像，搭建Flask + MySQL应用">
+<meta name="twitter:description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
 
 
 
 
 
 
-  <link rel="canonical" href="https://Ace-0.github.io/2018/06/03/ssad-hw8/"/>
+  <link rel="canonical" href="https://Ace-0.github.io/2018/06/20/dockerfile-learning/"/>
 
 
 
@@ -138,7 +134,7 @@
     sidebar: "",
   };
 </script>
-  <title>系统分析与设计-hw8 | Jarvis's Blog</title>
+  <title>使用Dockerfile构建镜像，搭建Flask + MySQL应用 | Jarvis's Blog</title>
   
 
 
@@ -291,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/03/ssad-hw8/">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/20/dockerfile-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis Wong">
@@ -308,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统分析与设计-hw8</h1>
+          <h1 class="post-title" itemprop="name headline">使用Dockerfile构建镜像，搭建Flask + MySQL应用</h1>
         
 
         <div class="post-meta">
@@ -320,7 +316,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-03T14:32:00+08:00">2018-06-03</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-20T20:21:38+08:00">2018-06-20</time>
             
 
             
@@ -341,7 +337,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSAD/" itemprop="url" rel="index"><span itemprop="name">SSAD</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
 
                 
                 
@@ -356,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/03/ssad-hw8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/03/ssad-hw8/" itemprop="commentsCount"></span>
+                <a href="/2018/06/20/dockerfile-learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/20/dockerfile-learning/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -390,70 +386,59 @@
       
 
       
-        <h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><h3 id="架构与框架之间的区别与联系"><a href="#架构与框架之间的区别与联系" class="headerlink" title="架构与框架之间的区别与联系"></a>架构与框架之间的区别与联系</h3><p>只要清楚了两者的定义，它们之间的区别就很明显了。</p>
+        <h1 id="Dockerfile-简介"><a href="#Dockerfile-简介" class="headerlink" title="Dockerfile 简介"></a>Dockerfile 简介</h1><h3 id="Dockerfile-是什么"><a href="#Dockerfile-是什么" class="headerlink" title="Dockerfile 是什么"></a>Dockerfile 是什么</h3><blockquote>
+<p>镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。</p>
+</blockquote>
+<h3 id="为什么要用-Dockerfile"><a href="#为什么要用-Dockerfile" class="headerlink" title="为什么要用 Dockerfile"></a>为什么要用 Dockerfile</h3><p>Dockerfile的好处实在是太多了，除非你真的能很容易的找到一个<strong>满足你一切需求</strong>，<strong>没有你不想要的层</strong>，<strong>非常好用</strong>的镜像。当你想要追求以上的条件时，就可以开始考虑用Dockerfile构建属于自己的镜像了。</p>
+<h3 id="Dockerfile-基本指令"><a href="#Dockerfile-基本指令" class="headerlink" title="Dockerfile 基本指令"></a>Dockerfile 基本指令</h3><p>Dockerfile功能很强大，它提供了十多个指令，详细可参考<a href="https://yeasy.gitbooks.io/docker_practice/content/image/dockerfile/" target="_blank" rel="noopener">Dockerfile 指令详解</a></p>
+<h2 id="Dockerfile-实战"><a href="#Dockerfile-实战" class="headerlink" title="Dockerfile 实战"></a>Dockerfile 实战</h2><p>下面将以构建一个后端web应用为例，学习Dockerfile的使用。这个基本的web应用包括：</p>
 <ul>
-<li><p>架构（Architecture）：</p>
-<p>软件架构是有关软件<u>整体结构与组件</u>的<u>抽象</u>描述，用于指导大型软件系统各个方面的设计。 架构是一系列关于<strong>软件系统组织</strong>的重要决策。软件架构决策涉及到软件系统核心（主体、基础）结构的<strong>组成元素</strong>，以及这些核心组成元素之间的相互<strong>依赖、交互、协作</strong>等关系。 一个软件的架构是动静结合的，既包括核心元素之间的静态结构（static structural）关系，也包括动态行为（dynamic behavioral）关系。</p>
-<p>软件架构对应的职业就是软件架构师 。</p>
-<blockquote>
-<p>与建筑师设定建筑项目的设计原则和目标，作为绘图员画图的基础一样，软件架构师或者系统架构师陈述软件架构以作为满足不同客户需求的实际系统设计方案的基础。 </p>
-</blockquote>
-</li>
-<li><p>框架（Framework）：</p>
-<p>框架是特定语言和技术的架构应用解决方案 ，通常指的是<strong>为了实现某个业界标准或者完成特定的基本任务的软件组件规范</strong>。框架，与具体的软件应用无关，但是提供并实现<strong>最为基础的软件架构和体系</strong>。程序员根据特定的框架来实现更为复杂的业务逻辑。框架是集成了程序员代码和多种第三方解决方案的工具，让程序员聚焦<strong>业务逻辑代码</strong>而<strong>不是技术实现</strong>。</p>
-<p>框架可以看作一种特殊的软件，它并不能提供完整无缺的解决方案，而是为程序员构建解决方案提供良好的基础。框架是半成品 。</p>
-<blockquote>
-<p>简而言之，框架就是制定一套规范或者规则（思想），让大家（程序员）能够在该规范或者思想下工程。或者说使用别人搭好的舞台来做编剧或导演</p>
-</blockquote>
-</li>
+<li>利用<code>Flask</code>框架编写的后端应用</li>
+<li>MySQL作为数据库</li>
 </ul>
-<a id="more"></a>
-<p>两者间的联系：</p>
-<p>在架构中，从大的层面来说，针对某一个系统架构，里面可能会用到多种解决各方面问题的框架，关注的是技术整合、扩展、可维护性 。而换个角度，在框架中也会涉及到架构问题，比如开发一个新的框架，也需要考虑如何进行整体的设计，架构决策往往会体现在框架之中 。</p>
-<h3 id="以眼底图像标注系统为例进行分析"><a href="#以眼底图像标注系统为例进行分析" class="headerlink" title="以眼底图像标注系统为例进行分析"></a>以眼底图像标注系统为例进行分析</h3><p><a href="https://github.com/TheYelda" target="_blank" rel="noopener">系统Github地址</a></p>
-<p>三层架构模式图（细致到分区）：</p>
-<p><img src="/images/yelda.png" alt=""></p>
-<p>以上明确的三层结构能够给开发者带来便利：</p>
-<p><strong>从整体上分析：</strong></p>
+<p>因此，分别需要两个个容器：</p>
+<ul>
+<li>运行后端程序的容器</li>
+<li>数据库容器</li>
+</ul>
+<h3 id="启动-MySQL容器"><a href="#启动-MySQL容器" class="headerlink" title="启动 MySQL容器"></a>启动 MySQL容器</h3><p>对于数据库容器，可以直接使用官方的<code>mysql</code>镜像。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+<p>如果配置了国内官方镜像仍然无法拉取，可以使用别的镜像库，例如<code>DaoCloud</code>，<code>网易</code>等：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker pull daocloud.io/library/mysql:5.7.4</span><br></pre></td></tr></table></figure>
+<p>然后运行这个容器，配置端口映射。由于我本地3306已经被使用，于是配置3307端口来映射：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker run -d \</span><br><span class="line">4-p 3307:3306 \</span><br><span class="line">4--name db \</span><br><span class="line">4-e MYSQL_ROOT_PASSWORD=123　\</span><br><span class="line">4daocloud.io/library/mysql:5.7.4</span><br></pre></td></tr></table></figure>
+<p>这里，<code>-e</code>（<code>--env</code>）设置表示设置环境变量，将MySQL的默认<code>root</code>密码设置为<code>123</code>。</p>
+<p>可以通过<code>$ sudo docker ps</code>看到该容器已经在运行了。同时，由于暴露了3307端口，同样也可以使用mysql客户端对这个容器进行连接：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mysql -h127.0.0.1 -uroot -p123 -P3307</span><br></pre></td></tr></table></figure>
+<p>接下来，可以创建一个数据库供后端程序连接。</p>
+<h3 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h3><p>这里示例用的后端应用使用python+Flask开发，因此，整个镜像可以构建在python基础上。我使用的是<code>python:3.5-alpine</code>镜像作为基础。</p>
+<p>在<code>./server/</code>目录下，放置了整个后端应用的代码，大致结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Dockerfile</span><br><span class="line">└── server</span><br><span class="line">    ├── app</span><br><span class="line">    ├── config.py</span><br><span class="line">    ├── instance</span><br><span class="line">    ├── log</span><br><span class="line">    ├── requirements.txt</span><br><span class="line">    └── run.py</span><br></pre></td></tr></table></figure>
+<p>编写的Dockerfile如下：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.5</span>-alpine</span><br><span class="line"><span class="keyword">LABEL</span> maintainer="Jarvis-Wong"</span><br><span class="line"></span><br><span class="line">COPY server/ /server/</span><br><span class="line"></span><br><span class="line">WORKDIR /server</span><br><span class="line"></span><br><span class="line">RUN pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line">CMD ["python3", "run.py"]</span><br></pre></td></tr></table></figure>
+<p>逐行的解释一下这个简单的Dockerfile：</p>
+<p>FROM：指定<strong>基础镜像</strong>，因此一个 <code>Dockerfile</code> 中 <code>FROM</code> 是必备的指令，并且必须是第一条指令。当然，以 <code>scratch</code> 为基础镜像的话，意味着你不以任何镜像为基础，接下来所写的指令将作为镜像第一层开始存在。</p>
+<p>LABEL：这个指令只是用于指定一些信息，这里不做解释。</p>
+<p>COPY：格式为<code>COPY &lt;源路径&gt;... &lt;目标路径&gt;</code>或者<code>COPY [&quot;&lt;源路径1&gt;&quot;,... &quot;&lt;目标路径&gt;&quot;]</code>指令将从构建上下文目录中 <code>&lt;源路径&gt;</code> 的文件/目录复制到新的一层的镜像内的 <code>&lt;目标路径&gt;</code> 位置。</p>
+<p>WORKDIR：切换工作目录（容器中）</p>
+<p>RUN：指令是用来执行命令行命令的。由于命令行的强大能力，<code>RUN</code> 指令在定制镜像时是最常用的指令之一。</p>
+<p>CMD：在启动容器的时候，需要指定所运行的程序及参数。<code>CMD</code> 指令就是用于指定默认的容器主进程的启动命令的。与RUN的格式类似</p>
+<p>总的来说，这个Dockerfile在构建镜像时，做了四件事情：</p>
 <ol>
-<li>开发人员只需要关注各自所在结构中的某一层</li>
-<li>当某一层需要发生改变甚至重构时，只要不改变接口，其它层可以完全不受影响</li>
-<li>大幅度减少了依赖和耦合程度，有利于各层逻辑复用，结构明确，大部降低维护成本。</li>
-<li>当出现问题时，从不同层次上查找问题，可以很容易确定问题出现的模块。</li>
+<li>找到<code>python:3.5-alpine</code>镜像，并将它作为基础。如果本地没有这个惊喜，dock同样会进行<code>pull</code>操作。</li>
+<li>将本目录下的<code>server/</code>文件夹下的内容，复制到容器的<code>/server/</code>下。</li>
+<li>在容器中，进入目录<code>/server</code>（默认会在根目录下）。</li>
+<li>在当前工作目录下，执行指令<code>pip3 install -r requirements.txt</code>，安装依赖模块。</li>
+<li>指定启动容器的命令为<code>python3 run.py</code>。</li>
 </ol>
-<p><strong>按阶段分析：</strong></p>
-<ul>
-<li>设计：设计阶段，前后端之间只需要共同协定RESTapi的设计，而不需要考虑具体的语言，框架等因素。</li>
-<li>开发：在已有的API文档的基础上，前后端的开发可以并发进行，互不干扰。</li>
-<li>测试：前端可以利用mock测试，后端可以利用curl/wget等命令或框架自带的GUI完成测试，前后端达到分离测试，减少了集成测试时出现问题的概率，减少回归成本。</li>
-<li>维护：层与层之间的分离使得维护变得更为简单。</li>
-</ul>
-<h3 id="VUE-与-Flux-状态管理的异同"><a href="#VUE-与-Flux-状态管理的异同" class="headerlink" title="VUE 与 Flux 状态管理的异同"></a>VUE 与 Flux 状态管理的异同</h3><ul>
-<li><p>vue：</p>
-<ul>
-<li><p>vuex是专门为vue提供的状态管理工具 。</p>
-</li>
-<li><p>vuex核心：</p>
-<ul>
-<li>state：存放多个组件共享的状态（数据）</li>
-<li>mutations：存放更改state里状态的方法，用于变更状态，是唯一一个更改状态的属性</li>
-<li>getters：将state中某个状态进行过滤，然后获取新的状态，类似于vue中的computed</li>
-<li>actions：用于调用事件动作，并传递给mutation</li>
-<li>modules：主要用来拆分state</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/formula1.png" alt=""></p>
-</li>
-<li><p>Flux：</p>
-<ul>
-<li>状态集管理框架，由facebook创建</li>
-<li>专门用来构建前端框架结构的框架 ，便于维护</li>
-<li>用于安全考虑，它分为四层：view视图层，action层，dispatcher派发层，store仓库层</li>
-</ul>
-<p><img src="/images/formula2.png" alt=""></p>
-</li>
-</ul>
+<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><p>写好了Dockerfile，就可以利用它来构建镜像了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker build -t app:v1 .</span><br></pre></td></tr></table></figure>
+<p><code>-t</code>用于指定构建的容器的名字为<code>app</code>， 版本号为<code>v1</code>，没有指定版本时默认为<code>latest</code>。最后的<code>.</code>是用于指定上下文，因为在这个目录下放置了<code>Dockerfile</code>文件，因此只需要用<code>.</code>表示。当你的Dockerfile文件不在当前目录，或者用了别的文件名时，需要用其他路径代替。</p>
+<p>运行后，可以看到镜像构建的过程。之后，使用<code>$ sudo docker image ls</code>就可以看到这个镜像了。</p>
+<p>关于后端代码连接数据库容器的配置，需要在此步骤<strong>之前</strong>写好配置文件，因为镜像构建的过程中，配置文件就已经被拷贝到容器中了。</p>
+<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><p>此时，就可以用镜像来运行容器了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker run -d \</span><br><span class="line">4-p 9090:10086 \</span><br><span class="line">4--name app /</span><br><span class="line">4app:v1</span><br></pre></td></tr></table></figure>
+<p>这时候，后端程序已经开始运行了，并且连接上了另一个容器<code>db</code>作为它的数据库。</p>
 <p><em>本文为博主原创文章，转载请注明出处。</em></p>
 
       
@@ -472,7 +457,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/系统架构/" rel="tag"># 系统架构</a>
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+            <a href="/tags/Dockerfile/" rel="tag"># Dockerfile</a>
           
         </div>
       
@@ -504,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/ssad-hw7/" rel="next" title="系统分析与设计-hw7">
-                <i class="fa fa-chevron-left"></i> 系统分析与设计-hw7
+              <a href="/2018/06/13/unity-collaborate-introduction/" rel="next" title="Unity Collaborate Serive 入门">
+                <i class="fa fa-chevron-left"></i> Unity Collaborate Serive 入门
               </a>
             
           </div>
@@ -513,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/13/unity-collaborate-introduction/" rel="prev" title="Unity Collaborate Serive 入门">
-                Unity Collaborate Serive 入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -743,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系统架构"><span class="nav-text">系统架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#架构与框架之间的区别与联系"><span class="nav-text">架构与框架之间的区别与联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以眼底图像标注系统为例进行分析"><span class="nav-text">以眼底图像标注系统为例进行分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VUE-与-Flux-状态管理的异同"><span class="nav-text">VUE 与 Flux 状态管理的异同</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile-简介"><span class="nav-text">Dockerfile 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-是什么"><span class="nav-text">Dockerfile 是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用-Dockerfile"><span class="nav-text">为什么要用 Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-基本指令"><span class="nav-text">Dockerfile 基本指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile-实战"><span class="nav-text">Dockerfile 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-MySQL容器"><span class="nav-text">启动 MySQL容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写Dockerfile"><span class="nav-text">编写Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建镜像"><span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行容器"><span class="nav-text">运行容器</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
