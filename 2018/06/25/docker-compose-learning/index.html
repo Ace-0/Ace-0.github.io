@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="Chinese">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mylogo-32x32.jpg?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mylogo-16x16.jpg?v=6.0.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.3',
+    sidebar: {"position":"right","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Docker,Dockerfile,Docker-Compose," />
+
+
+<meta name="description" content="Docker-Compose简介Docker-Compose是什么 Docker Compose 是 Docker 官方编排（Orchestration）项目之一，负责快速的部署分布式应用。  其代码目前在 https://github.com/docker/compose 上开源。它的定位是定义和运行多个 Docker 容器的应用（Defining and running multi-conta">
+<meta name="keywords" content="Docker,Dockerfile,Docker-Compose">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker-compose 一键部署web应用（Nginx + Flask + MySQL）">
+<meta property="og:url" content="https://Ace-0.github.io/2018/06/25/docker-compose-learning/index.html">
+<meta property="og:site_name" content="Jarvis&#39;s Blog">
+<meta property="og:description" content="Docker-Compose简介Docker-Compose是什么 Docker Compose 是 Docker 官方编排（Orchestration）项目之一，负责快速的部署分布式应用。  其代码目前在 https://github.com/docker/compose 上开源。它的定位是定义和运行多个 Docker 容器的应用（Defining and running multi-conta">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://ace-0.github.io/images/compose-logo.png">
+<meta property="og:updated_time" content="2018-06-30T10:23:15.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker-compose 一键部署web应用（Nginx + Flask + MySQL）">
+<meta name="twitter:description" content="Docker-Compose简介Docker-Compose是什么 Docker Compose 是 Docker 官方编排（Orchestration）项目之一，负责快速的部署分布式应用。  其代码目前在 https://github.com/docker/compose 上开源。它的定位是定义和运行多个 Docker 容器的应用（Defining and running multi-conta">
+<meta name="twitter:image" content="https://ace-0.github.io/images/compose-logo.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://Ace-0.github.io/2018/06/25/docker-compose-learning/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>Docker-compose 一键部署web应用（Nginx + Flask + MySQL） | Jarvis's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Chinese">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jarvis's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-others">
+          <a href="/others/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />others</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/25/docker-compose-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker-compose 一键部署web应用（Nginx + Flask + MySQL）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-25T19:10:28+08:00">2018-06-25</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/25/docker-compose-learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/25/docker-compose-learning/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Docker-Compose简介"><a href="#Docker-Compose简介" class="headerlink" title="Docker-Compose简介"></a>Docker-Compose简介</h2><h3 id="Docker-Compose是什么"><a href="#Docker-Compose是什么" class="headerlink" title="Docker-Compose是什么"></a>Docker-Compose是什么</h3><blockquote>
+<p><code>Docker Compose</code> 是 Docker 官方编排（Orchestration）项目之一，负责快速的部署分布式应用。</p>
+</blockquote>
+<p>其代码目前在 <a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a> 上开源。它的定位是<strong>定义和运行多个 Docker 容器的应用</strong>（Defining and running multi-container Docker applications）。</p>
+<h3 id="为什么要使用Docker-Compose"><a href="#为什么要使用Docker-Compose" class="headerlink" title="为什么要使用Docker-Compose"></a>为什么要使用Docker-Compose</h3><p>在<a href="">之前的文章</a>中，我们了解到使用一个<code>Dockerfile</code>可以很方便的自定义一个容器。然而，在实际的生产环境中，一个单独的容器往往是不足以完成任务的。例如，对于一个简单的网站，就需要一个web应用本身的容器，一个数据库容器 ，甚至是一个负载均衡服务器的容器。<code>Docker-Compose</code>正是为了解决这样的问题而诞生的，我们可以通过一个<code>docker-compose.yml</code>文件，定义一组容器的关联关系和依赖关系，将它们视作一个整体的项目(project)。<code>Compose</code>的官方图标就很好的说明了它的作用：</p>
+<p><img src="/images/compose-logo.png" alt=""></p>
+<h3 id="关于Compose的基本概念"><a href="#关于Compose的基本概念" class="headerlink" title="关于Compose的基本概念"></a>关于Compose的基本概念</h3><blockquote>
+<p><code>Compose</code> 中有两个重要的概念：</p>
+<ul>
+<li><p>服务 (<code>service</code>)：一个应用的容器，实际上可以包括若干运行相同镜像的容器实例。</p>
+</li>
+<li><p>项目 (<code>project</code>)：由一组关联的应用容器组成的一个完整业务单元，在 <code>docker-compose.yml</code> 文件中定义。</p>
+</li>
+</ul>
+<p><code>Compose</code> 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理。</p>
+</blockquote>
+<h2 id="Docker-Compose实战"><a href="#Docker-Compose实战" class="headerlink" title="Docker-Compose实战"></a>Docker-Compose实战</h2><h3 id="安装Docker-Compose"><a href="#安装Docker-Compose" class="headerlink" title="安装Docker-Compose"></a>安装Docker-Compose</h3><p>两种方式：</p>
+<ul>
+<li><p>使用<code>github</code>二进制文件安装（建议）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta">$</span> sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>PIP</code>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pip install -U docker-compose</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>验证：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose --version</span><br></pre></td></tr></table></figure>
+<h3 id="使用Docker-Compose"><a href="#使用Docker-Compose" class="headerlink" title="使用Docker-Compose"></a>使用Docker-Compose</h3><p>接下来，我们使用<code>Docker-Compose</code>，搭建一个<code>Nginx + Flask + MySQL</code>的名为<code>yelda</code>的web应用。</p>
+<a id="more"></a>
+<p>项目的目录如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">├── my-app</span><br><span class="line">│   ├── Dockerfile</span><br><span class="line">│   └── server</span><br><span class="line">│       ├── app</span><br><span class="line">│       ├── config.py</span><br><span class="line">│       ├── instance</span><br><span class="line">│       ├── log</span><br><span class="line">│       ├── requirements.txt</span><br><span class="line">│       └── run.py</span><br><span class="line">└── my-nginx</span><br><span class="line">    ├── conf.d</span><br><span class="line">    │   └── yelda.conf</span><br><span class="line">    ├── dist</span><br><span class="line">    │   ├── caman.full.js</span><br><span class="line">    │   ├── css</span><br><span class="line">    │   ├── favicon.ico</span><br><span class="line">    │   ├── index.html</span><br><span class="line">    │   ├── js</span><br><span class="line">    │   ├── viewer.css</span><br><span class="line">    │   └── viewer.js</span><br><span class="line">    └── Dockerfile</span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>server/</code>目录下是后端代码，也是后端启动目录。该应用监听的是<code>10086</code>端口。</li>
+<li><code>conf.d</code>目录下的<code>yelda.conf</code>，是<code>Nginx</code>的配置文件。在这个文件中，我配置了<code>Nginx</code>监听<code>8081</code>端口，并且将<code>/api/</code>请求转发到<code>10086</code>端口，即后端应用运行的端口。（我使用的是<code>daocloud.io/library/nginx:1.13.0-alpine</code>版本镜像，旧版本下配置文件应该放置在<code>sites-enabled</code>目录下）。</li>
+<li><code>dist/</code>目录下是前端文件。</li>
+</ul>
+<h3 id="分别编写-Dockerfile"><a href="#分别编写-Dockerfile" class="headerlink" title="分别编写 Dockerfile"></a>分别编写 Dockerfile</h3><p>后端容器和负载均衡容器分别使用了它们各自的<code>Dockerfile</code>来构建，而数据库我直接使用了官方镜像。</p>
+<p>后端容器的<code>Dockerfile</code>如下：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.5</span>-alpine</span><br><span class="line"><span class="keyword">LABEL</span> maintainer="Jarvis-Wong"</span><br><span class="line"></span><br><span class="line">COPY server/ /www/</span><br><span class="line"></span><br><span class="line">WORKDIR /www</span><br><span class="line"></span><br><span class="line">RUN pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line">CMD ["python3", "run.py"]</span><br></pre></td></tr></table></figure>
+<p>完成了<strong>拷贝代码，切换工作目录，安装依赖，设置启动命令</strong>的任务。</p>
+<p>负载均衡容器的<code>Dockerfile</code>如下：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> daocloud.io/library/nginx:<span class="number">1.13</span>.<span class="number">0</span>-alpine</span><br><span class="line"><span class="keyword">LABEL</span> maintainer="Jarvis-Wong"</span><br><span class="line"></span><br><span class="line">COPY dist/ /static/</span><br><span class="line">COPY conf.d/ /etc/nginx/conf.d</span><br></pre></td></tr></table></figure>
+<p>完成了<strong>拷贝前端代码，拷贝配置文件</strong>的任务。</p>
+<p>到了这里，你当然可以分别运行三个容器，暴露端口，这样整个web应用就能运行起来了。但是，相比起每次要输入一长串的命令，以及更新后的多次构建，设置是要运行多个相同镜像的容器实例时，<code>Docker-Compose</code>就会起作用了。</p>
+<h3 id="使用-docker-compose-yml-关联容器"><a href="#使用-docker-compose-yml-关联容器" class="headerlink" title="使用 docker-compose.yml 关联容器"></a>使用 docker-compose.yml 关联容器</h3><p><code>docker-compose.yml</code>放置在根目录下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">  server:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">my-nginx/.</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8081:8081"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  webapp:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">my-app/.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"10086:10086"</span></span><br><span class="line"> </span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"db"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">daocloud.io/library/mysql:5.7.4</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3307:3306"</span></span><br><span class="line">      </span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_ROOT_PASSWORD=123</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_DATABASE=yelda</span></span><br></pre></td></tr></table></figure>
+<p>这个模板文件中，定义了三个<code>service</code>：server，webapp和db，分别对应者负载均衡器，后端应用和数据库。而这三个<code>service</code>就组成了一个<code>project</code>。</p>
+<h4 id="server-service"><a href="#server-service" class="headerlink" title="server service"></a>server service</h4><p>这一部分，实际上就是指定以<code>mg-nginx/</code>作为上下文构建镜像，类似于进入到<code>my-nginx/</code>目录下，然后<code>docker build .</code>。<code>ports</code>指定了暴露的端口映射，类似于直接运行<code>docker run</code>时的<code>-p</code>参数。</p>
+<h4 id="webapp-service"><a href="#webapp-service" class="headerlink" title="webapp service"></a>webapp service</h4><p>后端容器的构建也很简单，同样指定上下文构建，并暴露端口。<code>depends_on</code>指明了依赖关系，解决容器的依赖、启动先后的问题。这里指明了<code>webapp</code>必须在<code>db</code>之后启动。原因很简单，我的后端应用在启动时就需要连接数据库，那么数据库自然就要先于它启动了。</p>
+<h4 id="db-service"><a href="#db-service" class="headerlink" title="db service"></a>db service</h4><p>数据库容器，我并没有自己构建镜像，而是直接使用了官方镜像，也就是<code>image</code>字段指明的镜像。<code>image</code>用于指明该容器所用镜像，如果本地没有该镜像，同样会执行<code>pull</code>操作。<code>environment</code>字段用于设置环境变量，例如，在这里，我设置了<code>MySQL</code>的root密码，并新建了一个名为<code>yelda</code>的数据库。</p>
+<h3 id="使用Docker-Compose启动"><a href="#使用Docker-Compose启动" class="headerlink" title="使用Docker-Compose启动"></a>使用Docker-Compose启动</h3><p>接下来就是启动容器了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose up</span><br></pre></td></tr></table></figure>
+<p>只需要这一句命令，<code>Docker-Compose</code>和<code>Docker</code>会为你完成所有指定好的事情。现在，在浏览器输入<code>localhost:8081</code>就可以访问到这个web应用了。以上的运行放，你可以在控制台看到所有输出，一般来说会在后台启动：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose up -d</span><br><span class="line">Starting yelda_server_1 ... done</span><br><span class="line">Starting yelda_db_1     ... done</span><br><span class="line">Starting yelda_webapp_1 ... done</span><br></pre></td></tr></table></figure>
+<p>可以看到，这三个容器都已经在后台运行了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                            NAMES</span><br><span class="line">36e623937d9a        yelda_webapp                      "python3 run.py"         About an hour ago   Up 56 seconds       0.0.0.0:10086-&gt;10086/tcp         yelda_webapp_1</span><br><span class="line">f5a199db124b        daocloud.io/library/mysql:5.7.4   "/entrypoint.sh mysq…"   About an hour ago   Up 57 seconds       0.0.0.0:3307-&gt;3306/tcp           yelda_db_1</span><br><span class="line">1470e4a86eec        yelda_server                      "nginx -g 'daemon of…"   About an hour ago   Up 56 seconds       80/tcp, 0.0.0.0:8081-&gt;8081/tcp   yelda_server_1</span><br></pre></td></tr></table></figure>
+<p>要关闭它们，也只需要一个命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose down</span><br><span class="line">Stopping yelda_webapp_1 ... done</span><br><span class="line">Stopping yelda_db_1     ... done</span><br><span class="line">Stopping yelda_server_1 ... done</span><br><span class="line">Removing yelda_webapp_1 ... done</span><br><span class="line">Removing yelda_db_1     ... done</span><br><span class="line">Removing yelda_server_1 ... done</span><br><span class="line">Removing network yelda_default</span><br></pre></td></tr></table></figure>
+<p>就能关掉所有用<code>up</code>启动的容器并移除网络。并且，这些终止运行的容器并不会继续存在，即使用<code>docker container ls -a</code>也看不到它们，因为它们已经自动被删除了。</p>
+<p>当然，<code>docker-compose</code>提供了更多自由的命令来完成这个过程：<a href="https://yeasy.gitbooks.io/docker_practice/content/compose/commands.html" target="_blank" rel="noopener">compose命令详解</a></p>
+<p>例如，你可以先进行容器构建，而不启动：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose build</span><br></pre></td></tr></table></figure>
+<p>再使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose run db</span><br></pre></td></tr></table></figure>
+<p>来只启动数据库容器等。</p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><ol>
+<li>关于<code>depends_on</code>，该参数只是保证了<strong>启动顺序</strong>，例如，在上文中，可以保证先启动<code>db</code>再启动<code>webapp。</code>然而，并不能保证<code>webapp</code>会在<code>db</code><strong>完全启动</strong>之后再启动。如果遭遇到启动顺序上的问题，可以尝试手动先启动数据库。</li>
+<li>由于<code>Docker</code>会使用缓存机制，因此你有时候会发现容器内部的内容可能没有更新。例如，当更改了<code>docker-compose.yml</code>等文件时，直接使用<code>docker-compose up</code>是不正确的，需要重新构建，可以在后面加上<code>--build</code>参数。</li>
+<li>同样由于缓存机制，容器内部拷贝内容会没有更新，可以指定<code>--no-cache</code>命令，以及在运行时使用<code>--force-recreate</code>参数。如果这还没有解决问题，直接删除掉容器重新构建就好了。</li>
+</ol>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+            <a href="/tags/Dockerfile/" rel="tag"># Dockerfile</a>
+          
+            <a href="/tags/Docker-Compose/" rel="tag"># Docker-Compose</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/20/dockerfile-learning/" rel="next" title="使用Dockerfile构建镜像，搭建Flask + MySQL应用">
+                <i class="fa fa-chevron-left"></i> 使用Dockerfile构建镜像，搭建Flask + MySQL应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mylogo.jpg"
+                alt="Jarvis Wong" />
+            
+              <p class="site-author-name" itemprop="name">Jarvis Wong</p>
+              <p class="site-description motion-element" itemprop="description">Ideas worth spreading.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Ace-0" target="_blank" title="Ace-0"><i class="fa fa-fw fa-github"></i>Ace-0</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:g674901087@gmail.com" target="_blank" title="Gmail"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="Wechat:w674--7" target="_blank" title="w674--7"><i class="fa fa-fw fa-wechat"></i>w674--7</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JarvisWong8" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Compose简介"><span class="nav-text">Docker-Compose简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-Compose是什么"><span class="nav-text">Docker-Compose是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用Docker-Compose"><span class="nav-text">为什么要使用Docker-Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Compose的基本概念"><span class="nav-text">关于Compose的基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Compose实战"><span class="nav-text">Docker-Compose实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Docker-Compose"><span class="nav-text">安装Docker-Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Docker-Compose"><span class="nav-text">使用Docker-Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分别编写-Dockerfile"><span class="nav-text">分别编写 Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-docker-compose-yml-关联容器"><span class="nav-text">使用 docker-compose.yml 关联容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#server-service"><span class="nav-text">server service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webapp-service"><span class="nav-text">webapp service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#db-service"><span class="nav-text">db service</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Docker-Compose启动"><span class="nav-text">使用Docker-Compose启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhijun Wang. All rights reserved.</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Ace-0',
+            repo: 'BlogComments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5c9fc26aae6895e7dc47278a5dc770f4ec8edd5a',
+            
+                client_id: '4349b8d5b720a0263450'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "topRight";
+      
+          flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9432,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

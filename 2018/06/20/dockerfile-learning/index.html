@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
 <meta property="og:description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-06-28T14:57:09.060Z">
+<meta property="og:updated_time" content="2018-06-30T10:23:04.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Dockerfile构建镜像，搭建Flask + MySQL应用">
 <meta name="twitter:description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
@@ -401,6 +401,7 @@
 <li>运行后端程序的容器</li>
 <li>数据库容器</li>
 </ul>
+<a id="more"></a>
 <h3 id="启动-MySQL容器"><a href="#启动-MySQL容器" class="headerlink" title="启动 MySQL容器"></a>启动 MySQL容器</h3><p>对于数据库容器，可以直接使用官方的<code>mysql</code>镜像。例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
 <p>如果配置了国内官方镜像仍然无法拉取，可以使用别的镜像库，例如<code>DaoCloud</code>，<code>网易</code>等：</p>
@@ -501,6 +502,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/06/25/docker-compose-learning/" rel="prev" title="Docker-compose 一键部署web应用（Nginx + Flask + MySQL）">
+                Docker-compose 一键部署web应用（Nginx + Flask + MySQL） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -584,7 +589,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -666,7 +671,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

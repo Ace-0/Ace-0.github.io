@@ -286,6 +286,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/10/search-a-2d-matrix-ii/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/10/search-a-2d-matrix-ii/" itemprop="url">LeetCode 240. Search a 2D Matrix II</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-10T19:39:37+08:00">2017-09-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="O-nlogn-实现"><a href="#O-nlogn-实现" class="headerlink" title="O(nlogn)实现"></a>O(nlogn)实现</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:<br>Integers in each row are sorted in ascending from left to right.<br>Integers in each column are sorted in ascending from top to bottom.<br>For example,</p>
+<p>Consider the following matrix:<br>[<br>[1,   4,  7, 11, 15],<br>[2,   5,  8, 12, 19],<br>[3,   6,  9, 16, 22],<br>[10, 13, 14, 17, 24],<br>[18, 21, 23, 26, 30]<br>]</p>
+<p>Given target = 5, return true.<br>Given target = 20, return false.</p>
+</blockquote>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>题目要求为在一个二维矩阵中查找一个数，找到则返回true，否则返回false。<br>遇到查找的问题，我首先想到的是使用二分法。但是由于题目中的矩阵，虽然每一行每一列都是有序的，但是无法确定<code>matrix[i+1][j]</code>和<code>matrix[i][j+1]</code>的大小关系，因此，考虑对这个二维矩阵拆分为两层一维，并分别使用二分法。首先，用一次二分法确定行的范围：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/10/search-a-2d-matrix-ii/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2017/09/10/burst-balloons/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1378,7 +1526,7 @@ CBDA
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1460,7 +1608,9 @@ CBDA
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
