@@ -107,20 +107,21 @@
   <meta name="keywords" content="系统架构," />
 
 
-<meta name="description" content="详细设计 - BEC模型用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图">
+<meta name="description" content="详细设计 - BCE模型使用 BCE 实现 make reservation 用例的详细设计用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图将逻辑设计类图映射到实际项目框架的包图用树形结构表述实现的包和类">
 <meta name="keywords" content="系统架构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统分析与设计-hw8">
-<meta property="og:url" content="https://Ace-0.github.io/2018/06/03/ssad-hw9/index.html">
+<meta property="og:title" content="系统分析与设计-hw9">
+<meta property="og:url" content="https://Ace-0.github.io/2018/06/30/ssad-hw9/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="详细设计 - BEC模型用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图">
+<meta property="og:description" content="详细设计 - BCE模型使用 BCE 实现 make reservation 用例的详细设计用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图将逻辑设计类图映射到实际项目框架的包图用树形结构表述实现的包和类">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://ace-0.github.io/images/bce.png">
 <meta property="og:image" content="https://ace-0.github.io/images/class.png">
-<meta property="og:updated_time" content="2018-06-30T15:58:28.627Z">
+<meta property="og:image" content="https://ace-0.github.io/images/package.png">
+<meta property="og:updated_time" content="2018-06-30T16:25:26.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统分析与设计-hw8">
-<meta name="twitter:description" content="详细设计 - BEC模型用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图">
+<meta name="twitter:title" content="系统分析与设计-hw9">
+<meta name="twitter:description" content="详细设计 - BCE模型使用 BCE 实现 make reservation 用例的详细设计用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图将逻辑设计类图映射到实际项目框架的包图用树形结构表述实现的包和类">
 <meta name="twitter:image" content="https://ace-0.github.io/images/bce.png">
 
 
@@ -128,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://Ace-0.github.io/2018/06/03/ssad-hw9/"/>
+  <link rel="canonical" href="https://Ace-0.github.io/2018/06/30/ssad-hw9/"/>
 
 
 
@@ -137,7 +138,7 @@
     sidebar: "",
   };
 </script>
-  <title>系统分析与设计-hw8 | Jarvis's Blog</title>
+  <title>系统分析与设计-hw9 | Jarvis's Blog</title>
   
 
 
@@ -290,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/03/ssad-hw9/">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/30/ssad-hw9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis Wong">
@@ -307,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统分析与设计-hw8</h1>
+          <h1 class="post-title" itemprop="name headline">系统分析与设计-hw9</h1>
         
 
         <div class="post-meta">
@@ -319,7 +320,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-03T14:32:00+08:00">2018-06-03</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-30T20:32:01+08:00">2018-06-30</time>
             
 
             
@@ -355,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/03/ssad-hw9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/03/ssad-hw9/" itemprop="commentsCount"></span>
+                <a href="/2018/06/30/ssad-hw9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/30/ssad-hw9/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -389,12 +390,14 @@
       
 
       
-        <h1 id="详细设计-BEC模型"><a href="#详细设计-BEC模型" class="headerlink" title="详细设计 - BEC模型"></a>详细设计 - BEC模型</h1><h3 id="用例简介"><a href="#用例简介" class="headerlink" title="用例简介"></a>用例简介</h3><blockquote>
+        <h1 id="详细设计-BCE模型"><a href="#详细设计-BCE模型" class="headerlink" title="详细设计 - BCE模型"></a>详细设计 - BCE模型</h1><h2 id="使用-BCE-实现-make-reservation-用例的详细设计"><a href="#使用-BCE-实现-make-reservation-用例的详细设计" class="headerlink" title="使用 BCE 实现 make reservation 用例的详细设计"></a>使用 BCE 实现 make reservation 用例的详细设计</h2><h3 id="用例简介"><a href="#用例简介" class="headerlink" title="用例简介"></a>用例简介</h3><blockquote>
 <p>用户选择城市 –&gt; 搜索该城市 –&gt; 根据城市选择酒店 –&gt; [自定义排序] –&gt; 查看所有酒店</p>
 </blockquote>
 <h3 id="顺序图"><a href="#顺序图" class="headerlink" title="顺序图"></a>顺序图</h3><p><img src="/images/bce.png" alt=""></p>
 <h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="/images/class.png" alt=""></p>
-<h3 id="包图"><a href="#包图" class="headerlink" title="包图"></a>包图</h3>
+<h3 id="包图"><a href="#包图" class="headerlink" title="包图"></a>包图</h3><h2 id="将逻辑设计类图映射到实际项目框架的包图"><a href="#将逻辑设计类图映射到实际项目框架的包图" class="headerlink" title="将逻辑设计类图映射到实际项目框架的包图"></a>将逻辑设计类图映射到实际项目框架的包图</h2><p>用树形结构表述实现的包和类</p>
+<p><img src="/images/package.png" alt=""></p>
+
       
     </div>
     
@@ -443,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/03/ssad-hw8/" rel="next" title="系统分析与设计-hw8">
-                <i class="fa fa-chevron-left"></i> 系统分析与设计-hw8
+              <a href="/2018/06/25/docker-compose-learning/" rel="next" title="Docker-compose 一键部署web应用（Nginx + Flask + MySQL）">
+                <i class="fa fa-chevron-left"></i> Docker-compose 一键部署web应用（Nginx + Flask + MySQL）
               </a>
             
           </div>
@@ -452,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/13/unity-collaborate-introduction/" rel="prev" title="Unity Collaborate Serive 入门">
-                Unity Collaborate Serive 入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -684,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详细设计-BEC模型"><span class="nav-text">详细设计 - BEC模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例简介"><span class="nav-text">用例简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序图"><span class="nav-text">顺序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包图"><span class="nav-text">包图</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详细设计-BCE模型"><span class="nav-text">详细设计 - BCE模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-BCE-实现-make-reservation-用例的详细设计"><span class="nav-text">使用 BCE 实现 make reservation 用例的详细设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例简介"><span class="nav-text">用例简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序图"><span class="nav-text">顺序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包图"><span class="nav-text">包图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将逻辑设计类图映射到实际项目框架的包图"><span class="nav-text">将逻辑设计类图映射到实际项目框架的包图</span></a></li></ol></li></ol></div>
             
 
           </div>
