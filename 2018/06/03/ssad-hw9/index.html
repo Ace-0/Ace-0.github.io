@@ -104,28 +104,31 @@
 
 
   
-  <meta name="keywords" content="Docker,Dockerfile," />
+  <meta name="keywords" content="系统架构," />
 
 
-<meta name="description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
-<meta name="keywords" content="Docker,Dockerfile">
+<meta name="description" content="详细设计 - BEC模型用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图">
+<meta name="keywords" content="系统架构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Dockerfile构建镜像，搭建Flask + MySQL应用">
-<meta property="og:url" content="https://Ace-0.github.io/2018/06/20/dockerfile-learning/index.html">
+<meta property="og:title" content="系统分析与设计-hw8">
+<meta property="og:url" content="https://Ace-0.github.io/2018/06/03/ssad-hw9/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
+<meta property="og:description" content="详细设计 - BEC模型用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-06-30T11:52:34.668Z">
+<meta property="og:image" content="https://ace-0.github.io/images/bce.png">
+<meta property="og:image" content="https://ace-0.github.io/images/class.png">
+<meta property="og:updated_time" content="2018-06-30T15:58:28.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Dockerfile构建镜像，搭建Flask + MySQL应用">
-<meta name="twitter:description" content="Dockerfile 简介Dockerfile 是什么 镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。  为什么要用 DockerfileDockerfile的好处实在是太多了，除非你真的能很容">
+<meta name="twitter:title" content="系统分析与设计-hw8">
+<meta name="twitter:description" content="详细设计 - BEC模型用例简介 用户选择城市 –&amp;gt; 搜索该城市 –&amp;gt; 根据城市选择酒店 –&amp;gt; [自定义排序] –&amp;gt; 查看所有酒店  顺序图 类图 包图">
+<meta name="twitter:image" content="https://ace-0.github.io/images/bce.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://Ace-0.github.io/2018/06/20/dockerfile-learning/"/>
+  <link rel="canonical" href="https://Ace-0.github.io/2018/06/03/ssad-hw9/"/>
 
 
 
@@ -134,7 +137,7 @@
     sidebar: "",
   };
 </script>
-  <title>使用Dockerfile构建镜像，搭建Flask + MySQL应用 | Jarvis's Blog</title>
+  <title>系统分析与设计-hw8 | Jarvis's Blog</title>
   
 
 
@@ -287,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/20/dockerfile-learning/">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/06/03/ssad-hw9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis Wong">
@@ -304,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Dockerfile构建镜像，搭建Flask + MySQL应用</h1>
+          <h1 class="post-title" itemprop="name headline">系统分析与设计-hw8</h1>
         
 
         <div class="post-meta">
@@ -316,7 +319,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-20T20:21:38+08:00">2018-06-20</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-03T14:32:00+08:00">2018-06-03</time>
             
 
             
@@ -337,7 +340,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSAD/" itemprop="url" rel="index"><span itemprop="name">SSAD</span></a></span>
 
                 
                 
@@ -352,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/20/dockerfile-learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/20/dockerfile-learning/" itemprop="commentsCount"></span>
+                <a href="/2018/06/03/ssad-hw9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/03/ssad-hw9/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -386,62 +389,12 @@
       
 
       
-        <h1 id="Dockerfile-简介"><a href="#Dockerfile-简介" class="headerlink" title="Dockerfile 简介"></a>Dockerfile 简介</h1><h3 id="Dockerfile-是什么"><a href="#Dockerfile-是什么" class="headerlink" title="Dockerfile 是什么"></a>Dockerfile 是什么</h3><blockquote>
-<p>镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 Dockerfile。</p>
+        <h1 id="详细设计-BEC模型"><a href="#详细设计-BEC模型" class="headerlink" title="详细设计 - BEC模型"></a>详细设计 - BEC模型</h1><h3 id="用例简介"><a href="#用例简介" class="headerlink" title="用例简介"></a>用例简介</h3><blockquote>
+<p>用户选择城市 –&gt; 搜索该城市 –&gt; 根据城市选择酒店 –&gt; [自定义排序] –&gt; 查看所有酒店</p>
 </blockquote>
-<h3 id="为什么要用-Dockerfile"><a href="#为什么要用-Dockerfile" class="headerlink" title="为什么要用 Dockerfile"></a>为什么要用 Dockerfile</h3><p>Dockerfile的好处实在是太多了，除非你真的能很容易的找到一个<strong>满足你一切需求</strong>，<strong>没有你不想要的层</strong>，<strong>非常好用</strong>的镜像。当你想要追求以上的条件时，就可以开始考虑用Dockerfile构建属于自己的镜像了。</p>
-<h3 id="Dockerfile-基本指令"><a href="#Dockerfile-基本指令" class="headerlink" title="Dockerfile 基本指令"></a>Dockerfile 基本指令</h3><p>Dockerfile功能很强大，它提供了十多个指令，详细可参考<a href="https://yeasy.gitbooks.io/docker_practice/content/image/dockerfile/" target="_blank" rel="noopener">Dockerfile 指令详解</a></p>
-<h2 id="Dockerfile-实战"><a href="#Dockerfile-实战" class="headerlink" title="Dockerfile 实战"></a>Dockerfile 实战</h2><p>下面将以构建一个后端web应用为例，学习Dockerfile的使用。这个基本的web应用包括：</p>
-<ul>
-<li>利用<code>Flask</code>框架编写的后端应用</li>
-<li>MySQL作为数据库</li>
-</ul>
-<p>因此，分别需要两个个容器：</p>
-<ul>
-<li>运行后端程序的容器</li>
-<li>数据库容器</li>
-</ul>
-<a id="more"></a>
-<h3 id="启动-MySQL容器"><a href="#启动-MySQL容器" class="headerlink" title="启动 MySQL容器"></a>启动 MySQL容器</h3><p>对于数据库容器，可以直接使用官方的<code>mysql</code>镜像。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
-<p>如果配置了国内官方镜像仍然无法拉取，可以使用别的镜像库，例如<code>DaoCloud</code>，<code>网易</code>等：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker pull daocloud.io/library/mysql:5.7.4</span><br></pre></td></tr></table></figure>
-<p>然后运行这个容器，配置端口映射。由于我本地3306已经被使用，于是配置3307端口来映射：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker run -d \</span><br><span class="line">  -p 3307:3306 \</span><br><span class="line">  --name db \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=123　\</span><br><span class="line">  daocloud.io/library/mysql:5.7.4</span><br></pre></td></tr></table></figure>
-<p>这里，<code>-e</code>（<code>--env</code>）设置表示设置环境变量，将MySQL的默认<code>root</code>密码设置为<code>123</code>。</p>
-<p>可以通过<code>$ sudo docker ps</code>看到该容器已经在运行了。同时，由于暴露了3307端口，同样也可以使用mysql客户端对这个容器进行连接：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mysql -h127.0.0.1 -uroot -p123 -P3307</span><br></pre></td></tr></table></figure>
-<p>接下来，可以创建一个数据库供后端程序连接。</p>
-<h3 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h3><p>这里示例用的后端应用使用python+Flask开发，因此，整个镜像可以构建在python基础上。我使用的是<code>python:3.5-alpine</code>镜像作为基础。</p>
-<p>在<code>./server/</code>目录下，放置了整个后端应用的代码，大致结构如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Dockerfile</span><br><span class="line">└── server</span><br><span class="line">    ├── app</span><br><span class="line">    ├── config.py</span><br><span class="line">    ├── instance</span><br><span class="line">    ├── log</span><br><span class="line">    ├── requirements.txt</span><br><span class="line">    └── run.py</span><br></pre></td></tr></table></figure>
-<p>编写的Dockerfile如下：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.5</span>-alpine</span><br><span class="line"><span class="keyword">LABEL</span> maintainer="Jarvis-Wong"</span><br><span class="line"></span><br><span class="line">COPY server/ /server/</span><br><span class="line"></span><br><span class="line">WORKDIR /server</span><br><span class="line"></span><br><span class="line">RUN pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line">CMD ["python3", "run.py"]</span><br></pre></td></tr></table></figure>
-<p>逐行的解释一下这个简单的Dockerfile：</p>
-<p>FROM：指定<strong>基础镜像</strong>，因此一个 <code>Dockerfile</code> 中 <code>FROM</code> 是必备的指令，并且必须是第一条指令。当然，以 <code>scratch</code> 为基础镜像的话，意味着你不以任何镜像为基础，接下来所写的指令将作为镜像第一层开始存在。</p>
-<p>LABEL：这个指令只是用于指定一些信息，这里不做解释。</p>
-<p>COPY：格式为<code>COPY &lt;源路径&gt;... &lt;目标路径&gt;</code>或者<code>COPY [&quot;&lt;源路径1&gt;&quot;,... &quot;&lt;目标路径&gt;&quot;]</code>指令将从构建上下文目录中 <code>&lt;源路径&gt;</code> 的文件/目录复制到新的一层的镜像内的 <code>&lt;目标路径&gt;</code> 位置。</p>
-<p>WORKDIR：切换工作目录（容器中）</p>
-<p>RUN：指令是用来执行命令行命令的。由于命令行的强大能力，<code>RUN</code> 指令在定制镜像时是最常用的指令之一。</p>
-<p>CMD：在启动容器的时候，需要指定所运行的程序及参数。<code>CMD</code> 指令就是用于指定默认的容器主进程的启动命令的。与RUN的格式类似</p>
-<p>总的来说，这个Dockerfile在构建镜像时，做了四件事情：</p>
-<ol>
-<li>找到<code>python:3.5-alpine</code>镜像，并将它作为基础。如果本地没有这个惊喜，dock同样会进行<code>pull</code>操作。</li>
-<li>将本目录下的<code>server/</code>文件夹下的内容，复制到容器的<code>/server/</code>下。</li>
-<li>在容器中，进入目录<code>/server</code>（默认会在根目录下）。</li>
-<li>在当前工作目录下，执行指令<code>pip3 install -r requirements.txt</code>，安装依赖模块。</li>
-<li>指定启动容器的命令为<code>python3 run.py</code>。</li>
-</ol>
-<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><p>写好了Dockerfile，就可以利用它来构建镜像了：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker build -t app:v1 .</span><br></pre></td></tr></table></figure>
-<p><code>-t</code>用于指定构建的容器的名字为<code>app</code>， 版本号为<code>v1</code>，没有指定版本时默认为<code>latest</code>。最后的<code>.</code>是用于指定上下文，因为在这个目录下放置了<code>Dockerfile</code>文件，因此只需要用<code>.</code>表示。当你的Dockerfile文件不在当前目录，或者用了别的文件名时，需要用其他路径代替。</p>
-<p>运行后，可以看到镜像构建的过程。之后，使用<code>$ sudo docker image ls</code>就可以看到这个镜像了。</p>
-<p>关于后端代码连接数据库容器的配置，需要在此步骤<strong>之前</strong>写好配置文件，因为镜像构建的过程中，配置文件就已经被拷贝到容器中了。</p>
-<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><p>此时，就可以用镜像来运行容器了：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker run -d \</span><br><span class="line">    -p 9090:10086 \</span><br><span class="line">    --name app /</span><br><span class="line">    app:v1</span><br></pre></td></tr></table></figure>
-<p>这时候，后端程序已经开始运行了，并且连接上了另一个容器<code>db</code>作为它的数据库。</p>
-<p><em>本文为博主原创文章，转载请注明出处。</em></p>
-
+<h3 id="顺序图"><a href="#顺序图" class="headerlink" title="顺序图"></a>顺序图</h3><p><img src="/images/bce.png" alt=""></p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="/images/class.png" alt=""></p>
+<h3 id="包图"><a href="#包图" class="headerlink" title="包图"></a>包图</h3>
       
     </div>
     
@@ -458,9 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
-          
-            <a href="/tags/Dockerfile/" rel="tag"># Dockerfile</a>
+            <a href="/tags/系统架构/" rel="tag"># 系统架构</a>
           
         </div>
       
@@ -492,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/13/unity-collaborate-introduction/" rel="next" title="Unity Collaborate Serive 入门">
-                <i class="fa fa-chevron-left"></i> Unity Collaborate Serive 入门
+              <a href="/2018/06/03/ssad-hw8/" rel="next" title="系统分析与设计-hw8">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计-hw8
               </a>
             
           </div>
@@ -502,8 +453,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/25/docker-compose-learning/" rel="prev" title="Docker-compose 一键部署web应用（Nginx + Flask + MySQL）">
-                Docker-compose 一键部署web应用（Nginx + Flask + MySQL） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/13/unity-collaborate-introduction/" rel="prev" title="Unity Collaborate Serive 入门">
+                Unity Collaborate Serive 入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -733,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile-简介"><span class="nav-text">Dockerfile 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-是什么"><span class="nav-text">Dockerfile 是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用-Dockerfile"><span class="nav-text">为什么要用 Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-基本指令"><span class="nav-text">Dockerfile 基本指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile-实战"><span class="nav-text">Dockerfile 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-MySQL容器"><span class="nav-text">启动 MySQL容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写Dockerfile"><span class="nav-text">编写Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建镜像"><span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行容器"><span class="nav-text">运行容器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详细设计-BEC模型"><span class="nav-text">详细设计 - BEC模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例简介"><span class="nav-text">用例简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序图"><span class="nav-text">顺序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包图"><span class="nav-text">包图</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
