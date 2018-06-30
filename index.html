@@ -389,7 +389,9 @@
 </ul>
 <p><code>Compose</code> 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理。</p>
 </blockquote>
-<h2 id="Docker-Compose实战"><a href="#Docker-Compose实战" class="headerlink" title="Docker-Compose实战"></a>Docker-Compose实战</h2><h3 id="安装Docker-Compose"><a href="#安装Docker-Compose" class="headerlink" title="安装Docker-Compose"></a>安装Docker-Compose</h3><p>两种方式：</p>
+<h2 id="Docker-Compose实战"><a href="#Docker-Compose实战" class="headerlink" title="Docker-Compose实战"></a>Docker-Compose实战</h2><h3 id="安装Docker-Compose"><a href="#安装Docker-Compose" class="headerlink" title="安装Docker-Compose"></a>安装Docker-Compose</h3><p>验证安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose --version</span><br></pre></td></tr></table></figure>
+<p>如果还未安装的话，有以下两种方式：</p>
 <ul>
 <li><p>使用<code>github</code>二进制文件安装（建议）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta">$</span> sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
@@ -398,8 +400,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pip install -U docker-compose</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>验证：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker-compose --version</span><br></pre></td></tr></table></figure>
 <h3 id="使用Docker-Compose"><a href="#使用Docker-Compose" class="headerlink" title="使用Docker-Compose"></a>使用Docker-Compose</h3><p>接下来，我们使用<code>Docker-Compose</code>，搭建一个<code>Nginx + Flask + MySQL</code>的名为<code>yelda</code>的web应用。</p>
           <!--noindex-->
           <div class="post-button text-center">
