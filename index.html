@@ -377,7 +377,7 @@
 <p><code>Docker Compose</code> 是 Docker 官方编排（Orchestration）项目之一，负责快速的部署分布式应用。</p>
 </blockquote>
 <p>其代码目前在 <a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a> 上开源。它的定位是<strong>定义和运行多个 Docker 容器的应用</strong>（Defining and running multi-container Docker applications）。</p>
-<h3 id="为什么要使用Docker-Compose"><a href="#为什么要使用Docker-Compose" class="headerlink" title="为什么要使用Docker-Compose"></a>为什么要使用Docker-Compose</h3><p>在<a href="">之前的文章</a>中，我们了解到使用一个<code>Dockerfile</code>可以很方便的自定义一个容器。然而，在实际的生产环境中，一个单独的容器往往是不足以完成任务的。例如，对于一个简单的网站，就需要一个web应用本身的容器，一个数据库容器 ，甚至是一个负载均衡服务器的容器。<code>Docker-Compose</code>正是为了解决这样的问题而诞生的，我们可以通过一个<code>docker-compose.yml</code>文件，定义一组容器的关联关系和依赖关系，将它们视作一个整体的项目(project)。<code>Compose</code>的官方图标就很好的说明了它的作用：</p>
+<h3 id="为什么要使用Docker-Compose"><a href="#为什么要使用Docker-Compose" class="headerlink" title="为什么要使用Docker-Compose"></a>为什么要使用Docker-Compose</h3><p>在<a href="https://ace-0.github.io/2018/06/20/dockerfile-learning/">之前的文章</a>中，我们了解到使用一个<code>Dockerfile</code>可以很方便的自定义一个容器。然而，在实际的生产环境中，一个单独的容器往往是不足以完成任务的。例如，对于一个简单的网站，就需要一个web应用本身的容器，一个数据库容器 ，甚至是一个负载均衡服务器的容器。<code>Docker-Compose</code>正是为了解决这样的问题而诞生的，我们可以通过一个<code>docker-compose.yml</code>文件，定义一组容器的关联关系和依赖关系，将它们视作一个整体的项目(project)。<code>Compose</code>的官方图标就很好的说明了它的作用：</p>
 <p><img src="/images/compose-logo.png" alt=""></p>
 <h3 id="关于Compose的基本概念"><a href="#关于Compose的基本概念" class="headerlink" title="关于Compose的基本概念"></a>关于Compose的基本概念</h3><blockquote>
 <p><code>Compose</code> 中有两个重要的概念：</p>
