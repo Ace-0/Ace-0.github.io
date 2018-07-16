@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://ace-0.github.io/images/unlink.png">
 <meta property="og:image" content="https://ace-0.github.io/images/link-project.png">
 <meta property="og:image" content="https://ace-0.github.io/images/changed.png">
-<meta property="og:updated_time" content="2018-06-13T13:44:39.754Z">
+<meta property="og:updated_time" content="2018-07-16T02:53:00.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity Collaborate Serive 入门">
 <meta name="twitter:description" content="Introduction在Unity上进行合作和版本管理有很多工具，常用的例如Perfoce和 Plastic SCM，这两款工具在Unity上的集成相对成熟，Unity也在官方文档中提供了相应的集成方法：  集成Perforce Integration 集成Plastic SCM  然而，这两款都是付费应用。想要不花钱，Git是很好的选择，github也为Unity开发了专门的插件：Github">
@@ -463,8 +463,8 @@
 <li>绿色的勾。表示你的本地项目已经和云端同步。</li>
 <li>蓝色向上箭头。表示当前你有本地更新还未上传，此时点击图标可以编写日志信息，并发布到云端。相当于<code>git commit -m</code> + <code>git push</code>。</li>
 <li>橙色向下箭头。表示你的本地内容已经落后于云端同步内容，需要点击图标进行拉取，相当于<code>git pull</code>。</li>
-<li>红色感叹号。代表无法完成<code>auto merge</code>，相当于<code>git</code>中出现的<code>conflict</code>，即你的修改和其他成员的修改产生了冲突，你可能需要手动解决这些冲突。Unity还是提供了比较简单的操作来解决冲突的。但是和使用<code>git</code>一样，二进制文件（图片等素材）的冲突是难以解决的，应该尽量避免。</li>
 </ul>
+<p>目前，Unity只提供了比较简单的操作来解决冲突。另外，使用<code>git</code>一样，二进制文件（图片等素材）的冲突是难以解决的，应该尽量避免。</p>
 <h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>在<code>Collab History</code>面板中，可以看到项目的<code>log</code>记录。在基本操作上，Unity提供了两个简单的选项：<code>Restore</code>和<code>Go back to...</code>。</p>
 <p>本地对某个文件做了修改之后，所有包含它的目录以及它本身，右上角都会带有蓝色标记：</p>
 <p><img src="/images/changed.png" alt=""></p>
