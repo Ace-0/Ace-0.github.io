@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="Chinese">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mylogo-32x32.jpg?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mylogo-16x16.jpg?v=6.0.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.3',
+    sidebar: {"position":"right","display":"hide","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="DevStack,OpenStack," />
+
+
+<meta name="description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网">
+<meta name="keywords" content="DevStack,OpenStack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署一个 All-In-One 的 OpenStack">
+<meta property="og:url" content="https://Ace-0.github.io/2018/12/15/deploy-all-in-one-openstack/index.html">
+<meta property="og:site_name" content="Jarvis&#39;s Blog">
+<meta property="og:description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://ace-0.github.io/images/devstack-ifconfig.png">
+<meta property="og:image" content="https://ace-0.github.io/images/devstack-complete.png">
+<meta property="og:image" content="https://ace-0.github.io/images/openstack-login.png">
+<meta property="og:image" content="https://ace-0.github.io/images/openstack-summary.png">
+<meta property="og:image" content="https://ace-0.github.io/images/devstack-change.png">
+<meta property="og:image" content="https://ace-0.github.io/images/devstack-ipv6.png">
+<meta property="og:image" content="https://ace-0.github.io/images/devstack-file.png">
+<meta property="og:updated_time" content="2018-12-15T07:26:58.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="部署一个 All-In-One 的 OpenStack">
+<meta name="twitter:description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网">
+<meta name="twitter:image" content="https://ace-0.github.io/images/devstack-ifconfig.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://Ace-0.github.io/2018/12/15/deploy-all-in-one-openstack/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>部署一个 All-In-One 的 OpenStack | Jarvis's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Chinese">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jarvis's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-others">
+          <a href="/others/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />others</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/12/15/deploy-all-in-one-openstack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">部署一个 All-In-One 的 OpenStack</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T13:03:41+08:00">2018-12-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OpenStack/" itemprop="url" rel="index"><span itemprop="name">OpenStack</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/15/deploy-all-in-one-openstack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/12/15/deploy-all-in-one-openstack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在学习 OpenStack，于是在虚拟机上使用<code>DevStack</code>部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。</p>
+<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ul>
+<li>VMware Workstation 15 Pro（也可使用<code>VirtualBox</code>或<code>KVM</code>）</li>
+<li>Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网推荐Ubuntu。使用server版本可以节省内存等消耗。）</li>
+</ul>
+<p>Ubuntu虚拟机至少分配4G内存。</p>
+<h2 id="Pre-Installation"><a href="#Pre-Installation" class="headerlink" title="Pre-Installation"></a>Pre-Installation</h2><p>安装好虚拟机后，一般来说只会用默认的账号登录，为了方便后续安装，可以先切换到<code>root</code>用户</p>
+<p>设置root密码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo passwd root</span><br></pre></td></tr></table></figure>
+<p>设置密码后，可以切换到root：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su root</span><br></pre></td></tr></table></figure>
+<p>以下操作在 root 用户下进行。</p>
+<h3 id="IP设置"><a href="#IP设置" class="headerlink" title="IP设置"></a>IP设置</h3><p>如果部署多节点，需要设置 Ubuntu 静态 IP 。对于单节点，使用DHCP影响不大。</p>
+<h3 id="工具安装"><a href="#工具安装" class="headerlink" title="工具安装"></a>工具安装</h3><p>git</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> apt install git -y</span><br></pre></td></tr></table></figure>
+<p>其它的大部分工具，如pip等，DevStack会在安装过程中自动检测并安装</p>
+<h3 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h3><p>DevStack的运行需要一个<strong>拥有 sudo 权限</strong>的<strong>非 root </strong>用户。这里创建一个名为<code>stack</code>的用户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> useradd -s /bin/bash -d /opt/stack -m stack</span><br></pre></td></tr></table></figure>
+<p>赋权：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo "stack ALL=(ALL) NOPASSWORD: ALL" &gt;&gt; /etc/sudoers</span><br></pre></td></tr></table></figure>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>接下来的安装过程，使用创建好的<code>stack</code>用户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su stack</span><br></pre></td></tr></table></figure>
+<h3 id="下载DevStack"><a href="#下载DevStack" class="headerlink" title="下载DevStack"></a>下载DevStack</h3><p>下载 DevStack 到 stack 用户的根目录下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd</span><br><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack</span><br></pre></td></tr></table></figure>
+<p>我这里使用的是默认 master 分支，也可以指定版本（分支），例如使用 ocata ：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack -b stable/ocata</span><br></pre></td></tr></table></figure>
+<p>具体的版本可以在<a href="https://git.openstack.org/cgit/openstack-dev/devstack" target="_blank" rel="noopener">这个链接</a>查看。</p>
+<a id="more"></a>
+<h3 id="配置local-conf"><a href="#配置local-conf" class="headerlink" title="配置local.conf"></a>配置local.conf</h3><p>首先要确认虚拟机的IP，如果是设置了静态IP，使用静态IP即可；如果使用DHCP，则需要查看IP。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ifconfig</span><br></pre></td></tr></table></figure>
+<p><img src="/images/devstack-ifconfig.png" alt=""></p>
+<p>在输出里，可以看到ubuntu的IP以及对应网卡名称。例如，我的IP是<strong>192.168.11.129</strong>，子网掩码<strong>255.255.255.0</strong>，对应的网卡是<strong>ens33</strong>。</p>
+<p><code>local.conf</code>是整个过程中非常重要的文件。这里仅做最简单的配置，配置文件的详细内容可以参考<a href="https://docs.openstack.org/devstack/latest/configuration.html" target="_blank" rel="noopener">OpenStack官方文档</a>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd devstack</span><br><span class="line"><span class="meta">$</span> vim local.conf</span><br></pre></td></tr></table></figure>
+<p>输入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[[local|localrc]]</span><br><span class="line">FLOATING_RANGE=192.168.11.224/27</span><br><span class="line">FIXED_RANGE=10.11.12.0/24</span><br><span class="line">FIXED_NETWORK_SIZE=256</span><br><span class="line">FLAT_INTERFACE=ens33</span><br><span class="line">ADMIN_PASSWORD=secret</span><br><span class="line">DATABASE_PASSWORD=secret</span><br><span class="line">RABBIT_PASSWORD=secret</span><br><span class="line">SERVICE_PASSWORD=secret</span><br><span class="line">LOGFILE=/opt/stack/logs/stack.sh.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>FLOATING_RANGE</code> 设置为本地网络中未被使用的IP地址范围，例如192.168.11.224/27，代表192.168.11 225~192.168.11.254，这些IP要和虚拟机IP地址在一个子网。</li>
+<li><code>FIXED_RANGE</code> 和<code>FIXED_NETWORK_SIZE</code> 用于限定之后 OpenStack 运行的实例可用的网络地址空间。</li>
+<li><code>FLAT_INTERFACE</code> 设置为上一步查看到的网卡名称。</li>
+<li><code>ADMIN_PASSWORD</code> 是管理员密码，即之后自动创建的OpenStack用户 <strong>admin</strong> 和 <strong>demo</strong> 的密码。</li>
+<li><code>DATABASE_PASSWORD</code>是 OpenStack 的 MySQL 管理员密码。</li>
+<li><code>RABBIT_PASSWORD</code>是 RabbitMQ（OpenStack 的消息队列）密码。</li>
+<li><code>SERVICE_PASSWORD</code> 是 OpenStack 各个服务 （Nova, Glance,等）用于Keystone验证的密码。</li>
+<li><code>LOGFILE</code>设置了<code>stack.sh</code> 运行日志路径。</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>接下来，只需要运行一个脚本就能开始下载和安装了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ./stack.sh</span><br></pre></td></tr></table></figure>
+<p>部署 OpenStack 是一个很需要耐心的过程，这不只是因为它本身安装时间较长，更是因为国内的网络问题以及容易出现一些各种各样的错误。但是大部分问题都是可以通过Google解决的，还有一些错误通过<code>./unstack.sh &amp;&amp; ./stack.sh</code>就消失了。进行每一步的过程中，多使用 VMware 的快照功能，减少重复操作和错误恢复的时间。</p>
+<h2 id="Congratulation"><a href="#Congratulation" class="headerlink" title="Congratulation"></a>Congratulation</h2><p>如果你能看到以下输出，就已经成功部署了 OpenStack</p>
+<p><img src="/images/devstack-complete.png" alt=""></p>
+<p>在浏览器输入<code>http://192.168.11.129/dashboard</code></p>
+<p><img src="/images/openstack-login.png" alt=""></p>
+<p>使用<code>admin/secret</code>就可以登陆了</p>
+<p><img src="/images/openstack-summary.png" alt=""></p>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h3 id="安装并升级pip"><a href="#安装并升级pip" class="headerlink" title="安装并升级pip"></a>安装并升级pip</h3><p><code>./stack.sh</code> 默认是会检测和安装pip的，也可以提前完成，减少错误发生的可能性。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> apt install python-pip -y</span><br><span class="line"><span class="meta">$</span> pip -V</span><br></pre></td></tr></table></figure>
+<p>如果 pip 版本太旧，进行升级：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pip install --upgrade pip</span><br><span class="line"><span class="meta">$</span> pip -V</span><br></pre></td></tr></table></figure>
+<p>如果升级 pip 后报错 <code>ImportError: cannot import name main</code>，需要修改 <code>/usr/bin/pip</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pip <span class="keyword">import</span> main</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line"><span class="keyword">from</span> pip._internal <span class="keyword">import</span> main</span><br></pre></td></tr></table></figure>
+<h3 id="配置pip源"><a href="#配置pip源" class="headerlink" title="配置pip源"></a>配置pip源</h3><p>如果 pip 安装 python module 过程中经常出现网络错误，可以修改 pip 源（在 <code>stack</code> 用户下）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir ~/.pip</span><br><span class="line"><span class="meta">$</span> vim ~/.pip/pip.conf</span><br></pre></td></tr></table></figure>
+<p>修改为豆瓣源：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">index-url=http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>
+<h3 id="ipv6-错误"><a href="#ipv6-错误" class="headerlink" title="ipv6 错误"></a>ipv6 错误</h3><p>在 VMware 界面，编辑 -&gt; 虚拟网络编辑器 -&gt; 更改设置</p>
+<p><img src="/images/devstack-change.png" alt=""></p>
+<p>选中 VMnet8 网卡，并启用 IPV6 选项。</p>
+<p><img src="/images/devstack-ipv6.png" alt=""></p>
+<h3 id="文件下载失败"><a href="#文件下载失败" class="headerlink" title="文件下载失败"></a>文件下载失败</h3><p>安装过程中，会下载很多的文件，国内网络原因可能导致一些文件下载失败。一般来说有3种解决方案：</p>
+<ul>
+<li>修改源，一般用于修改 ubuntu 源或者 pip 源。</li>
+<li>在宿主机科学上网，再设置虚拟机使用 proxy 通过宿主机的代理进行连接。</li>
+<li>在宿主机科学上网下载好文件后，传输到虚拟机。传输可以使用 scp，也可以直接利用 VMware 等提供的共享文件夹功能，放入虚拟机。</li>
+</ul>
+<p>例如，我在安装过程种，无法下载 <code>etcd-v3.2.17-linux-amd64.tar.gz</code>，查看 log 找到其下载地址，下载到宿主机之后，放在 <code>E:\vmfiles</code> 中，然后开启共享文件夹：</p>
+<p><img src="/images/devstack-file.png" alt=""></p>
+<p>一般共享文件夹位于 <code>/mnt/hgfs/</code> 下。在 log 日志中，找到这个文件应该放置的位置，例如 <code>/opt/stack/devstack/files</code>，复制到里面即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cp /mnt/hgfs/vmfiles/etcd-v3.2.17-linux-amd64.tar.gz /opt/stack/devstack/files</span><br></pre></td></tr></table></figure>
+<p>重新运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./unstack.sh &amp;&amp; ./stack.sh</span><br></pre></td></tr></table></figure>
+<p><em>本文为博主原创文章，转载请注明出处。</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DevStack/" rel="tag"># DevStack</a>
+          
+            <a href="/tags/OpenStack/" rel="tag"># OpenStack</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/30/ssad-hw9/" rel="next" title="软件系统分析与设计-BCE模型">
+                <i class="fa fa-chevron-left"></i> 软件系统分析与设计-BCE模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mylogo.jpg"
+                alt="Jarvis Wong" />
+            
+              <p class="site-author-name" itemprop="name">Jarvis Wong</p>
+              <p class="site-description motion-element" itemprop="description">Ideas worth spreading.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Ace-0" target="_blank" title="Ace-0"><i class="fa fa-fw fa-github"></i>Ace-0</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:g674901087@gmail.com" target="_blank" title="Gmail"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="Wechat:w674--7" target="_blank" title="w674--7"><i class="fa fa-fw fa-wechat"></i>w674--7</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JarvisWong8" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prerequisite"><span class="nav-text">Prerequisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-Installation"><span class="nav-text">Pre-Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP设置"><span class="nav-text">IP设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具安装"><span class="nav-text">工具安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境设置"><span class="nav-text">环境设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configuration"><span class="nav-text">Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载DevStack"><span class="nav-text">下载DevStack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置local-conf"><span class="nav-text">配置local.conf</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Congratulation"><span class="nav-text">Congratulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Troubleshooting"><span class="nav-text">Troubleshooting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装并升级pip"><span class="nav-text">安装并升级pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置pip源"><span class="nav-text">配置pip源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv6-错误"><span class="nav-text">ipv6 错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件下载失败"><span class="nav-text">文件下载失败</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhijun Wang. All rights reserved.</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Ace-0',
+            repo: 'BlogComments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5c9fc26aae6895e7dc47278a5dc770f4ec8edd5a',
+            
+                client_id: '4349b8d5b720a0263450'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "topRight";
+      
+          flOptions.networks = "Twitter,Facebook,Wechat,Weibo,Evernote,Reddit";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 9432,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
