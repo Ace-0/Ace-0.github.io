@@ -392,13 +392,13 @@
 <h3 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h3><p>DevStack的运行需要一个<strong>拥有 sudo 权限</strong>的<strong>非 root </strong>用户。这里创建一个名为<code>stack</code>的用户：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> useradd -s /bin/bash -d /opt/stack -m stack</span><br></pre></td></tr></table></figure>
 <p>赋权：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo "stack ALL=(ALL) NOPASSWORD: ALL" &gt;&gt; /etc/sudoers</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo "stack ALL=(ALL) NOPASSWD: ALL" &gt;&gt; /etc/sudoers</span><br></pre></td></tr></table></figure>
 <h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>接下来的安装过程，使用创建好的<code>stack</code>用户：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su stack</span><br></pre></td></tr></table></figure>
 <h3 id="下载DevStack"><a href="#下载DevStack" class="headerlink" title="下载DevStack"></a>下载DevStack</h3><p>下载 DevStack 到 stack 用户的根目录下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd</span><br><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack</span><br></pre></td></tr></table></figure>
-<p>我这里使用的是默认 master 分支，也可以指定版本（分支），例如使用 ocata ：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack -b stable/ocata</span><br></pre></td></tr></table></figure>
+<p>我这里使用的是默认 master 分支，也可以指定版本（分支），例如使用 queens 版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack -b stable/queens</span><br></pre></td></tr></table></figure>
 <p>具体的版本可以在<a href="https://git.openstack.org/cgit/openstack-dev/devstack" target="_blank" rel="noopener">这个链接</a>查看。</p>
           <!--noindex-->
           <div class="post-button text-center">
