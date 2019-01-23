@@ -118,7 +118,7 @@
 <meta property="og:image" content="https://ace-0.github.io/images/docker.png">
 <meta property="og:image" content="https://ace-0.github.io/images/file.png">
 <meta property="og:image" content="https://ace-0.github.io/images/broswer.png">
-<meta property="og:updated_time" content="2018-12-15T04:39:01.349Z">
+<meta property="og:updated_time" content="2019-01-23T05:24:58.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker 入门实战">
 <meta name="twitter:description" content="Docker基础知识Docker是什么Docker 最初是 dotCloud 公司创始人 Solomon Hykes 在法国期间发起的一个公司内部项目，它是基于 dotCloud 公司多年云服务技术的一次革新，并于 2013 年 3 月以 Apache 2.0 授权协议开源，主要项目代码在 GitHub 上进行维护。 Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 L">
@@ -417,23 +417,23 @@
 <p>虚拟机与Docker对比：</p>
 <p><img src="/images/virtualization.png" alt="virtualization"></p>
 <p><img src="/images/docker.png" alt="docker"></p>
-<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>以下以ubuntu17.10为例，安装Docker社区版(Docker CE)，</p>
-<p>ubuntu16.04版本以下的安装可能略有不同，详见<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#supported-storage-drivers" target="_blank" rel="noopener">Get Docker CE for Ubuntu</a></p>
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>以下以 ubuntu Xenial 16.04 (LTS) 为例，安装Docker社区版(Docker CE)，</p>
+<p>其它操作系统下的安装可能略有不同，详见<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#supported-storage-drivers" target="_blank" rel="noopener">Get Docker CE for Ubuntu</a></p>
 <p>首先，如果需要卸载旧版Docker:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get remove docker docker-engine docker.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
 <p>在一台新主机上安装Docker时，官方推荐使用Docker仓库来安装，此后可以很方便地从仓库安装和更新Docker。由于 <code>apt</code> 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg2 \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>添加Docker官方的GPG秘钥：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<p>如果下载失败，可以挂代理，或者直接在<a href="/files/docker/gpg">我的仓库</a>获取</p>
 <p>验证秘钥</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-key fingerprint 0EBFCD88</span><br></pre></td></tr></table></figure>
 <p>能看到包含<code>9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88</code>的输出就证明正确的安装了Docker CE的秘钥。</p>
-<p>添加repo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo add-apt-repository \</span><br><span class="line">   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line"><span class="meta">   $</span>(lsb_release -cs) \</span><br><span class="line">   stable"</span><br></pre></td></tr></table></figure>
-<p>更新apt，并安装Docker。</p>
+<p>添加repo，并更新 apt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo add-apt-repository \</span><br><span class="line">   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line"><span class="meta">   $</span>(lsb_release -cs) \</span><br><span class="line">   stable"</span><br><span class="line"><span class="meta">$</span> sudo apt-get update</span><br></pre></td></tr></table></figure>
 <p>安装Docker时，可以直接选择安装最新版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
 <p>也可以指定版本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get install docker-ce=&lt;VERSION&gt;</span><br></pre></td></tr></table></figure>
 <p>如果需要查看可用版本：</p>
@@ -444,31 +444,26 @@
 <p>docker会首先从本地查找<code>hello-world</code>镜像：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image 'hello-world:latest' locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br></pre></td></tr></table></figure>
 <p>当本地不存在这个镜像时，会尝试从远程仓库拉取镜像。</p>
-<p>当然，由于某些众所周知的原因，你可能在拉取镜像的时候会遭遇以下错误：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">9bb5a5d4561a: Pulling fs layer </span><br><span class="line">docker: error pulling image configuration: Get https://dseasb33srnrn.cloudfront.net/registry-v2/docker/registry/v2/blobs/sha256/e3/e38bc07ac18ee64e6d59cf2eafcdddf9cec2364dfe129fe0af75f1b0194e0c96/data?Expires=1523628504&amp;Signature=aIcaKD3IHvC8tyfgtZqHiiXXiF-8GJLhWfT1u6biKk8GjxKD43LdJHzJRGF4XzkidUfObja-JDgcR97Zl7-IQYyjs-DBhpmnsr7EIUofErmCGM~fnU0fvlBJWyecQMbLYLrl-qDSph08StNv-DKYtsfnZOXbrfrTfSj-uLeyJBA_&amp;Key-Pair-Id=APKAJECH5M7VWIS5YZ6Q: net/http: TLS handshake timeout.</span><br><span class="line">See 'docker run --help'.</span><br></pre></td></tr></table></figure>
+<p>当然，由于某些众所周知的原因，你<strong>可能</strong>会在拉取镜像的时候会遭遇以下错误：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">9bb5a5d4561a: Pulling fs layer </span><br><span class="line">docker: error pulling image configuration: Get </span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">net/http: TLS handshake timeout.</span><br><span class="line">See 'docker run --help'.</span><br></pre></td></tr></table></figure>
 <p>解决方法也很简单：</p>
 <ol>
 <li>科学地上网</li>
 <li>修改默认远程镜像仓库</li>
 </ol>
-<p>Docker为中国也提供了官方的镜像库：<a href="https://registry.docker-cn.com" target="_blank" rel="noopener">https://registry.docker-cn.com</a></p>
+<p>Docker为中国也提供了官方的镜像库：<a href="https://registry.docker-cn.com" target="_blank" rel="noopener">https://registry.docker-cn.com</a> ，但是个人感觉也并不快。国内还有很多镜像库可以使用，例如阿里云，网易云，DaoCloud等。以下以配置阿里云镜像库为例。</p>
+<p>要获得阿里云的镜像加速服务，需要注册成为阿里云用户。登录后，在阿里云的<code>管理控制台 -&gt; 容器镜像服务 -&gt; 镜像加速器</code> 可以看到配置文件以及其中的链接。链接为<code>https://[yourcode].mirror.aliyun.com</code>，其中<code>[yourcode]</code>为每个注册用户的专属代码。</p>
 <p>配置方法如下：</p>
 <ul>
-<li><p>Ubuntu 14.04、Debian 7 Wheezy</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/docker</span><br></pre></td></tr></table></figure>
-<p>配置这么一行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"</span><br></pre></td></tr></table></figure>
-<p>之后，重启服务即可生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo service docker restart</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Ubuntu 16.04+、Debian 8+、CentOS 7</p>
+<li><p>Ubuntu 16.04+、Debian 8+、CentOS 7（其它旧版本可能有差异  ）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
 <p>写入以下内容：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://[yourcode].mirror.aliyun.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>重启服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo systemctl daemon-reload</span><br><span class="line"><span class="meta">$</span> sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>之后，可以通过<code>sudo docker info</code>查看 Registry Mirrors 信息，就能看到配置好的镜像仓库了。</p>
 <p>重新运行<code>hello-world</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker run hello-world</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image 'hello-world:latest' locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">9bb5a5d4561a: Pull complete </span><br><span class="line">Digest: sha256:bbdaf0ed64b665f3061aeab15b946697dd00845161935d9238ed28e8cfc2581c</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br></pre></td></tr></table></figure>
@@ -653,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -682,7 +677,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -751,7 +750,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -836,7 +841,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

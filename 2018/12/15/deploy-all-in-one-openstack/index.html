@@ -107,25 +107,24 @@
   <meta name="keywords" content="DevStack,OpenStack," />
 
 
-<meta name="description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网">
+<meta name="description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 16.04.5-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack">
 <meta name="keywords" content="DevStack,OpenStack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署一个 All-In-One 的 OpenStack">
 <meta property="og:url" content="https://Ace-0.github.io/2018/12/15/deploy-all-in-one-openstack/index.html">
 <meta property="og:site_name" content="Jarvis&#39;s Blog">
-<meta property="og:description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网">
+<meta property="og:description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 16.04.5-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://ace-0.github.io/images/devstack-ifconfig.png">
 <meta property="og:image" content="https://ace-0.github.io/images/devstack-complete.png">
 <meta property="og:image" content="https://ace-0.github.io/images/openstack-login.png">
 <meta property="og:image" content="https://ace-0.github.io/images/openstack-summary.png">
-<meta property="og:image" content="https://ace-0.github.io/images/devstack-change.png">
 <meta property="og:image" content="https://ace-0.github.io/images/devstack-ipv6.png">
 <meta property="og:image" content="https://ace-0.github.io/images/devstack-file.png">
-<meta property="og:updated_time" content="2018-12-29T05:48:24.904Z">
+<meta property="og:updated_time" content="2019-01-23T12:50:45.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部署一个 All-In-One 的 OpenStack">
-<meta name="twitter:description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网">
+<meta name="twitter:description" content="最近在学习 OpenStack，于是在虚拟机上使用DevStack部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。 Prerequisite VMware Workstation 15 Pro（也可使用VirtualBox或KVM） Ubuntu 16.04.5-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack">
 <meta name="twitter:image" content="https://ace-0.github.io/images/devstack-ifconfig.png">
 
 
@@ -397,7 +396,7 @@
         <p>最近在学习 OpenStack，于是在虚拟机上使用<code>DevStack</code>部署了一个 All-In-One 的版本（也就是把所有的组件都放在了一个节点上），用于学习和测试。</p>
 <h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ul>
 <li>VMware Workstation 15 Pro（也可使用<code>VirtualBox</code>或<code>KVM</code>）</li>
-<li>Ubuntu 18.04-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网推荐Ubuntu。使用server版本可以节省内存等消耗。）</li>
+<li>Ubuntu 16.04.5-server-amd64.iso（也可以使用其它Linux版本，只是OpenStack官网推荐Ubuntu。使用server版本可以节省内存等消耗。）</li>
 </ul>
 <p>Ubuntu虚拟机至少分配4G内存。</p>
 <h2 id="Pre-Installation"><a href="#Pre-Installation" class="headerlink" title="Pre-Installation"></a>Pre-Installation</h2><p>安装好虚拟机后，一般来说只会用默认的账号登录，为了方便后续安装，可以先切换到<code>root</code>用户</p>
@@ -416,22 +415,23 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo "stack ALL=(ALL) NOPASSWD: ALL" &gt;&gt; /etc/sudoers</span><br></pre></td></tr></table></figure>
 <h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>接下来的安装过程，使用创建好的<code>stack</code>用户：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su stack</span><br></pre></td></tr></table></figure>
-<h3 id="下载DevStack"><a href="#下载DevStack" class="headerlink" title="下载DevStack"></a>下载DevStack</h3><p>下载 DevStack 到 stack 用户的根目录下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd</span><br><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack</span><br></pre></td></tr></table></figure>
-<p>我这里使用的是默认 master 分支，也可以指定版本（分支），例如使用 queens 版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack -b stable/queens</span><br></pre></td></tr></table></figure>
+<h3 id="下载DevStack"><a href="#下载DevStack" class="headerlink" title="下载DevStack"></a>下载DevStack</h3><p>下载 DevStack 到 stack 用户的根目录下，我这里使用的是 queens 版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd</span><br><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack -b stable/queens</span><br></pre></td></tr></table></figure>
+<p>也可以直接使用最新版本（master 分支）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://git.openstack.org/openstack-dev/devstack</span><br></pre></td></tr></table></figure>
 <p>具体的版本可以在<a href="https://git.openstack.org/cgit/openstack-dev/devstack" target="_blank" rel="noopener">这个链接</a>查看。</p>
 <a id="more"></a>
-<h3 id="配置local-conf"><a href="#配置local-conf" class="headerlink" title="配置local.conf"></a>配置local.conf</h3><p>首先要确认虚拟机的IP，如果是设置了静态IP，使用静态IP即可；如果使用DHCP，则需要查看IP。</p>
+<h3 id="配置local-conf"><a href="#配置local-conf" class="headerlink" title="配置local.conf"></a>配置local.conf</h3><p>首先要确认虚拟机的IP，如果是设置了静态IP，使用静态IP即可；Ubuntu 下配置静态的方法可以参考<a href="https://ace-0.github.io/2019/01/15/set-static-ip-in-ubuntu/#more">Ubuntu 设置静态 IP</a></p>
+<p>如果使用DHCP，则需要查看IP。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ifconfig</span><br></pre></td></tr></table></figure>
 <p><img src="/images/devstack-ifconfig.png" alt=""></p>
-<p>在输出里，可以看到ubuntu的IP以及对应网卡名称。例如，我的IP是<strong>192.168.11.129</strong>，子网掩码<strong>255.255.255.0</strong>，对应的网卡是<strong>ens33</strong>。</p>
+<p>在输出里，可以看到ubuntu的IP以及对应网卡名称。例如，我的IP是<strong>192.168.99.10</strong>，子网掩码<strong>255.255.255.0</strong>，对应的网卡是<strong>ens33</strong>。</p>
 <p><code>local.conf</code>是整个过程中非常重要的文件。这里仅做最简单的配置，配置文件的详细内容可以参考<a href="https://docs.openstack.org/devstack/latest/configuration.html" target="_blank" rel="noopener">OpenStack官方文档</a>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd devstack</span><br><span class="line"><span class="meta">$</span> vim local.conf</span><br></pre></td></tr></table></figure>
-<p>输入以下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[[local|localrc]]</span><br><span class="line">FLOATING_RANGE=192.168.11.224/27</span><br><span class="line">FIXED_RANGE=10.11.12.0/24</span><br><span class="line">FIXED_NETWORK_SIZE=256</span><br><span class="line">FLAT_INTERFACE=ens33</span><br><span class="line">ADMIN_PASSWORD=secret</span><br><span class="line">DATABASE_PASSWORD=secret</span><br><span class="line">RABBIT_PASSWORD=secret</span><br><span class="line">SERVICE_PASSWORD=secret</span><br><span class="line">LOGFILE=/opt/stack/logs/stack.sh.log</span><br></pre></td></tr></table></figure>
+<p>输入以下内容（也可以直接下载<a href="/files/devstack/local.conf">我的文件</a>并替换 IP 即可）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[[local|localrc]]</span><br><span class="line">FLOATING_RANGE=192.168.99.224/27</span><br><span class="line">FIXED_RANGE=10.11.12.0/24</span><br><span class="line">FIXED_NETWORK_SIZE=256</span><br><span class="line">FLAT_INTERFACE=ens33</span><br><span class="line">ADMIN_PASSWORD=secret</span><br><span class="line">DATABASE_PASSWORD=secret</span><br><span class="line">RABBIT_PASSWORD=secret</span><br><span class="line">SERVICE_PASSWORD=secret</span><br><span class="line">LOGFILE=/opt/stack/logs/stack.sh.log</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>FLOATING_RANGE</code> 设置为本地网络中未被使用的IP地址范围，例如192.168.11.224/27，代表192.168.11 225~192.168.11.254，这些IP要和虚拟机IP地址在一个子网。</li>
+<li><code>FLOATING_RANGE</code> 设置为本地网络中未被使用的IP地址范围，例如192.168.99.224/27，代表192.168.99.225~192.168.99.254，这些IP要和虚拟机IP地址在一个子网。</li>
 <li><code>FIXED_RANGE</code> 和<code>FIXED_NETWORK_SIZE</code> 用于限定之后 OpenStack 运行的实例可用的网络地址空间。</li>
 <li><code>FLAT_INTERFACE</code> 设置为上一步查看到的网卡名称。</li>
 <li><code>ADMIN_PASSWORD</code> 是管理员密码，即之后自动创建的OpenStack用户 <strong>admin</strong> 和 <strong>demo</strong> 的密码。</li>
@@ -445,7 +445,7 @@
 <p>部署 OpenStack 是一个很需要耐心的过程，这不只是因为它本身安装时间较长，更是因为国内的网络问题以及容易出现一些各种各样的错误。但是大部分问题都是可以通过Google解决的，还有一些错误通过<code>./unstack.sh &amp;&amp; ./stack.sh</code>就消失了。进行每一步的过程中，多使用 VMware 的快照功能，减少重复操作和错误恢复的时间。</p>
 <h2 id="Congratulation"><a href="#Congratulation" class="headerlink" title="Congratulation"></a>Congratulation</h2><p>如果你能看到以下输出，就已经成功部署了 OpenStack</p>
 <p><img src="/images/devstack-complete.png" alt=""></p>
-<p>在浏览器输入<code>http://192.168.11.129/dashboard</code></p>
+<p>在浏览器输入<code>http://192.168.99.10/dashboard</code></p>
 <p><img src="/images/openstack-login.png" alt=""></p>
 <p>使用<code>admin/secret</code>就可以登陆了</p>
 <p><img src="/images/openstack-summary.png" alt=""></p>
@@ -460,7 +460,6 @@
 <p>修改为豆瓣源：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">index-url=http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>
 <h3 id="ipv6-错误"><a href="#ipv6-错误" class="headerlink" title="ipv6 错误"></a>ipv6 错误</h3><p>在 VMware 界面，编辑 -&gt; 虚拟网络编辑器 -&gt; 更改设置</p>
-<p><img src="/images/devstack-change.png" alt=""></p>
 <p>选中 VMnet8 网卡，并启用 IPV6 选项。</p>
 <p><img src="/images/devstack-ipv6.png" alt=""></p>
 <h3 id="文件下载失败"><a href="#文件下载失败" class="headerlink" title="文件下载失败"></a>文件下载失败</h3><p>安装过程中，会下载很多的文件，国内网络原因可能导致一些文件下载失败。一般来说有3种解决方案：</p>
@@ -469,10 +468,10 @@
 <li>在宿主机科学上网，再设置虚拟机使用 proxy 通过宿主机的代理进行连接。</li>
 <li>在宿主机科学上网下载好文件后，传输到虚拟机。传输可以使用 scp，也可以直接利用 VMware 等提供的共享文件夹功能，放入虚拟机。</li>
 </ul>
-<p>例如，我在安装过程种，无法下载 <code>etcd-v3.2.17-linux-amd64.tar.gz</code>，查看 log 找到其下载地址，下载到宿主机之后，放在 <code>E:\vmfiles</code> 中，然后开启共享文件夹：</p>
+<p>例如，我在安装过程中，无法下载 <code>etcd-v3.1.10-linux-amd64.tar.gz</code>，查看 log 找到其下载地址，下载到宿主机之后，放在 <code>E:\vmfiles</code> 中，然后开启共享文件夹：</p>
 <p><img src="/images/devstack-file.png" alt=""></p>
 <p>一般共享文件夹位于 <code>/mnt/hgfs/</code> 下。在 log 日志中，找到这个文件应该放置的位置，例如 <code>/opt/stack/devstack/files</code>，复制到里面即可：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cp /mnt/hgfs/vmfiles/etcd-v3.2.17-linux-amd64.tar.gz /opt/stack/devstack/files</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cp /mnt/hgfs/vmfiles/etcd-v3.1.10-linux-amd64.tar.gz /opt/stack/devstack/files</span><br></pre></td></tr></table></figure>
 <p>重新运行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./unstack.sh &amp;&amp; ./stack.sh</span><br></pre></td></tr></table></figure>
 <p><em>本文为博主原创文章，转载请注明出处。</em></p>
@@ -536,6 +535,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/15/set-static-ip-in-ubuntu/" rel="prev" title="Ubuntu设置静态IP">
+                Ubuntu设置静态IP <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -620,7 +623,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -649,7 +652,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -718,7 +725,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -803,7 +816,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -286,6 +286,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/05/06/ssad-hw6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jarvis Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/06/ssad-hw6/" itemprop="url">软件系统分析与设计-状态建模</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T15:49:50+08:00">2018-05-06</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Software-Engneering/" itemprop="url" rel="index"><span itemprop="name">Software Engneering</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="领域建模-状态建模"><a href="#领域建模-状态建模" class="headerlink" title="领域建模 - 状态建模"></a>领域建模 - 状态建模</h1><h3 id="状态图"><a href="#状态图" class="headerlink" title="状态图"></a>状态图</h3><p>状态图描述一个 <strong>事物或对象</strong> 受 <strong>事件或消息</strong> 刺激产生 可见的状态（属性/属性组合） 的数据变化。</p>
+<ul>
+<li>基础符号<ul>
+<li>起始状态（Initial）</li>
+<li>终止状态（Final）</li>
+<li>取消/对象取消（Termination）</li>
+<li>状态（State）</li>
+<li>变迁（Transform），含条件（Condition）、事件（Event）和事件处理动作（Action/Handler）</li>
+</ul>
+</li>
+<li>扩展符号<ul>
+<li>复合状态</li>
+<li>信号</li>
+</ul>
+</li>
+</ul>
+<p><img src="data:image/png;base64,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" alt="states-notation"></p>
+<p>绘图注意事项：</p>
+<ul>
+<li>必须有起始状态，通常有终止和取消状态</li>
+<li>状态命名要用名词短语、动词过去时或正在进行时等具有延续性的词汇</li>
+<li>在需求分析过程中，尽可能不涉及动作</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/ssad-hw6/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/04/29/ssad-hw5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -691,12 +856,12 @@
 <p>虚拟机与Docker对比：</p>
 <p><img src="/images/virtualization.png" alt="virtualization"></p>
 <p><img src="/images/docker.png" alt="docker"></p>
-<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>以下以ubuntu17.10为例，安装Docker社区版(Docker CE)，</p>
-<p>ubuntu16.04版本以下的安装可能略有不同，详见<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#supported-storage-drivers" target="_blank" rel="noopener">Get Docker CE for Ubuntu</a></p>
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>以下以 ubuntu Xenial 16.04 (LTS) 为例，安装Docker社区版(Docker CE)，</p>
+<p>其它操作系统下的安装可能略有不同，详见<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#supported-storage-drivers" target="_blank" rel="noopener">Get Docker CE for Ubuntu</a></p>
 <p>首先，如果需要卸载旧版Docker:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get remove docker docker-engine docker.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
 <p>在一台新主机上安装Docker时，官方推荐使用Docker仓库来安装，此后可以很方便地从仓库安装和更新Docker。由于 <code>apt</code> 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg2 \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/13/docker-learning/#more" rel="contents">
@@ -1407,165 +1572,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Ace-0.github.io/2018/02/18/is-graph-bipartite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jarvis Wong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mylogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/18/is-graph-bipartite/" itemprop="url">二分图判断（染色问题）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-18T17:26:13+08:00">2018-02-18</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a href="https://leetcode.com/problems/is-graph-bipartite/description/" target="_blank" rel="noopener">785. Is Graph Bipartite?</a></p>
-<blockquote>
-<p>Given a <code>graph</code>, return <code>true</code> if and only if it is bipartite.</p>
-<p>Recall that a graph is <em>bipartite</em> if we can split it’s set of nodes into two independent subsets A and B such that every edge in the graph has one node in A and another node in B.</p>
-<p>The graph is given in the following form: <code>graph[i]</code> is a list of indexes <code>j</code> for which the edge between nodes <code>i</code> and <code>j</code> exists.  Each node is an integer between <code>0</code> and <code>graph.length - 1</code>.  There are no self edges or parallel edges: <code>graph[i]</code> does not contain <code>i</code>, and it doesn’t contain any element twice.</p>
-</blockquote>
-<p>即判断给定的图是否是<strong>二分图</strong>：</p>
-<blockquote>
-<p>设G=(V,E)是一个无向图，如果顶点V可分割为两个互不相交的子集(A,B)，并且图中的每条边（i，j）所关联的两个顶点i和j分别属于这两个不同的顶点集(i in A, j in B)，则称图G为一个<strong>二分图</strong>。</p>
-</blockquote>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>二分图的判断可以看作染色问题。对于图中的每一个顶点<code>S</code>，与它直接相邻的任一顶点<code>N</code>，其颜色必然与<code>S</code>不同，则这样的图是一个二分图。</p>
-<p>最常用也最简单的方法就是遍历（DFS或BFS）整张图，用两种不同的颜色<code>A</code>和<code>B</code>，对每个顶点染色。选定一个顶点<code>S</code>开始，对其进行染色，再访问它的邻居顶点<code>N</code>。若：</p>
-<ul>
-<li><code>N</code>还未被染色，即对它染色与<code>S</code>不同的颜色，并继续访问<code>S</code>的邻居顶点。</li>
-<li><code>N</code>已被染色，且其颜色与<code>S</code>相同，则该图<strong><em>不是</em></strong>一个二分图。</li>
-<li><code>N</code>已被染色，但其颜色与<code>S</code>不同，则继续查看和访问其它邻居节点。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/18/is-graph-bipartite/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1617,7 +1623,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1646,7 +1652,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -1715,7 +1725,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1784,7 +1800,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
